@@ -14,12 +14,21 @@
  */
 
 (function () {
-  // ─── NAV LINKS (edit here to add/remove pages) ───
+  // ─── MAIN NAV LINKS (shown directly in the navbar) ───
   const NAV_LINKS = [
     { label: 'Home', href: 'index.html', matchPaths: ['/', '/index.html', ''] },
-    { label: 'Heal Your Heartbreak', href: 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
+    { label: 'Work With Me', href: 'work-with-me.html', matchPaths: ['/work-with-me.html'] },
+    { label: 'Testimonials', href: 'testimonials.html', matchPaths: ['/testimonials.html'] },
     { label: 'Blog', href: 'blog.html', matchPaths: ['/blog.html'] },
     { label: 'About', href: 'about.html', matchPaths: ['/about.html'] },
+  ];
+
+  // ─── MORE LINKS (shown in dropdown on desktop, flat in mobile menu) ───
+  const MORE_LINKS = [
+    { label: 'Heal Your Heartbreak', href: 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
+    { label: 'Find Your Purpose', href: 'find-your-purpose.html', matchPaths: ['/find-your-purpose.html'] },
+    { label: 'Free Resources', href: 'resources.html', matchPaths: ['/resources.html'] },
+    { label: 'FAQ', href: 'faq.html', matchPaths: ['/faq.html'] },
   ];
 
   const CTA_URL = 'https://cal.com/sunny-binjola/discovery-call';
@@ -37,31 +46,73 @@
     });
   }
 
-  // ─── BUILD DESKTOP LINKS ───
-  function desktopLinks(scrolled) {
-    return NAV_LINKS.map(link => {
-      const active = isActive(link);
-      let cls;
+  // Check if active page is in MORE_LINKS
+  const activeInMore = MORE_LINKS.some(l => isActive(l));
 
-      if (isHomepage && !scrolled) {
-        // White text on transparent hero
-        cls = active
-          ? 'nav-link text-white/90 font-bold border-b-2 border-white/40 pb-1'
-          : 'nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300';
-      } else {
-        // Dark text on solid cream bg
-        cls = active
-          ? 'text-emerald-900 font-bold border-b-2 border-emerald-500 pb-1'
-          : 'text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all duration-300';
-      }
-
-      return `<a class="${cls}" href="${link.href}">${link.label}</a>`;
-    }).join('\n        ');
+  // ─── BUILD DESKTOP LINK ───
+  function linkClass(link, scrolled) {
+    const active = isActive(link);
+    if (isHomepage && !scrolled) {
+      return active
+        ? 'nav-link text-white/90 font-bold border-b-2 border-white/40 pb-1'
+        : 'nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300';
+    } else {
+      return active
+        ? 'text-emerald-900 font-bold border-b-2 border-emerald-500 pb-1'
+        : 'text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all duration-300';
+    }
   }
 
-  // ─── BUILD MOBILE LINKS ───
+  function desktopLinks(scrolled) {
+    const mainLinks = NAV_LINKS.map(link =>
+      `<a class="${linkClass(link, scrolled)}" href="${link.href}">${link.label}</a>`
+    ).join('\n        ');
+
+    // "More" dropdown trigger
+    const moreActive = activeInMore;
+    let moreTriggerCls, moreSvgCls, dropdownBg, dropdownLinkCls;
+
+    if (isHomepage && !scrolled) {
+      moreTriggerCls = moreActive
+        ? 'nav-link text-white/90 font-bold border-b-2 border-white/40 pb-1'
+        : 'nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300';
+      moreSvgCls = 'w-3.5 h-3.5';
+      dropdownBg = 'bg-[#f7f7f2] shadow-lg border border-outline-variant/20';
+      dropdownLinkCls = 'text-stone-600 hover:text-emerald-600 hover:bg-surface-container-low';
+    } else {
+      moreTriggerCls = moreActive
+        ? 'text-emerald-900 font-bold border-b-2 border-emerald-500 pb-1'
+        : 'text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all duration-300';
+      dropdownBg = 'bg-[#f7f7f2] shadow-lg border border-outline-variant/20';
+      dropdownLinkCls = 'text-stone-600 hover:text-emerald-600 hover:bg-surface-container-low';
+    }
+
+    const dropdownItems = MORE_LINKS.map(link => {
+      const active = isActive(link);
+      const cls = active
+        ? 'block px-5 py-2.5 text-emerald-900 font-bold bg-surface-container-low rounded-lg'
+        : `block px-5 py-2.5 ${dropdownLinkCls} rounded-lg transition-colors`;
+      return `<a href="${link.href}" class="${cls}">${link.label}</a>`;
+    }).join('\n          ');
+
+    return `${mainLinks}
+        <div class="relative" id="moreDropdown">
+          <button class="${moreTriggerCls} flex items-center gap-1 cursor-pointer" id="moreBtn" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transition-transform duration-200" id="moreChevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div id="moreMenu" class="absolute top-full right-0 mt-3 ${dropdownBg} rounded-xl py-2 min-w-[220px] opacity-0 invisible transition-all duration-200 z-50 font-['Manrope'] text-sm font-medium">
+            ${dropdownItems}
+          </div>
+        </div>`;
+  }
+
+  // ─── BUILD MOBILE LINKS (all links flat) ───
   function mobileLinks() {
-    return NAV_LINKS.map(link => {
+    const allLinks = [...NAV_LINKS, ...MORE_LINKS];
+    return allLinks.map(link => {
       const active = isActive(link);
       const cls = active
         ? 'text-emerald-900 font-bold pb-2 border-b-2 border-emerald-500'
@@ -74,21 +125,20 @@
   const container = document.getElementById('navbar');
   if (!container) return;
 
-  // Initial nav classes differ for homepage (transparent) vs inner pages (solid)
   const navInitialClass = isHomepage
     ? 'fixed top-0 left-0 right-0 z-50 transition-all duration-500'
     : 'fixed top-0 left-0 right-0 z-50 bg-[#f7f7f2]/95 backdrop-blur-3xl shadow-sm transition-all duration-500';
 
-  // Logo classes differ for homepage hero
   const logoClass = isHomepage
-    ? 'h-16 nav-logo transition-all duration-500'
+    ? 'h-20 nav-logo transition-all duration-500'
     : 'h-16 transition-all duration-500';
 
+  // On the homepage hero: invert makes white bg → black, green → light;
+  // mix-blend-mode: screen makes black → transparent, so logo floats on the image
   const logoStyle = isHomepage
-    ? ' style="filter: invert(1); mix-blend-mode: screen;"'
+    ? ' style="filter: invert(1) brightness(1.8); mix-blend-mode: screen;"'
     : '';
 
-  // Hamburger color
   const hambColor = isHomepage ? 'text-white' : 'text-primary';
 
   container.innerHTML = `
@@ -132,6 +182,48 @@
     });
   }
 
+  // ─── "MORE" DROPDOWN LOGIC ───
+  const moreBtn = document.getElementById('moreBtn');
+  const moreMenu = document.getElementById('moreMenu');
+  const moreChevron = document.getElementById('moreChevron');
+
+  if (moreBtn && moreMenu) {
+    let dropdownOpen = false;
+
+    function openDropdown() {
+      dropdownOpen = true;
+      moreMenu.classList.remove('opacity-0', 'invisible');
+      moreMenu.classList.add('opacity-100', 'visible');
+      if (moreChevron) moreChevron.style.transform = 'rotate(180deg)';
+      moreBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDropdown() {
+      dropdownOpen = false;
+      moreMenu.classList.add('opacity-0', 'invisible');
+      moreMenu.classList.remove('opacity-100', 'visible');
+      if (moreChevron) moreChevron.style.transform = 'rotate(0deg)';
+      moreBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    moreBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownOpen ? closeDropdown() : openDropdown();
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (dropdownOpen && !moreMenu.contains(e.target) && !moreBtn.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdownOpen) closeDropdown();
+    });
+  }
+
   // ─── HOMEPAGE: TRANSPARENT → SOLID SCROLL EFFECT ───
   if (isHomepage) {
     const nav = document.getElementById('mainNav');
@@ -146,6 +238,8 @@
         if (logoImg) {
           logoImg.style.filter = 'none';
           logoImg.style.mixBlendMode = 'normal';
+          logoImg.classList.remove('h-20');
+          logoImg.classList.add('h-16');
         }
         if (hamburger) {
           hamburger.classList.remove('text-white');
@@ -154,8 +248,10 @@
       } else {
         nav.classList.remove('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
         if (logoImg) {
-          logoImg.style.filter = 'invert(1)';
+          logoImg.style.filter = 'invert(1) brightness(1.8)';
           logoImg.style.mixBlendMode = 'screen';
+          logoImg.classList.remove('h-16');
+          logoImg.classList.add('h-20');
         }
         if (hamburger) {
           hamburger.classList.remove('text-primary');
@@ -166,6 +262,33 @@
       // Re-render desktop links with correct color scheme
       if (desktopLinksContainer) {
         desktopLinksContainer.innerHTML = desktopLinks(scrolled);
+
+        // Re-bind dropdown after re-render
+        const newMoreBtn = document.getElementById('moreBtn');
+        const newMoreMenu = document.getElementById('moreMenu');
+        const newMoreChevron = document.getElementById('moreChevron');
+        if (newMoreBtn && newMoreMenu) {
+          let open = false;
+          function openDd() {
+            open = true;
+            newMoreMenu.classList.remove('opacity-0', 'invisible');
+            newMoreMenu.classList.add('opacity-100', 'visible');
+            if (newMoreChevron) newMoreChevron.style.transform = 'rotate(180deg)';
+          }
+          function closeDd() {
+            open = false;
+            newMoreMenu.classList.add('opacity-0', 'invisible');
+            newMoreMenu.classList.remove('opacity-100', 'visible');
+            if (newMoreChevron) newMoreChevron.style.transform = 'rotate(0deg)';
+          }
+          newMoreBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            open ? closeDd() : openDd();
+          });
+          document.addEventListener('click', (e) => {
+            if (open && !newMoreMenu.contains(e.target) && !newMoreBtn.contains(e.target)) closeDd();
+          });
+        }
       }
     }
 
