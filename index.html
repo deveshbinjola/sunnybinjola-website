@@ -135,32 +135,32 @@
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden">
 
-<!-- NAVBAR (Fixed, Glass Effect) -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-[#f7f7f2]/80 dark:bg-stone-950/80 backdrop-blur-3xl shadow-sm dark:shadow-none transition-colors duration-300">
+<!-- NAVBAR (Transparent on hero, solid on scroll) -->
+<nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
   <div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
-    <a href="index.html" class="text-2xl font-serif font-black text-emerald-800 dark:text-emerald-200 uppercase tracking-tight hover:opacity-80 transition-opacity">SUNNY BINJOLA</a>
+    <a href="index.html" class="text-2xl font-serif font-black uppercase tracking-tight hover:opacity-80 transition-opacity nav-brand text-white">SUNNY BINJOLA</a>
     <div class="hidden md:flex gap-8 items-center font-['Noto_Serif'] font-medium tracking-tight">
-      <a class="text-emerald-900 dark:text-emerald-100 font-bold border-b-2 border-emerald-500 pb-1 relative group" href="/">Home</a>
-      <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="heal-your-heartbreak.html">Heal Your Heartbreak</a>
-      <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="blog.html">Blog</a>
-      <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="about.html">About</a>
+      <a class="nav-link text-white/90 font-bold border-b-2 border-white/40 pb-1" href="/">Home</a>
+      <a class="nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300" href="heal-your-heartbreak.html">Heal Your Heartbreak</a>
+      <a class="nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300" href="blog.html">Blog</a>
+      <a class="nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300" href="about.html">About</a>
     </div>
     <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" rel="noopener" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all hidden md:block text-center">
       Book a Free Call
     </a>
     <!-- Mobile Menu Button -->
-    <button id="hamburger" class="md:hidden text-primary text-2xl">
+    <button id="hamburger" class="md:hidden text-white text-2xl">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>
 
   <!-- Mobile Nav -->
-  <div id="navLinks" class="hidden md:hidden bg-[#f7f7f2] dark:bg-stone-950 border-t border-outline-variant/20 px-10 py-6 font-['Noto_Serif']">
+  <div id="navLinks" class="hidden md:hidden bg-[#f7f7f2] border-t border-outline-variant/20 px-10 py-6 font-['Noto_Serif']">
     <div class="flex flex-col gap-4">
-      <a href="/" class="text-emerald-900 dark:text-emerald-100 font-bold pb-2 border-b-2 border-emerald-500">Home</a>
-      <a href="heal-your-heartbreak.html" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">Heal Your Heartbreak</a>
-      <a href="blog.html" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">Blog</a>
-      <a href="#about" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">About</a>
+      <a href="/" class="text-emerald-900 font-bold pb-2 border-b-2 border-emerald-500">Home</a>
+      <a href="heal-your-heartbreak.html" class="text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all">Heal Your Heartbreak</a>
+      <a href="blog.html" class="text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all">Blog</a>
+      <a href="about.html" class="text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all">About</a>
       <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" rel="noopener" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all w-full mt-4 text-center">
         Book a Free Call
       </a>
@@ -442,6 +442,49 @@
   if (hamburger) {
     hamburger.addEventListener('click', () => navLinks.classList.toggle('hidden'));
   }
+
+  // Navbar: transparent on hero → solid on scroll
+  const nav = document.getElementById('mainNav');
+  const brand = nav.querySelector('.nav-brand');
+  const links = nav.querySelectorAll('.nav-link');
+  const hambBtn = document.getElementById('hamburger');
+
+  function updateNav() {
+    const scrolled = window.scrollY > 80;
+    if (scrolled) {
+      nav.classList.add('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
+      brand.classList.remove('text-white');
+      brand.classList.add('text-emerald-800');
+      links.forEach(link => {
+        link.classList.remove('text-white/90', 'text-white/70', 'border-white/40');
+        if (link.classList.contains('font-bold')) {
+          link.classList.add('text-emerald-900', 'border-emerald-500');
+        } else {
+          link.classList.add('text-stone-600');
+          link.classList.remove('hover:text-white');
+          link.classList.add('hover:text-emerald-600');
+        }
+      });
+      if (hambBtn) { hambBtn.classList.remove('text-white'); hambBtn.classList.add('text-primary'); }
+    } else {
+      nav.classList.remove('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
+      brand.classList.remove('text-emerald-800');
+      brand.classList.add('text-white');
+      links.forEach(link => {
+        link.classList.remove('text-emerald-900', 'text-stone-600', 'border-emerald-500', 'hover:text-emerald-600');
+        if (link.classList.contains('font-bold')) {
+          link.classList.add('text-white/90', 'border-white/40');
+        } else {
+          link.classList.add('text-white/70');
+          link.classList.add('hover:text-white');
+        }
+      });
+      if (hambBtn) { hambBtn.classList.remove('text-primary'); hambBtn.classList.add('text-white'); }
+    }
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
 
   // Scroll animations (Intersection Observer)
   const observer = new IntersectionObserver((entries) => {
