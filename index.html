@@ -383,16 +383,16 @@
       </div>
       <a class="text-lg font-bold border-b-2 border-primary-container pb-1 hover:text-primary transition-all" href="blog.html">Browse All Articles</a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <!-- Blog Loading Container -->
-      <div id="blogGrid" class="col-span-full">
-        <div id="blogLoading" class="col-span-full text-center py-12">
-          <p class="text-on-surface-variant font-body">Loading articles...</p>
-        </div>
+    <!-- Blog Cards: 3 in a row -->
+    <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div id="blogLoading" class="col-span-full text-center py-12">
+        <p class="text-on-surface-variant font-body">Loading articles...</p>
       </div>
+    </div>
 
-      <!-- Newsletter Signup Card -->
-      <div class="bg-surface-container-low p-10 rounded-xl flex flex-col justify-center text-center col-span-1 fade-up">
+    <!-- Newsletter Signup — Centered -->
+    <div class="mt-16 max-w-lg mx-auto text-center fade-up">
+      <div class="bg-surface-container-low p-10 rounded-xl">
         <h3 class="font-headline text-2xl font-bold">Join the Newsletter</h3>
         <p class="text-on-surface-variant mt-4 mb-8">Weekly insights on healing, brotherhood, and authentic masculine evolution delivered to your inbox.</p>
         <div class="space-y-4">
@@ -575,14 +575,14 @@
       card.target = '_blank';
       card.className = 'group cursor-pointer fade-up';
       card.innerHTML = `
-        <div class="overflow-hidden rounded-xl aspect-video mb-6">
-          ${p.imgSrc ? `<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${p.imgSrc}" alt="${p.title}" loading="lazy">` : `<div class="w-full h-full flex items-center justify-center p-6" style="background:${gradients[i%3]}"><span class="text-white font-headline text-xl italic text-center">${p.title}</span></div>`}
+        <div class="overflow-hidden rounded-xl aspect-video mb-4">
+          ${p.imgSrc ? `<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${p.imgSrc}" alt="${p.title}" loading="lazy">` : `<div class="w-full h-full flex items-center justify-center p-6" style="background:${gradients[i%3]}"><span class="text-white font-headline text-lg italic text-center">${p.title}</span></div>`}
         </div>
         <span class="text-xs font-bold uppercase tracking-widest text-secondary">${p.date || ''}</span>
-        <h3 class="font-headline text-xl font-bold mt-2 group-hover:text-primary transition-colors">${p.title}</h3>
+        <h3 class="font-headline text-lg font-bold mt-2 group-hover:text-primary transition-colors">${p.title}</h3>
         <p class="text-on-surface-variant mt-2 line-clamp-2 text-sm">${p.excerpt}</p>
       `;
-      grid.insertBefore(card, grid.children[2]);
+      grid.appendChild(card);
       observer.observe(card);
     });
   }
@@ -598,7 +598,7 @@
 
     if (!items.length) throw new Error('No posts');
 
-    return Array.from(items).slice(0, 2).map(item => {
+    return Array.from(items).slice(0, 3).map(item => {
       const title = item.querySelector('title')?.textContent || 'Untitled';
       const link = item.querySelector('link')?.textContent || '#';
       const pubDate = item.querySelector('pubDate')?.textContent;
@@ -632,7 +632,7 @@
     }
 
     if (loading) loading.remove();
-    renderCards(grid, fallbackPosts.slice(0, 2));
+    renderCards(grid, fallbackPosts.slice(0, 3));
   }
 
   loadBeehiivPosts();
