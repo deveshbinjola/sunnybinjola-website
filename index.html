@@ -145,7 +145,7 @@
       <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="blog.html">Blog</a>
       <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="about.html">About</a>
     </div>
-    <a href="https://cal.com/sunny-binjola/discovery-call" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all hidden md:block text-center">
+    <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" rel="noopener" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all hidden md:block text-center">
       Book a Free Call
     </a>
     <!-- Mobile Menu Button -->
@@ -161,7 +161,7 @@
       <a href="heal-your-heartbreak.html" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">Heal Your Heartbreak</a>
       <a href="blog.html" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">Blog</a>
       <a href="#about" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">About</a>
-      <a href="https://cal.com/sunny-binjola/discovery-call" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all w-full mt-4 text-center">
+      <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" rel="noopener" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all w-full mt-4 text-center">
         Book a Free Call
       </a>
     </div>
@@ -170,7 +170,7 @@
 
 <main>
 <!-- Hero Section -->
-<section class="relative h-screen w-full flex items-center overflow-hidden">
+<section class="relative min-h-screen w-full flex items-center overflow-hidden pt-28 pb-16">
   <div class="absolute inset-0 z-0">
     <img class="w-full h-full object-cover" alt="cinematic wide shot of a misty sunlit ancient forest with towering trees and vibrant green moss covering the ground in soft ethereal light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCdvHBlm7qBHqG-HpoGxnzInOUY6FSTtLPoJKsMBLF_JIZRo1E3umEgEgPqnmvn-PrSiZnDOOqLwPNNhVouorCw-pHrPFJnQdnIQTOxDtteNi7Wj7TorEaNMRWocP25WOY9fI4oUQmZOfXaXiPGypIGtvZyU3pr4jDiBXyOucTnakPPH4GPhoJ50k6S4hI3mBxzyhihw-GfZLscp9FoPlvsCMdxv_TyP39WRFgFHTKxxcA4m6NB9Sj7pb--CzPmI4Th23l1er6Fng"/>
     <div class="absolute inset-0 bg-gradient-to-r from-inverse-surface/60 to-transparent"></div>
@@ -185,7 +185,7 @@
         I guide men through transformational work — from emotional alchemy and purpose activation to discipline systems, relationships, and masculine embodiment.
       </p>
       <div class="flex gap-6">
-        <a href="https://cal.com/sunny-binjola/discovery-call" class="vibrant-gradient text-on-primary-container px-10 py-4 rounded-full font-extrabold text-lg editorial-shadow hover:shadow-lg transition-shadow inline-block">Book a Free Call</a>
+        <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" rel="noopener" class="vibrant-gradient text-on-primary-container px-10 py-4 rounded-full font-extrabold text-lg editorial-shadow hover:shadow-lg transition-shadow inline-block">Book a Free Call</a>
         <a href="#coaching" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all inline-block">Learn More</a>
       </div>
     </div>
@@ -229,7 +229,7 @@
         <h3 class="font-headline text-3xl font-bold">1:1 Coaching</h3>
         <p class="text-on-surface-variant mt-4">Bespoke transformation strategies for the modern leader.</p>
       </div>
-      <a href="https://cal.com/sunny-binjola/discovery-call" class="w-full py-4 rounded-full border border-outline/30 font-bold hover:bg-primary hover:text-white transition-all block text-center">Apply Now</a>
+      <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" rel="noopener" class="w-full py-4 rounded-full border border-outline/30 font-bold hover:bg-primary hover:text-white transition-all block text-center">Apply Now</a>
     </div>
 
     <!-- Card 4 -->
@@ -466,30 +466,17 @@
   const SUPABASE_URL = 'https://modepuhwinzdngirlnkz.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vZGVwdWh3aW56ZG5naXJsbmt6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1MDYxNTEsImV4cCI6MjA4ODA4MjE1MX0.1S2wC8CxE8_MCTmsGwoiOoqNYw_lXIM7_CT_-AG6DAI';
 
-  async function saveToSupabase(email, source, interest) {
-    try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/mens%20work%20leads`, {
-        method: 'POST',
-        headers: {
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({ email, source, interest })
-      });
-
-      if (!res.ok) {
-        const err = await res.json();
-        if (err.code === '23505') return { ok: true, duplicate: true };
-        throw new Error(err.message);
-      }
-
-      return { ok: true, duplicate: false };
-    } catch (err) {
-      console.error('Supabase error:', err);
-      return { ok: false, error: err.message };
-    }
+  function saveToSupabase(email, source, interest) {
+    fetch(`${SUPABASE_URL}/rest/v1/mens%20work%20leads`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ email, source, interest })
+    }).catch(err => console.warn('Supabase save skipped:', err));
   }
 
   async function handleSignup(e) {
@@ -507,8 +494,10 @@
       btn.disabled = true;
     }
 
-    const result = await saveToSupabase(email, source, interest);
+    // Fire-and-forget Supabase save (CRM backup)
+    saveToSupabase(email, source, interest);
 
+    // Submit to Beehiiv (primary email delivery)
     try {
       const f = document.createElement('iframe');
       f.style.display = 'none';
@@ -520,7 +509,7 @@
     }
 
     if (btn) {
-      btn.textContent = result.duplicate ? 'Already subscribed ✓' : "You're in ✓";
+      btn.textContent = "You're in ✓";
       form.reset();
       emailInput.value = '';
 

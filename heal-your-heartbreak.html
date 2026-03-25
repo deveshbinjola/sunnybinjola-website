@@ -134,15 +134,12 @@
   <div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto w-full">
     <div class="text-2xl font-serif font-black text-emerald-800">Sunny Binjola</div>
     <div class="hidden md:flex gap-10 items-center">
-      <a class="text-emerald-900 font-bold border-b-2 border-emerald-500 pb-1 font-['Noto_Serif'] tracking-tight flex items-center" href="index.html">
-        <span class="leaf-indicator"></span>
-        Home
-      </a>
-      <a class="text-stone-600 font-medium pb-1 font-['Noto_Serif'] tracking-tight hover:text-emerald-600 transition-all duration-300" href="heal-your-heartbreak.html">Heal Your Heartbreak</a>
+      <a class="text-stone-600 font-medium pb-1 font-['Noto_Serif'] tracking-tight hover:text-emerald-600 transition-all duration-300" href="index.html">Home</a>
+      <a class="text-emerald-900 font-bold border-b-2 border-emerald-500 pb-1 font-['Noto_Serif'] tracking-tight" href="heal-your-heartbreak.html">Heal Your Heartbreak</a>
       <a class="text-stone-600 font-medium pb-1 font-['Noto_Serif'] tracking-tight hover:text-emerald-600 transition-all duration-300" href="blog.html">Blog</a>
       <a class="text-stone-600 font-medium pb-1 font-['Noto_Serif'] tracking-tight hover:text-emerald-600 transition-all duration-300" href="about.html">About</a>
     </div>
-    <button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-3 rounded-full font-bold text-sm tracking-wide hover:opacity-90 active:scale-95 transition-all" onclick="document.location='https://cal.com/sunny-binjola/discovery-call'">
+    <button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-8 py-3 rounded-full font-bold text-sm tracking-wide hover:opacity-90 active:scale-95 transition-all" onclick="window.open('https://cal.com/sunny-binjola/discovery-call','_blank')">
       Book a Free Call
     </button>
   </div>
@@ -867,7 +864,7 @@
             <span class="text-6xl font-headline font-black text-on-surface">$499</span>
             <span class="text-on-surface-variant">/once</span>
           </div>
-          <button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary-container py-6 rounded-full text-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" onclick="document.location='https://cal.com/sunny-binjola/discovery-call'">
+          <button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary-container py-6 rounded-full text-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" onclick="window.open('https://cal.com/sunny-binjola/discovery-call','_blank')">
             Secure Your Spot
           </button>
           <p class="mt-6 text-sm text-on-surface-variant">14-day "Return to Center" Money-back Guarantee</p>
@@ -1156,29 +1153,23 @@
     }
   }
 
-  // Save to Supabase
-  async function saveToSupabase(email, source, interest) {
-    try {
-      const response = await fetch(`${SUPABASE_URL}/rest/v1/signups`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-        },
-        body: JSON.stringify({
-          email: email,
-          source: source,
-          interest: interest,
-          created_at: new Date().toISOString()
-        })
-      });
-
-      return response.ok;
-    } catch (error) {
-      console.error('Error saving to Supabase:', error);
-      return false;
-    }
+  // Save to Supabase (background — does not block signup flow)
+  function saveToSupabase(email, source, interest) {
+    fetch(`${SUPABASE_URL}/rest/v1/signups`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        email: email,
+        source: source,
+        interest: interest,
+        created_at: new Date().toISOString()
+      })
+    }).catch(err => console.warn('Supabase save skipped:', err));
   }
 
   // Handle Signup
@@ -1189,14 +1180,23 @@
     const source = form.dataset.source;
     const interest = form.dataset.interest;
 
-    const saved = await saveToSupabase(email, source, interest);
+    // Fire-and-forget Supabase save (CRM backup)
+    saveToSupabase(email, source, interest);
 
-    if (saved) {
-      alert('Success! Check your email for Day 1 of the Free Series.');
-      form.reset();
-    } else {
-      alert('There was an error. Please try again or contact support.');
-    }
+    // Always show success — Beehiiv handles the actual email delivery
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = '✓ You\'re In!';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    // Show success message instead of alert
+    const msg = document.createElement('p');
+    msg.textContent = 'Check your inbox for Day 1. Welcome to the journey.';
+    msg.className = 'text-primary font-semibold mt-4 text-center';
+    form.appendChild(msg);
+
+    form.querySelector('input[type="email"]').disabled = true;
   }
 
   // Video Modal
