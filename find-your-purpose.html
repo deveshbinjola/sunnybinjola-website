@@ -106,37 +106,9 @@
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container">
 
-  <!-- NAVBAR -->
-  <nav class="fixed top-0 w-full z-50 bg-[#f7f7f2]/80 dark:bg-stone-950/80 backdrop-blur-3xl shadow-sm dark:shadow-none transition-colors duration-300">
-    <div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
-      <a href="index.html" class="hover:opacity-80 transition-opacity"><img src="logo.png" alt="Sunny Binjola" class="h-10"></a>
-      <div class="hidden md:flex gap-8 items-center font-['Noto_Serif'] font-medium tracking-tight">
-        <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="index.html">Home</a>
-        <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="heal-your-heartbreak.html">Heal Your Heartbreak</a>
-        <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="blog.html">Blog</a>
-        <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="about.html">About</a>
-      </div>
-      <button class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all" onclick="window.open('https://cal.com/sunny-binjola/discovery-call','_blank')">
-        Book a Free Call
-      </button>
-      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2">
-        <span class="w-6 h-0.5 bg-on-surface dark:bg-surface"></span>
-        <span class="w-6 h-0.5 bg-on-surface dark:bg-surface"></span>
-        <span class="w-6 h-0.5 bg-on-surface dark:bg-surface"></span>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="navLinks" class="hidden md:hidden bg-surface-container-lowest dark:bg-stone-900 border-t border-surface-container">
-      <div class="max-w-[1440px] mx-auto px-10 py-4 flex flex-col gap-4">
-        <a href="index.html" class="text-sm font-semibold hover:text-primary transition py-2">Home</a>
-        <a href="heal-your-heartbreak.html" class="text-sm font-semibold hover:text-primary transition py-2">Heal Your Heartbreak</a>
-        <a href="blog.html" class="text-sm font-semibold hover:text-primary transition py-2">Blog</a>
-        <a href="about.html" class="text-sm font-semibold hover:text-primary transition py-2">About</a>
-        <button class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold text-sm w-full" onclick="window.open('https://cal.com/sunny-binjola/discovery-call','_blank')">Book a Free Call</button>
-      </div>
-    </div>
-  </nav>
+  <!-- NAVBAR (loaded from shared navbar.js) -->
+  <div id="navbar"></div>
+  <script src="navbar.js"></script>
 
   <!-- DRAFT BANNER -->
   <div class="fixed top-20 w-full z-40 bg-yellow-100 border-b border-yellow-300 py-3 text-center">
@@ -360,10 +332,7 @@
   </footer>
 
   <script>
-    // Hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    if(hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('hidden'));
+    // (Hamburger toggle now handled by navbar.js)
 
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {

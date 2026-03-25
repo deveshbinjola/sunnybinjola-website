@@ -128,37 +128,9 @@
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden">
 
-<!-- NAVBAR -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-[#f7f7f2]/80 dark:bg-stone-950/80 backdrop-blur-3xl shadow-sm dark:shadow-none transition-colors duration-300">
-  <div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
-    <a href="index.html" class="hover:opacity-80 transition-opacity"><img src="logo.png" alt="Sunny Binjola" class="h-10"></a>
-    <div class="hidden md:flex gap-8 items-center font-['Noto_Serif'] font-medium tracking-tight">
-      <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="/">Home</a>
-      <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="heal-your-heartbreak.html">Heal Your Heartbreak</a>
-      <a class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all duration-300" href="blog.html">Blog</a>
-      <a class="text-emerald-900 dark:text-emerald-100 font-bold border-b-2 border-emerald-500 pb-1" href="about.html">About</a>
-    </div>
-    <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all hidden md:block text-center">
-      Book a Free Call
-    </a>
-    <button id="hamburger" class="md:hidden text-primary text-2xl">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
-
-  <!-- Mobile Nav -->
-  <div id="navLinks" class="hidden md:hidden bg-[#f7f7f2] dark:bg-stone-950 border-t border-outline-variant/20 px-10 py-6 font-['Noto_Serif']">
-    <div class="flex flex-col gap-4">
-      <a href="/" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">Home</a>
-      <a href="heal-your-heartbreak.html" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">Heal Your Heartbreak</a>
-      <a href="blog.html" class="text-stone-600 dark:text-stone-400 font-medium pb-1 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all">Blog</a>
-      <a href="about.html" class="text-emerald-900 dark:text-emerald-100 font-bold pb-2 border-b-2 border-emerald-500">About</a>
-      <a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all w-full mt-4 text-center">
-        Book a Free Call
-      </a>
-    </div>
-  </div>
-</nav>
+<!-- NAVBAR (loaded from shared navbar.js) -->
+<div id="navbar"></div>
+<script src="navbar.js"></script>
 
 <main class="pt-24">
 
@@ -422,12 +394,7 @@
 
 <!-- JAVASCRIPT -->
 <script>
-  // Mobile menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  if (hamburger) {
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('hidden'));
-  }
+  // (Mobile menu toggle now handled by navbar.js)
 
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
