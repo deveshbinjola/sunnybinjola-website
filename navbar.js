@@ -133,10 +133,10 @@
     ? 'h-20 nav-logo transition-all duration-500'
     : 'h-16 transition-all duration-500';
 
-  // On the homepage hero: invert makes white bg → black, green → light;
-  // mix-blend-mode: screen makes black → transparent, so logo floats on the image
+  // On homepage hero (dark bg): make logo white via brightness(0) invert(1)
+  // Now that logo.png has a true transparent background, no blend-mode hack needed
   const logoStyle = isHomepage
-    ? ' style="filter: invert(1) brightness(1.8); mix-blend-mode: screen;"'
+    ? ' style="filter: brightness(0) invert(1);"'
     : '';
 
   const hambColor = isHomepage ? 'text-white' : 'text-primary';
@@ -237,7 +237,6 @@
         nav.classList.add('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
         if (logoImg) {
           logoImg.style.filter = 'none';
-          logoImg.style.mixBlendMode = 'normal';
           logoImg.classList.remove('h-20');
           logoImg.classList.add('h-16');
         }
@@ -248,8 +247,7 @@
       } else {
         nav.classList.remove('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
         if (logoImg) {
-          logoImg.style.filter = 'invert(1) brightness(1.8)';
-          logoImg.style.mixBlendMode = 'screen';
+          logoImg.style.filter = 'brightness(0) invert(1)';
           logoImg.classList.remove('h-16');
           logoImg.classList.add('h-20');
         }
