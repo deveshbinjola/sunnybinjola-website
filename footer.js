@@ -39,7 +39,9 @@
 <footer class="bg-[#f1f1ec] w-full py-16 px-10">
   <div class="flex flex-col md:flex-row justify-between items-end w-full max-w-[1440px] mx-auto gap-8">
     <div class="w-full md:w-auto">
-      <div class="text-lg font-serif italic text-emerald-900 mb-2">Sunny Binjola</div>
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo.png" alt="Sunny Binjola" class="h-12">
+      </div>
       <div class="font-['Manrope'] text-xs tracking-wide text-stone-500 italic mb-3">Live from your depth.</div>
       <div class="font-['Manrope'] text-sm tracking-wide uppercase text-stone-500">&copy; ${year} Sunny Binjola. All rights reserved.</div>
     </div>

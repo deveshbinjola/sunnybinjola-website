@@ -127,17 +127,14 @@
 
   const navInitialClass = isHomepage
     ? 'fixed top-0 left-0 right-0 z-50 transition-all duration-500'
-    : 'fixed top-0 left-0 right-0 z-50 bg-[#f7f7f2]/95 backdrop-blur-3xl shadow-sm transition-all duration-500';
+    : 'fixed top-0 left-0 right-0 z-50 bg-[#f7f7f2]/80 backdrop-blur-3xl shadow-sm transition-all duration-500';
 
   const logoClass = isHomepage
     ? 'h-20 nav-logo transition-all duration-500'
     : 'h-16 transition-all duration-500';
 
-  // On homepage hero (dark bg): make logo white via brightness(0) invert(1)
-  // Now that logo.png has a true transparent background, no blend-mode hack needed
-  const logoStyle = isHomepage
-    ? ' style="filter: brightness(0) invert(1);"'
-    : '';
+  // No CSS filters — logo has transparent background, displays naturally everywhere
+  const logoStyle = '';
 
   const hambColor = isHomepage ? 'text-white' : 'text-primary';
 
@@ -234,9 +231,8 @@
       const scrolled = window.scrollY > 80;
 
       if (scrolled) {
-        nav.classList.add('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
+        nav.classList.add('bg-[#f7f7f2]/80', 'backdrop-blur-3xl', 'shadow-sm');
         if (logoImg) {
-          logoImg.style.filter = 'none';
           logoImg.classList.remove('h-20');
           logoImg.classList.add('h-16');
         }
@@ -245,9 +241,8 @@
           hamburger.classList.add('text-primary');
         }
       } else {
-        nav.classList.remove('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
+        nav.classList.remove('bg-[#f7f7f2]/80', 'backdrop-blur-3xl', 'shadow-sm');
         if (logoImg) {
-          logoImg.style.filter = 'brightness(0) invert(1)';
           logoImg.classList.remove('h-16');
           logoImg.classList.add('h-20');
         }
