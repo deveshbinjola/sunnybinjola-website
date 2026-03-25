@@ -17,16 +17,16 @@
   // ─── MAIN NAV LINKS (shown directly in the navbar) ───
   const NAV_LINKS = [
     { label: 'Home', href: 'index.html', matchPaths: ['/', '/index.html', ''] },
-    { label: 'Work With Me', href: 'work-with-me.html', matchPaths: ['/work-with-me.html'] },
-    { label: 'Testimonials', href: 'testimonials.html', matchPaths: ['/testimonials.html'] },
-    { label: 'Blog', href: 'blog.html', matchPaths: ['/blog.html'] },
+    { label: 'Heal Your Heartbreak', href: 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
     { label: 'About', href: 'about.html', matchPaths: ['/about.html'] },
+    { label: 'Blog', href: 'blog.html', matchPaths: ['/blog.html'] },
+    { label: 'Work With Me', href: 'work-with-me.html', matchPaths: ['/work-with-me.html'] },
   ];
 
   // ─── MORE LINKS (shown in dropdown on desktop, flat in mobile menu) ───
   const MORE_LINKS = [
-    { label: 'Heal Your Heartbreak', href: 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
     { label: 'Find Your Purpose', href: 'find-your-purpose.html', matchPaths: ['/find-your-purpose.html'] },
+    { label: 'Testimonials', href: 'testimonials.html', matchPaths: ['/testimonials.html'] },
     { label: 'Free Resources', href: 'resources.html', matchPaths: ['/resources.html'] },
     { label: 'FAQ', href: 'faq.html', matchPaths: ['/faq.html'] },
   ];
