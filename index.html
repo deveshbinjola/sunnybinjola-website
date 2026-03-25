@@ -24,7 +24,8 @@
   <link rel="canonical" href="https://sunnybinjola.com/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect fill='%23006a28' width='64' height='64' rx='8'/><text x='32' y='42' font-size='36' font-weight='900' fill='%235cfd80' text-anchor='middle' font-family='serif'>SB</text></svg>">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
 
   <title>Sunny Binjola — Men's Heartbreak Recovery Coach</title>
 
@@ -138,7 +139,7 @@
 <!-- NAVBAR (Transparent on hero, solid on scroll) -->
 <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
   <div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
-    <a href="index.html" class="text-2xl font-serif font-black uppercase tracking-tight hover:opacity-80 transition-opacity nav-brand text-white">SUNNY BINJOLA</a>
+    <a href="index.html" class="hover:opacity-80 transition-opacity nav-brand"><img src="logo.png" alt="Sunny Binjola" class="h-10 nav-logo brightness-0 invert"></a>
     <div class="hidden md:flex gap-8 items-center font-['Noto_Serif'] font-medium tracking-tight">
       <a class="nav-link text-white/90 font-bold border-b-2 border-white/40 pb-1" href="/">Home</a>
       <a class="nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300" href="heal-your-heartbreak.html">Heal Your Heartbreak</a>
@@ -246,7 +247,7 @@
   <div class="max-w-[1440px] mx-auto px-10 grid grid-cols-1 md:grid-cols-2 items-center gap-20">
     <div class="relative fade-up">
       <div class="aspect-[4/5] rounded-xl overflow-hidden editorial-shadow transform -rotate-2">
-        <img class="w-full h-full object-cover" alt="abstract moody forest at dusk with light rays breaking through dark foliage in a contemplative and healing tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq33csVS44NFh9gwMK0iEQBUBbu0E7kdnXLHs6g5t5WDom_XFP_i-cY9dNMNV_jJmmhmC_7kWioSzZurQQ6xJd1F4D6SCCIDCWWTFIhPdg-JVawT3SUEAL5Y610HIB0hvst1eEund5DaD7FaYiQbsKU-WrO0h7h2eo9U7Xx4PTmY9uZCeE2D-2Pe5qWuGC-n1f7XTdI5HTJsyWu9Gj0XQGRQRElfWEBd99FitSWnOj2OHHbKZaAnLfzMsT_spMN1izWuRIEjfXa68"/>
+        <img class="w-full h-full object-cover" alt="Sunny Binjola — heal your heartbreak coaching program" src="7.jpg"/>
       </div>
       <div class="absolute -bottom-10 -right-10 w-64 h-64 rounded-xl overflow-hidden shadow-2xl transform rotate-3 border-8 border-white">
         <img class="w-full h-full object-cover" alt="rugged snowy mountain peak against a clear sky representing resilience and strength" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnhoDtwvrRntAh1B58UxGejalzZoCpfFhZ5eh1Qdhlew4pT5MtQZpxie-zp1LUYCYuEXUIzKvoVXdWcVMNIGGLf9RQYjTT0dp7rF9w7tpVP61AMjKwgCXBPQB4ZGwn0Cc_TcFmJy4mJPxx3vvmRtDIWz15sv9mMVyORVKPr83Q1XnooJogyOTDOFDBS5aVXZiOTCuOBxdYqqYfi1Ise_hYP4p_TpJ73XQXlspJEKv88wpGBlpmAW9saQFagH03Cpoau0UQ-Crr3Rc"/>
@@ -445,7 +446,7 @@
 
   // Navbar: transparent on hero → solid on scroll
   const nav = document.getElementById('mainNav');
-  const brand = nav.querySelector('.nav-brand');
+  const logoImg = nav.querySelector('.nav-logo');
   const links = nav.querySelectorAll('.nav-link');
   const hambBtn = document.getElementById('hamburger');
 
@@ -453,8 +454,8 @@
     const scrolled = window.scrollY > 80;
     if (scrolled) {
       nav.classList.add('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
-      brand.classList.remove('text-white');
-      brand.classList.add('text-emerald-800');
+      // Show original green logo
+      if (logoImg) { logoImg.classList.remove('brightness-0', 'invert'); }
       links.forEach(link => {
         link.classList.remove('text-white/90', 'text-white/70', 'border-white/40');
         if (link.classList.contains('font-bold')) {
@@ -468,8 +469,8 @@
       if (hambBtn) { hambBtn.classList.remove('text-white'); hambBtn.classList.add('text-primary'); }
     } else {
       nav.classList.remove('bg-[#f7f7f2]/95', 'backdrop-blur-3xl', 'shadow-sm');
-      brand.classList.remove('text-emerald-800');
-      brand.classList.add('text-white');
+      // Make logo white on transparent hero
+      if (logoImg) { logoImg.classList.add('brightness-0', 'invert'); }
       links.forEach(link => {
         link.classList.remove('text-emerald-900', 'text-stone-600', 'border-emerald-500', 'hover:text-emerald-600');
         if (link.classList.contains('font-bold')) {
