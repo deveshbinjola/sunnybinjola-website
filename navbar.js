@@ -14,21 +14,27 @@
  */
 
 (function () {
+  // ─── AUTO-DETECT BASE PATH ───
+  // When loaded from a subfolder (e.g. blog/), script src is "../navbar.js"
+  // so we prepend "../" to all local hrefs and asset paths.
+  const scriptTag = document.querySelector('script[src*="navbar.js"]');
+  const basePath = scriptTag ? scriptTag.getAttribute('src').replace('navbar.js', '') : '';
+
   // ─── MAIN NAV LINKS (shown directly in the navbar) ───
   const NAV_LINKS = [
-    { label: 'Home', href: 'index.html', matchPaths: ['/', '/index.html', ''] },
-    { label: 'Heal Your Heartbreak', href: 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
-    { label: 'About', href: 'about.html', matchPaths: ['/about.html'] },
-    { label: 'Blog', href: 'blog.html', matchPaths: ['/blog.html'] },
-    { label: 'Work With Me', href: 'work-with-me.html', matchPaths: ['/work-with-me.html'] },
+    { label: 'Home', href: basePath + 'index.html', matchPaths: ['/', '/index.html', ''] },
+    { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
+    { label: 'About', href: basePath + 'about.html', matchPaths: ['/about.html'] },
+    { label: 'Blog', href: basePath + 'blog.html', matchPaths: ['/blog.html'] },
+    { label: 'Work With Me', href: basePath + 'work-with-me.html', matchPaths: ['/work-with-me.html'] },
   ];
 
   // ─── MORE LINKS (shown in dropdown on desktop, flat in mobile menu) ───
   const MORE_LINKS = [
-    { label: 'Find Your Purpose', href: 'find-your-purpose.html', matchPaths: ['/find-your-purpose.html'] },
-    { label: 'Testimonials', href: 'testimonials.html', matchPaths: ['/testimonials.html'] },
-    { label: 'Free Resources', href: 'resources.html', matchPaths: ['/resources.html'] },
-    { label: 'FAQ', href: 'faq.html', matchPaths: ['/faq.html'] },
+    { label: 'Find Your Purpose', href: basePath + 'find-your-purpose.html', matchPaths: ['/find-your-purpose.html'] },
+    { label: 'Testimonials', href: basePath + 'testimonials.html', matchPaths: ['/testimonials.html'] },
+    { label: 'Free Resources', href: basePath + 'resources.html', matchPaths: ['/resources.html'] },
+    { label: 'FAQ', href: basePath + 'faq.html', matchPaths: ['/faq.html'] },
   ];
 
   const CTA_URL = 'https://cal.com/sunny-binjola/discovery-call';
@@ -141,8 +147,8 @@
   container.innerHTML = `
 <nav id="mainNav" class="${navInitialClass}">
   <div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
-    <a href="index.html" class="hover:opacity-80 transition-opacity nav-brand">
-      <img src="logo.png" alt="Sunny Binjola" class="${logoClass}"${logoStyle}>
+    <a href="${basePath}index.html" class="hover:opacity-80 transition-opacity nav-brand">
+      <img src="${basePath}logo.png" alt="Sunny Binjola" class="${logoClass}"${logoStyle}>
     </a>
     <div class="hidden md:flex gap-8 items-center font-['Noto_Serif'] font-medium tracking-tight" id="desktopLinks">
       ${desktopLinks(false)}

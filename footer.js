@@ -13,6 +13,10 @@
   const container = document.getElementById('footer');
   if (!container) return;
 
+  // ─── AUTO-DETECT BASE PATH ───
+  const scriptTag = document.querySelector('script[src*="footer.js"]');
+  const basePath = scriptTag ? scriptTag.getAttribute('src').replace('footer.js', '') : '';
+
   const year = new Date().getFullYear();
 
   // ─── FOOTER LINKS (edit here to add/remove) ───
@@ -40,7 +44,7 @@
   <div class="flex flex-col md:flex-row justify-between items-end w-full max-w-[1440px] mx-auto gap-8">
     <div class="w-full md:w-auto">
       <div class="flex items-center gap-3 mb-2">
-        <img src="logo.png" alt="Sunny Binjola" class="h-12">
+        <img src="${basePath}logo.png" alt="Sunny Binjola" class="h-12">
       </div>
       <div class="font-['Manrope'] text-xs tracking-wide text-stone-500 italic mb-3">Live from your depth.</div>
       <div class="font-['Manrope'] text-sm tracking-wide uppercase text-stone-500">&copy; ${year} Sunny Binjola. All rights reserved.</div>
