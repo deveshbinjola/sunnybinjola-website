@@ -31,7 +31,7 @@
 
   // ─── MORE LINKS (shown in dropdown on desktop, flat in mobile menu) ───
   const MORE_LINKS = [
-    { label: 'Find Your Purpose', href: basePath + 'find-your-purpose.html', matchPaths: ['/find-your-purpose.html'] },
+    // { label: 'Find Your Purpose', href: basePath + 'find-your-purpose.html', matchPaths: ['/find-your-purpose.html'] }, // hidden — program not live yet
     { label: 'Testimonials', href: basePath + 'testimonials.html', matchPaths: ['/testimonials.html'] },
     { label: 'Free Resources', href: basePath + 'resources.html', matchPaths: ['/resources.html'] },
     { label: 'FAQ', href: basePath + 'faq.html', matchPaths: ['/faq.html'] },
