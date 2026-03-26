@@ -44,6 +44,7 @@
   const path = window.location.pathname;
   const currentFile = path.split('/').pop() || 'index.html';
   const isHomepage = currentFile === '' || currentFile === '/' || currentFile === 'index.html';
+  const isBlogPost = basePath.includes('../') || path.includes('/blog/');
 
   function isActive(link) {
     return link.matchPaths.some(p => {
@@ -133,7 +134,9 @@
 
   const navInitialClass = isHomepage
     ? 'fixed top-0 left-0 right-0 z-50 transition-all duration-500'
-    : 'fixed top-0 left-0 right-0 z-50 bg-[#f7f7f2]/80 backdrop-blur-3xl shadow-sm transition-all duration-500';
+    : isBlogPost
+      ? 'sticky top-0 z-50 bg-[#f7f7f2] shadow-sm transition-all duration-500'
+      : 'fixed top-0 left-0 right-0 z-50 bg-[#f7f7f2]/80 backdrop-blur-3xl shadow-sm transition-all duration-500';
 
   const logoClass = isHomepage
     ? 'h-20 nav-logo transition-all duration-500'
