@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
   <url>
     <loc>https://sunnybinjola.com/</loc>
     <lastmod>2026-03-25</lastmod>
@@ -31,15 +32,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sunnybinjola.com/testimonials.html</loc>
-    <lastmod>2026-03-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://sunnybinjola.com/find-your-purpose.html</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sunnybinjola.com/testimonials.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
@@ -54,6 +55,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Blog Posts -->
   <url>
     <loc>https://sunnybinjola.com/blog/complete-guide-heal-after-breakup.html</loc>
     <lastmod>2026-03-25</lastmod>

@@ -2,11 +2,12 @@
 
 User-agent: *
 Allow: /
-Disallow: /find-your-purpose
-Disallow: /email-sequence-7day
-Disallow: /competitive-analysis
-Disallow: /seo-strategy
-Disallow: /website-audit
+Allow: /blog/
+
+# Block internal/admin assets
+Disallow: /navbar.js
+Disallow: /footer.js
+Disallow: /seo.js
 
 # Sitemap
 Sitemap: https://sunnybinjola.com/sitemap.xml
