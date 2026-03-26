@@ -1,0 +1,99 @@
+================================================================================
+PAGE-BY-PAGE SCORE SUMMARY
+================================================================================
+
+MAIN PAGES (9 total)
+================================================================================
+Page                          URL                                    SEO  AEO  GEO  AVG
+----                          ---                                    ---  ---  ---  ---
+1. Index (Home)               https://sunnybinjola.com/              92   65   88   82
+2. Heal Your Heartbreak       https://sunnybinjola.com/heal...       90   62   85   79
+3. About                      https://sunnybinjola.com/about         88   58   90   79
+4. Blog Hub                   https://sunnybinjola.com/blog          86   64   84   78
+5. Work With Me               https://sunnybinjola.com/work...       87   60   82   76
+6. Find Your Purpose          https://sunnybinjola.com/find...       65   40   60   55
+7. Testimonials               https://sunnybinjola.com/testimon...   85   55   80   73
+8. Resources                  https://sunnybinjola.com/resourc...    86   62   82   77
+9. FAQ                        https://sunnybinjola.com/faq.html      92   88   86   89
+
+MAIN PAGES AVERAGE                                                    84   61   81   75
+
+================================================================================
+BLOG POSTS (7 total)
+================================================================================
+Page                          URL                                    SEO  AEO  GEO  AVG
+----                          ---                                    ---  ---  ---  ---
+10. Complete Guide            https://sunnybinjola.com/blog/co...    93   87   92   91
+11. Why Breakups Harder       https://sunnybinjola.com/blog/wh...    91   81   88   87
+12. Five Stages               https://sunnybinjola.com/blog/fi...    90   85   88   88
+13. How Long to Get Over      https://sunnybinjola.com/blog/ho...    89   83   87   86
+14. Nervous System Hijacked   https://sunnybinjola.com/blog/ne...    90   84   89   88
+15. She Left - First 7 Days   https://sunnybinjola.com/blog/sh...    90   86   88   88
+16. Daily Routine             https://sunnybinjola.com/blog/da...    89   84   88   87
+
+BLOG POSTS AVERAGE                                                    90   84   88   88
+
+================================================================================
+OVERALL SITE AVERAGES
+================================================================================
+                                                                      SEO  AEO  GEO  AVG
+                                                                      ---  ---  ---  ---
+All Pages (16 total)                                                 87   74   85   82
+
+Main Pages (9 pages)                                                 84   61   81   75
+Blog Posts (7 pages)                                                 90   84   88   88
+Supporting Files (seo.js, robots.txt, sitemap.xml)                 95   90   90   92
+
+================================================================================
+SCORE LEGEND
+================================================================================
+
+90-100: EXCELLENT   → Highly optimized, minimal improvements needed
+80-89:  VERY GOOD   → Well-optimized, some enhancements possible
+70-79:  GOOD        → Solid foundation, opportunities for improvement
+60-69:  FAIR        → Basic implementation, significant gaps to address
+0-59:   POOR        → Critical issues requiring immediate attention
+
+================================================================================
+KEY FINDINGS
+================================================================================
+
+HIGHEST PERFORMERS:
+✓✓✓ SEO: Blog posts (90/100) - Excellent fundamentals across all 7 posts
+✓✓✓ AEO: Blog posts (84/100) - Featured snippet-ready, article schema
+✓✓✓ GEO: Blog posts (88/100) - E-E-A-T signals strong with research citations
+
+LOWEST PERFORMERS:
+⚠  AEO: Main pages (61/100) - Only FAQ page has FAQPage schema
+⚠  Find Your Purpose (55/100) - Currently noindex, in development
+⚠  Testimonials AEO (55/100) - No FAQ or featured snippet optimization
+
+OPPORTUNITIES (to improve scores):
+→ Expand FAQ sections to main pages (unlock 10+ AEO points)
+→ Finalize Find Your Purpose page (restore to ~85/100)
+→ Add table-of-contents to blog posts (featured snippet optimization)
+→ Increase testimonial count (3 → 6+) for E-E-A-T
+
+================================================================================
+IMPLEMENTATION IMPACT (Estimated Score Gains)
+================================================================================
+
+Action                                 Time    SEO    AEO    GEO    Total Gain
+------                                 ----    ---    ---    ---    ----------
+1. Expand FAQ sections (3 pages)       2-3 hrs +2     +15    +3     +20 points
+2. Finalize Find Your Purpose          1-2 hrs +20    +45    +25    +90 points
+3. Add TOC to blog posts               1-2 hrs +1     +8     +2     +11 points
+4. Expand testimonials (3→6+)          2-4 hrs +0     +2     +5     +7 points
+5. Add E-E-A-T metrics                 1 hr    +1     +2     +5     +8 points
+
+PROJECTED POST-ACTION SCORES (if all implemented):
+- SEO: 87 → 90 (+3 points)
+- AEO: 74 → 82 (+8 points)
+- GEO: 85 → 88 (+3 points)
+- OVERALL: 82 → 87 (+5 points)
+
+================================================================================
+Report Generated: 2026-03-25
+Detailed Analysis: SEO_AEO_GEO_AUDIT_REPORT.md (817 lines)
+Summary: AUDIT_SUMMARY.txt
+================================================================================

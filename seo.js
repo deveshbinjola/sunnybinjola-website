@@ -257,7 +257,8 @@
     addSchema(reviewSchema);
   }
 
-  // Add FAQ schema only on FAQ page
+  // FAQ schema is now injected as inline JSON-LD on individual pages (faq.html, heal-your-heartbreak.html, about.html, work-with-me.html)
+  // Only inject via seo.js on faq.html (others have page-specific FAQs inline)
   if (currentFile === 'faq.html') {
     addSchema(faqSchema);
   }
