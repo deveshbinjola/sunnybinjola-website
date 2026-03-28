@@ -356,11 +356,32 @@
       </div>
       <a class="text-lg font-bold border-b-2 border-primary-container pb-1 hover:text-primary transition-all" href="blog.html">Browse All Articles</a>
     </div>
-    <!-- Blog Cards: 3 in a row -->
-    <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div id="blogLoading" class="col-span-full text-center py-12">
-        <p class="text-on-surface-variant font-body">Loading articles...</p>
-      </div>
+    <!-- Blog Cards: Top 3 -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <a href="blog/complete-guide-heal-after-breakup.html" class="group bg-surface-container-low rounded-xl overflow-hidden hover:shadow-lg transition-all fade-up">
+        <div class="h-3 vibrant-gradient"></div>
+        <div class="p-8">
+          <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Pillar Guide · 20 min</span>
+          <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-primary transition-colors">How to Heal After a Breakup as a Man: The Complete Guide</h3>
+          <p class="text-on-surface-variant mt-3 text-sm leading-relaxed">The 5-phase, research-backed framework — nervous system regulation, somatic healing, brotherhood, identity work, and initiation.</p>
+        </div>
+      </a>
+      <a href="blog/why-men-cant-cry.html" class="group bg-surface-container-low rounded-xl overflow-hidden hover:shadow-lg transition-all fade-up">
+        <div class="h-3 bg-secondary"></div>
+        <div class="p-8">
+          <span class="text-xs font-bold uppercase tracking-widest text-secondary font-label">Somatic Healing · 10 min</span>
+          <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-secondary transition-colors">Why Men Can't Cry (And What Your Body Is Trying to Tell You)</h3>
+          <p class="text-on-surface-variant mt-3 text-sm leading-relaxed">Your emotional numbness isn't a character flaw. It's your nervous system stuck in survival mode. Here's the science — and the way back.</p>
+        </div>
+      </a>
+      <a href="blog/you-did-everything-right-still-empty.html" class="group bg-surface-container-low rounded-xl overflow-hidden hover:shadow-lg transition-all fade-up">
+        <div class="h-3 bg-tertiary"></div>
+        <div class="p-8">
+          <span class="text-xs font-bold uppercase tracking-widest text-tertiary font-label">Find Your Purpose · 9 min</span>
+          <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-tertiary transition-colors">You Did Everything Right and Still Feel Empty</h3>
+          <p class="text-on-surface-variant mt-3 text-sm leading-relaxed">85% of men feel disconnected from purpose. The script is dissolving. This isn't failure — it's an initiation.</p>
+        </div>
+      </a>
     </div>
 
     <!-- Newsletter Signup — Centered -->
@@ -493,106 +514,7 @@
     }
   });
 
-  // RSS Blog Feed
-  const BEEHIIV_FEED = 'https://sunnys-newsletter.beehiiv.com/feed';
-  const PROXIES = [
-    'https://api.allorigins.win/raw?url=',
-    'https://corsproxy.io/?'
-  ];
-  const gradients = [
-    'linear-gradient(135deg, #006a28, #005d22)',
-    'linear-gradient(135deg, #00693f, #006a28)',
-    'linear-gradient(135deg, #006572, #00693f)'
-  ];
-  const fallbackPosts = [
-    {
-      title: 'The War Is Over',
-      excerpt: 'Why the armor you built to survive is now keeping you from living.',
-      date: 'Mar 05, 2026',
-      link: 'https://sunnys-newsletter.beehiiv.com/'
-    },
-    {
-      title: 'Fear Screams. Intuition Is Simple.',
-      excerpt: 'How to tell the difference between the voice that protects you and the one that guides you.',
-      date: 'Feb 26, 2026',
-      link: 'https://sunnys-newsletter.beehiiv.com/'
-    },
-    {
-      title: 'No Structure. No Flow.',
-      excerpt: 'Why discipline is the foundation of creativity, polarity, and real freedom.',
-      date: 'Feb 19, 2026',
-      link: 'https://sunnys-newsletter.beehiiv.com/'
-    }
-  ];
-
-  function renderCards(grid, posts) {
-    posts.forEach((p, i) => {
-      const card = document.createElement('a');
-      card.href = p.link;
-      card.target = '_blank';
-      card.className = 'group cursor-pointer fade-up';
-      card.innerHTML = `
-        <div class="overflow-hidden rounded-xl aspect-video mb-4">
-          ${p.imgSrc ? `<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${p.imgSrc}" alt="${p.title}" loading="lazy">` : `<div class="w-full h-full flex items-center justify-center p-6" style="background:${gradients[i%3]}"><span class="text-white font-headline text-lg italic text-center">${p.title}</span></div>`}
-        </div>
-        <span class="text-xs font-bold uppercase tracking-widest text-secondary">${p.date || ''}</span>
-        <h3 class="font-headline text-lg font-bold mt-2 group-hover:text-primary transition-colors">${p.title}</h3>
-        <p class="text-on-surface-variant mt-2 line-clamp-2 text-sm">${p.excerpt}</p>
-      `;
-      grid.appendChild(card);
-      observer.observe(card);
-    });
-  }
-
-  async function tryFetchRSS(proxyUrl) {
-    const res = await fetch(proxyUrl + encodeURIComponent(BEEHIIV_FEED));
-    if (!res.ok) throw new Error('Proxy returned ' + res.status);
-
-    const text = await res.text();
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(text, 'text/xml');
-    const items = xml.querySelectorAll('item');
-
-    if (!items.length) throw new Error('No posts');
-
-    return Array.from(items).slice(0, 3).map(item => {
-      const title = item.querySelector('title')?.textContent || 'Untitled';
-      const link = item.querySelector('link')?.textContent || '#';
-      const pubDate = item.querySelector('pubDate')?.textContent;
-      const desc = item.querySelector('description')?.textContent || '';
-      const descDoc = parser.parseFromString(desc, 'text/html');
-      const img = descDoc.querySelector('img');
-
-      return {
-        title,
-        link,
-        imgSrc: img?.getAttribute('src') || '',
-        date: pubDate ? new Date(pubDate).toLocaleDateString('en-US', {month:'short',day:'2-digit',year:'numeric'}) : '',
-        excerpt: (descDoc.body?.textContent?.trim() || '').substring(0, 120) + '...'
-      };
-    });
-  }
-
-  async function loadBeehiivPosts() {
-    const grid = document.getElementById('blogGrid');
-    const loading = document.getElementById('blogLoading');
-
-    for (const proxy of PROXIES) {
-      try {
-        const posts = await tryFetchRSS(proxy);
-        if (loading) loading.remove();
-        renderCards(grid, posts);
-        return;
-      } catch (e) {
-        console.warn('Proxy failed:', proxy, e.message);
-      }
-    }
-
-    if (loading) loading.remove();
-    renderCards(grid, fallbackPosts.slice(0, 3));
-  }
-
-  loadBeehiivPosts();
+  // Blog cards are now hardcoded — no RSS feed needed
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
