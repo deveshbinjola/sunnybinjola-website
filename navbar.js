@@ -26,6 +26,7 @@
     { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
     { label: 'About', href: basePath + 'about.html', matchPaths: ['/about.html'] },
     { label: 'Blog', href: basePath + 'blog.html', matchPaths: ['/blog.html'] },
+    { label: 'Embody Live', href: basePath + 'embody-live.html', matchPaths: ['/embody-live.html'] },
     { label: 'Work With Me', href: basePath + 'work-with-me.html', matchPaths: ['/work-with-me.html'] },
   ];
 

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="description" content="Embody Live — a weekly online men's circle for men 18-35 who want real connection, not another productivity hack. $20/session. First one free. Hosted by Sunny Binjola.">
+  <meta name="author" content="Sunny Binjola">
+  <meta name="topic" content="Men's Circle, Men's Group, Brotherhood, Community">
+  <meta name="classification" content="Health, Wellness, Community, Coaching">
+  <meta name="keywords" content="men's circle online, men's group near me, online men's group, men's support group, brotherhood circle, men's community, embody live, men's work for young men, men's circle for 20s, weekly men's group">
+  <meta name="theme-color" content="#006a28">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Embody Live — Weekly Men's Circle | First Session Free">
+  <meta property="og:description" content="A weekly online men's circle for men who want real connection. $20/session. First one always free. No scripts, no performance — just presence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sunnybinjola.com/embody-live.html">
+  <meta property="og:image" content="https://sunnybinjola.com/og-image.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Embody Live — Weekly Men's Circle | First Session Free">
+  <meta name="twitter:description" content="A weekly online men's circle for men who want real connection. $20/session. First one always free.">
+  <meta name="twitter:image" content="https://sunnybinjola.com/og-image.jpg">
+
+  <meta property="article:modified_time" content="2026-03-28T00:00:00+00:00">
+  <link rel="canonical" href="https://sunnybinjola.com/embody-live.html">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <title>Embody Live — Weekly Men's Circle | Sunny Binjola</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Outfit:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS with Custom Config -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#5cfd80", "inverse-primary": "#5cfd80", "tertiary-fixed": "#00e3fe",
+            "outline": "#767773", "error-dim": "#b92902", "primary-fixed-dim": "#4bee74",
+            "inverse-surface": "#0d0f0c", "on-secondary-fixed-variant": "#00653c",
+            "tertiary-fixed-dim": "#00d4ed", "secondary-fixed": "#78f5ae",
+            "on-background": "#2d2f2c", "on-primary-container": "#005d22",
+            "surface-container-highest": "#dcddd7", "background": "#f7f7f2",
+            "tertiary-container": "#00e3fe", "surface-container-low": "#f1f1ec",
+            "surface-tint": "#006a28", "on-tertiary-container": "#004d57",
+            "on-surface": "#2d2f2c", "primary-container": "#5cfd80",
+            "on-error": "#ffefec", "on-tertiary-fixed": "#003840",
+            "surface-container": "#e8e9e3", "surface-dim": "#d3d5cf",
+            "on-error-container": "#520c00", "on-secondary": "#cbffda",
+            "inverse-on-surface": "#9c9d99", "primary-dim": "#005d22",
+            "on-secondary-fixed": "#004528", "secondary-dim": "#005c36",
+            "surface": "#f7f7f2", "tertiary-dim": "#005863",
+            "on-tertiary-fixed-variant": "#005762", "secondary": "#00693f",
+            "surface-bright": "#f7f7f2", "tertiary": "#006572",
+            "primary": "#006a28", "error": "#b02500",
+            "on-surface-variant": "#5a5c58", "surface-container-high": "#e2e3dd",
+            "surface-container-lowest": "#ffffff", "error-container": "#f95630",
+            "on-tertiary": "#d9f8ff", "on-secondary-container": "#005a35",
+            "surface-variant": "#dcddd7", "on-primary-fixed-variant": "#006827",
+            "on-primary-fixed": "#004819", "secondary-fixed-dim": "#69e6a1",
+            "outline-variant": "#adada9", "secondary-container": "#78f5ae",
+            "on-primary": "#cfffce"
+          },
+          fontFamily: { "headline": ["Outfit"], "body": ["Manrope"], "label": ["Manrope"] },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .editorial-shadow { box-shadow: 0 12px 40px rgba(13, 15, 12, 0.06); }
+    .vibrant-gradient { background: linear-gradient(135deg, #006a28 0%, #5cfd80 100%); }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(92, 253, 128, 0); }
+      50% { box-shadow: 0 0 40px 8px rgba(92, 253, 128, 0.15); }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-x-hidden">
+
+<!-- NAVBAR -->
+<div id="navbar"></div>
+<script src="navbar.js"></script>
+
+<main class="pt-24">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO — Embody Live
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="px-10 max-w-[1440px] mx-auto py-24 md:py-32">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="fade-up">
+      <span class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest mb-6">
+        <span class="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
+        Live Every Week
+      </span>
+      <h1 class="font-headline text-6xl md:text-7xl font-black text-on-surface leading-[0.95] uppercase">
+        EMBODY<br/><span class="italic text-primary">LIVE.</span>
+      </h1>
+      <p class="text-xl text-on-surface-variant leading-relaxed font-light mt-8 max-w-lg">
+        A weekly online men's circle for the generation that was told to figure it out alone. 60 minutes. Your body, your voice, a room full of men who actually listen.
+      </p>
+      <p class="text-lg text-on-surface font-semibold mt-6">
+        $20 per session. First one always free.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-10">
+        <a href="https://cal.com/sunny-binjola/embody-live" target="_blank" rel="noopener"
+           class="vibrant-gradient text-on-primary-container px-10 py-4 rounded-full font-extrabold text-lg editorial-shadow hover:shadow-lg transition-shadow inline-block text-center pulse-glow">
+          Join Your First Session Free
+        </a>
+        <a href="#how-it-works" class="border-2 border-outline-variant text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:border-primary hover:text-primary transition-all inline-block text-center">
+          How It Works
+        </a>
+      </div>
+    </div>
+    <div class="fade-up relative">
+      <div class="aspect-square rounded-2xl overflow-hidden editorial-shadow bg-surface-container-low">
+        <img class="w-full h-full object-cover" alt="group of young men sitting together in a circle having a real conversation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzb5ff8OPVtupHKSIK3UKN_j4U8IKBLZ8T-PlGU7w0gUy_lgMetHQ99cz_VioXw7voSG9Fm77AXI2BgDi_NLySMPUP0_rki2BVii48Iq9qUKJ4fxSaTHMwdKiSoMOOPXtRC6amzWxWfAvBKT9tYeap6ohg3IN4KAzwnNiqZWBRslE8gqzMGyTFBIUta4trS1xYRebb71ITPIYt_QbbuKvNGidLiUZwgXp9J0SqmPsmJTBmPGhUHD5t359TZZ53vAedc5Dq0EYbqV4"/>
+      </div>
+      <!-- Floating stat -->
+      <div class="absolute -bottom-6 -left-6 bg-surface-container-lowest rounded-xl p-5 editorial-shadow border border-outline-variant/10">
+        <p class="text-3xl font-headline font-black text-primary">17%</p>
+        <p class="text-sm text-on-surface-variant font-medium mt-1">of young men have<br/>zero close friends</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     THE PROBLEM — What this solves
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="bg-inverse-surface text-inverse-on-surface py-24 md:py-32">
+  <div class="max-w-[1440px] mx-auto px-10">
+    <div class="max-w-3xl mx-auto text-center fade-up">
+      <h2 class="font-headline text-4xl md:text-5xl font-black text-surface-container-lowest leading-tight">
+        You're not broken.<br/>You're just alone with it.
+      </h2>
+      <p class="text-lg text-inverse-on-surface/70 mt-8 leading-relaxed font-light">
+        You've got friends — but you can't actually talk to them. Not about the stuff that matters. Not about the numbness, the confusion after she left, the feeling that you're performing a life that doesn't fit. You scroll, you grind, you "work on yourself" — but always alone. That's not healing. That's just isolation with better habits.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+      <div class="text-center fade-up">
+        <p class="text-5xl font-headline font-black text-primary-container">85%</p>
+        <p class="text-inverse-on-surface/60 mt-3 text-sm">of men feel disconnected<br/>from purpose</p>
+      </div>
+      <div class="text-center fade-up">
+        <p class="text-5xl font-headline font-black text-primary-container">43%</p>
+        <p class="text-inverse-on-surface/60 mt-3 text-sm">don't know what<br/>masculinity means to them</p>
+      </div>
+      <div class="text-center fade-up">
+        <p class="text-5xl font-headline font-black text-primary-container">54%</p>
+        <p class="text-inverse-on-surface/60 mt-3 text-sm">of men seeking relationship<br/>help online are under 30</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOW IT WORKS
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="how-it-works" class="py-24 md:py-32 px-10 max-w-[1440px] mx-auto">
+  <div class="text-center mb-20 fade-up">
+    <span class="font-label text-primary uppercase tracking-widest font-bold">How It Works</span>
+    <h2 class="font-headline text-5xl md:text-6xl font-black mt-4 text-on-surface leading-tight">60 minutes.<br/>No performance.</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Step 1 -->
+    <div class="bg-surface-container-low rounded-xl p-8 fade-up relative">
+      <div class="text-6xl font-headline font-black text-primary/10 absolute top-4 right-6">01</div>
+      <span class="material-symbols-outlined text-3xl text-primary mb-4">air</span>
+      <h3 class="font-headline text-xl font-bold">Land in Your Body</h3>
+      <p class="text-on-surface-variant mt-3 text-sm leading-relaxed">We start with 5 minutes of guided breathwork. No talking. Just landing. This is how we leave the week behind and actually arrive.</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="bg-surface-container-low rounded-xl p-8 fade-up relative">
+      <div class="text-6xl font-headline font-black text-primary/10 absolute top-4 right-6">02</div>
+      <span class="material-symbols-outlined text-3xl text-primary mb-4">forum</span>
+      <h3 class="font-headline text-xl font-bold">A Real Question</h3>
+      <p class="text-on-surface-variant mt-3 text-sm leading-relaxed">Each session has a theme — heartbreak, purpose, numbness, anger, loneliness. One question. No right answer. You speak when you're ready.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="bg-surface-container-low rounded-xl p-8 fade-up relative">
+      <div class="text-6xl font-headline font-black text-primary/10 absolute top-4 right-6">03</div>
+      <span class="material-symbols-outlined text-3xl text-primary mb-4">hearing</span>
+      <h3 class="font-headline text-xl font-bold">Be Witnessed</h3>
+      <p class="text-on-surface-variant mt-3 text-sm leading-relaxed">When you speak, the room holds it. No advice. No fixing. No "have you tried..." — just men who actually listen. Most guys have never experienced this.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="bg-surface-container-low rounded-xl p-8 fade-up relative">
+      <div class="text-6xl font-headline font-black text-primary/10 absolute top-4 right-6">04</div>
+      <span class="material-symbols-outlined text-3xl text-primary mb-4">favorite</span>
+      <h3 class="font-headline text-xl font-bold">Close Together</h3>
+      <p class="text-on-surface-variant mt-3 text-sm leading-relaxed">We close with a grounding exercise and one word from each man. You leave lighter than you came. That's not a tagline — it's what happens.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     WHO THIS IS FOR
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="bg-surface-container-low py-24 md:py-32">
+  <div class="max-w-[1440px] mx-auto px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-up">
+        <span class="font-label text-primary uppercase tracking-widest font-bold">Who This Is For</span>
+        <h2 class="font-headline text-4xl md:text-5xl font-black mt-4 text-on-surface leading-tight">Men who are done<br/>going through it alone.</h2>
+        <div class="mt-10 space-y-6">
+          <div class="flex gap-4 items-start">
+            <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+            <p class="text-on-surface-variant leading-relaxed">You're going through a breakup and have no one to actually talk to about it</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+            <p class="text-on-surface-variant leading-relaxed">You feel numb — like you're watching your own life from the outside</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+            <p class="text-on-surface-variant leading-relaxed">You did the degree, got the job, and still feel empty inside</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+            <p class="text-on-surface-variant leading-relaxed">You're curious about men's work but "retreats" and "masterminds" feel too much or too expensive</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+            <p class="text-on-surface-variant leading-relaxed">You want a room where you can drop the mask and actually be heard</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="bg-surface-container-lowest rounded-2xl p-10 editorial-shadow">
+          <p class="text-2xl font-headline font-bold text-on-surface leading-snug italic">
+            "I've got a group chat with 50 guys and I still feel completely alone."
+          </p>
+          <p class="text-on-surface-variant mt-6 text-sm">
+            — This is what we hear from men every single week. The loneliness isn't about having no one around. It's about having no one who actually <em>sees</em> you.
+          </p>
+          <div class="mt-8 pt-8 border-t border-outline-variant/20">
+            <p class="font-label text-xs uppercase tracking-widest text-primary font-bold">This is different because</p>
+            <p class="text-on-surface-variant mt-3 leading-relaxed">
+              Embody Live isn't a talking head webinar, a networking event, or group therapy. It's a somatic men's circle — we start with the body, not the mind. That's what makes it land differently. Most men feel a shift in the first 10 minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ABOUT SUNNY — The facilitator
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="py-24 md:py-32 px-10 max-w-[1440px] mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="fade-up order-2 lg:order-1">
+      <span class="font-label text-primary uppercase tracking-widest font-bold">Your Facilitator</span>
+      <h2 class="font-headline text-4xl md:text-5xl font-black mt-4 text-on-surface leading-tight">Sunny Binjola</h2>
+      <p class="text-lg text-on-surface-variant mt-6 leading-relaxed font-light">
+        I was a software engineer who had everything on paper and nothing in my chest. A breakup cracked me open. I didn't find healing in self-help books or productivity hacks — I found it in a men's circle, in my body, in being witnessed by other men who weren't trying to fix me.
+      </p>
+      <p class="text-lg text-on-surface-variant mt-4 leading-relaxed font-light">
+        Now I hold that same space. Embody Live exists because I needed it at 25 and it didn't exist. I'm not a therapist. I'm a man who went through it and came out different — and now I hold the room so you can too.
+      </p>
+      <a href="about.html" class="inline-flex items-center gap-2 text-primary font-bold mt-8 hover:gap-3 transition-all">
+        My full story <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+    <div class="fade-up order-1 lg:order-2">
+      <div class="aspect-[4/5] rounded-2xl overflow-hidden editorial-shadow">
+        <img class="w-full h-full object-cover" alt="Sunny Binjola — men's coaching facilitator" src="7.jpg"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PRICING — Simple and clear
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="bg-surface-container py-24 md:py-32" id="pricing">
+  <div class="max-w-[1440px] mx-auto px-10">
+    <div class="text-center mb-16 fade-up">
+      <span class="font-label text-primary uppercase tracking-widest font-bold">Pricing</span>
+      <h2 class="font-headline text-5xl md:text-6xl font-black mt-4 text-on-surface leading-tight">No contracts. No pressure.</h2>
+      <p class="text-on-surface-variant mt-4 text-lg font-light">Show up when you can. Come back because you want to.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+      <!-- Free Trial -->
+      <div class="bg-surface-container-lowest rounded-2xl p-10 editorial-shadow fade-up border-2 border-primary">
+        <span class="bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Start Here</span>
+        <p class="text-5xl font-headline font-black text-on-surface mt-6">Free</p>
+        <p class="text-on-surface-variant mt-2">Your first session</p>
+        <div class="mt-8 space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">Full 60-minute circle experience</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">Guided breathwork + somatic opening</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">No commitment, no upsell pressure</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">Just show up and see how it feels</span>
+          </div>
+        </div>
+        <a href="https://cal.com/sunny-binjola/embody-live" target="_blank" rel="noopener"
+           class="vibrant-gradient text-on-primary-container px-8 py-4 rounded-full font-extrabold text-base editorial-shadow hover:shadow-lg transition-shadow block text-center mt-10">
+          Reserve Your Free Spot
+        </a>
+      </div>
+
+      <!-- Regular -->
+      <div class="bg-surface-container-lowest rounded-2xl p-10 editorial-shadow fade-up">
+        <span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Weekly Drop-In</span>
+        <p class="text-5xl font-headline font-black text-on-surface mt-6">$20<span class="text-xl font-body font-normal text-on-surface-variant">/session</span></p>
+        <p class="text-on-surface-variant mt-2">Pay per session. No subscription.</p>
+        <div class="mt-8 space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">Everything in the free session</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">Build real connections week to week</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">Themed sessions (heartbreak, purpose, anger, numbness)</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary text-lg">check</span>
+            <span class="text-on-surface-variant text-sm">Skip any week — no guilt, no penalty</span>
+          </div>
+        </div>
+        <a href="https://cal.com/sunny-binjola/embody-live" target="_blank" rel="noopener"
+           class="border-2 border-primary text-primary px-8 py-4 rounded-full font-extrabold text-base hover:bg-primary hover:text-on-primary transition-all block text-center mt-10">
+          Join This Week's Circle
+        </a>
+      </div>
+    </div>
+
+    <p class="text-center text-on-surface-variant text-sm mt-10 fade-up">
+      Sessions run weekly on Zoom. You'll receive the link after booking. Can't make it this week? No stress — come whenever you're ready.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FAQ
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="py-24 md:py-32 px-10 max-w-3xl mx-auto">
+  <div class="text-center mb-16 fade-up">
+    <span class="font-label text-primary uppercase tracking-widest font-bold">Questions</span>
+    <h2 class="font-headline text-4xl md:text-5xl font-black mt-4 text-on-surface">Before you show up.</h2>
+  </div>
+
+  <div class="space-y-4 fade-up">
+    <div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+      <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 font-bold text-on-surface flex justify-between items-center hover:bg-surface-container-low transition-colors">
+        Do I have to talk?
+        <span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200">expand_more</span>
+      </button>
+      <div class="hidden px-6 pb-5">
+        <p class="text-on-surface-variant leading-relaxed">No. You can just listen for your whole first session (or any session). There's no pressure to share. Most men find they want to speak after a few minutes — but it's always your choice. The room holds space either way.</p>
+      </div>
+    </div>
+
+    <div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+      <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 font-bold text-on-surface flex justify-between items-center hover:bg-surface-container-low transition-colors">
+        Is this therapy or group coaching?
+        <span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200">expand_more</span>
+      </button>
+      <div class="hidden px-6 pb-5">
+        <p class="text-on-surface-variant leading-relaxed">Neither. Embody Live is a facilitated men's circle with somatic elements. Sunny guides the opening and closing, holds the space, and offers prompts — but the circle belongs to the men in it. It's not clinical, and it's not a masterclass. It's a container for real presence.</p>
+      </div>
+    </div>
+
+    <div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+      <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 font-bold text-on-surface flex justify-between items-center hover:bg-surface-container-low transition-colors">
+        I'm 22 — is this for me?
+        <span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200">expand_more</span>
+      </button>
+      <div class="hidden px-6 pb-5">
+        <p class="text-on-surface-variant leading-relaxed">Especially for you. Most men's work targets 35+. Embody Live was built for men in their 20s and early 30s — the ones navigating first heartbreaks, identity confusion, career pressure, and the loneliness that nobody talks about. You don't need more life experience to start. You just need to show up.</p>
+      </div>
+    </div>
+
+    <div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+      <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 font-bold text-on-surface flex justify-between items-center hover:bg-surface-container-low transition-colors">
+        What's the time commitment?
+        <span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200">expand_more</span>
+      </button>
+      <div class="hidden px-6 pb-5">
+        <p class="text-on-surface-variant leading-relaxed">60 minutes per session. There's no minimum attendance. Come every week, come once a month, come whenever you feel it. The consistency helps — but we'd rather you show up real once a month than perform weekly.</p>
+      </div>
+    </div>
+
+    <div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+      <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 font-bold text-on-surface flex justify-between items-center hover:bg-surface-container-low transition-colors">
+        Is what I share confidential?
+        <span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200">expand_more</span>
+      </button>
+      <div class="hidden px-6 pb-5">
+        <p class="text-on-surface-variant leading-relaxed">Yes. What's shared in the circle stays in the circle. This is a ground rule, and it's established at the start of every session. Safety is the foundation — without it, nothing real can happen.</p>
+      </div>
+    </div>
+
+    <div class="border border-outline-variant/30 rounded-xl overflow-hidden">
+      <button onclick="toggleFaq(this)" class="w-full text-left px-6 py-5 font-bold text-on-surface flex justify-between items-center hover:bg-surface-container-low transition-colors">
+        What do I need?
+        <span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200">expand_more</span>
+      </button>
+      <div class="hidden px-6 pb-5">
+        <p class="text-on-surface-variant leading-relaxed">A laptop or phone with Zoom, a quiet space where you can be alone for an hour, and the willingness to be in the room. That's it. No prep. No homework. No pre-reading. Just you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="bg-primary py-24 md:py-32 text-center">
+  <div class="max-w-3xl mx-auto px-10 fade-up">
+    <h2 class="font-headline text-5xl md:text-6xl font-black text-on-primary leading-tight uppercase">
+      Stop going<br/>through it alone.
+    </h2>
+    <p class="text-on-primary/80 text-xl mt-8 font-light leading-relaxed">
+      Your first session is free. Show up, breathe, listen. If it's not for you, you'll know in 10 minutes. If it is — you'll wonder why you waited.
+    </p>
+    <a href="https://cal.com/sunny-binjola/embody-live" target="_blank" rel="noopener"
+       class="bg-surface-container-lowest text-primary px-12 py-5 rounded-full font-extrabold text-xl editorial-shadow hover:shadow-lg transition-shadow inline-block mt-12">
+      Join Your First Session Free
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="footer"></div>
+<script src="footer.js"></script>
+
+<!-- SEO Schema -->
+<div id="schema-org"></div>
+<script src="seo.js"></script>
+
+<!-- Visible dateModified -->
+<div class="max-w-[1440px] mx-auto px-10 py-4 text-xs text-on-surface-variant/50">
+  <time datetime="2026-03-28">Last updated: March 28, 2026</time>
+</div>
+
+<!-- FAQ Toggle Script -->
+<script>
+  function toggleFaq(btn) {
+    const content = btn.nextElementSibling;
+    const icon = btn.querySelector('.material-symbols-outlined');
+    content.classList.toggle('hidden');
+    icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+  }
+</script>
+
+<!-- Fade-up Animation -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+<!-- FAQPage JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I have to talk at Embody Live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You can just listen for your whole first session or any session. There's no pressure to share. Most men find they want to speak after a few minutes, but it's always your choice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Embody Live therapy or group coaching?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Neither. Embody Live is a facilitated men's circle with somatic elements. It's not clinical, and it's not a masterclass. It's a container for real presence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What age group is Embody Live for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embody Live was built for men in their 20s and early 30s — the ones navigating first heartbreaks, identity confusion, career pressure, and the loneliness that nobody talks about. Men of all ages are welcome."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Embody Live cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your first session is always free. After that, it's $20 per session with no subscription or contract. Come whenever you want — skip any week with no penalty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is what I share confidential?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. What's shared in the circle stays in the circle. This ground rule is established at the start of every session."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Event JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Embody Live — Weekly Men's Circle",
+  "description": "A weekly online men's circle featuring guided breathwork, facilitated sharing, and somatic practices. For men 18-35 seeking real connection. $20/session, first one free.",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "VirtualLocation",
+    "url": "https://cal.com/sunny-binjola/embody-live"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "Sunny Binjola",
+    "url": "https://sunnybinjola.com"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "First Session Free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://cal.com/sunny-binjola/embody-live"
+    },
+    {
+      "@type": "Offer",
+      "name": "Weekly Drop-In",
+      "price": "20",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://cal.com/sunny-binjola/embody-live"
+    }
+  ],
+  "image": "https://sunnybinjola.com/og-image.jpg"
+}
+</script>
+
+</body>
+</html>
