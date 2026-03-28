@@ -1,13 +1,50 @@
 # robots.txt for sunnybinjola.com
 
+# ─── DEFAULT: Allow all crawlers ───
 User-agent: *
 Allow: /
 Allow: /blog/
 
-# Block internal/admin assets
+# Block internal component scripts (not content)
 Disallow: /navbar.js
 Disallow: /footer.js
 Disallow: /seo.js
 
-# Sitemap
+# ─── AI CRAWLERS: Explicitly allow ───
+# Google AI (Gemini, AI Overviews, SGE)
+User-agent: Google-Extended
+Allow: /
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Bing Search + Copilot
+User-agent: Bingbot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Claude / Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+# Common Crawl (used by many LLMs for training)
+User-agent: CCBot
+Allow: /
+
+# ChatGPT / OpenAI
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# ─── SITEMAP ───
 Sitemap: https://sunnybinjola.com/sitemap.xml

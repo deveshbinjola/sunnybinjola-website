@@ -238,6 +238,33 @@
     });
   }
 
+  // ─── ORGANIZATION SCHEMA ───
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sunny Binjola Coaching",
+    "url": baseUrl,
+    "logo": baseUrl + "/logo.png",
+    "description": "Men's transformational coaching — heartbreak recovery, somatic healing, and purpose discovery. Helping men heal from the body up.",
+    "founder": {
+      "@type": "Person",
+      "name": "Sunny Binjola"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "url": "https://cal.com/sunny-binjola/discovery-call",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://instagram.com/sunnybinjola",
+      "https://x.com/sunnybinjola",
+      "https://youtube.com/sunnybinjola"
+    ],
+    "areaServed": "Worldwide",
+    "serviceType": ["Heartbreak Recovery Coaching", "Somatic Healing", "Men's Purpose Discovery", "Men's Group Facilitation"]
+  };
+
   // ─── INJECT SCHEMAS ───
   function addSchema(data) {
     const script = document.createElement('script');
@@ -250,6 +277,7 @@
   addSchema(personSchema);
   addSchema(websiteSchema);
   addSchema(serviceSchema);
+  addSchema(organizationSchema);
   addSchema(breadcrumbSchema);
 
   // Add review schema on home, testimonials, and about pages
