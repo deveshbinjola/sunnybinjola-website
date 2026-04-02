@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Men's Heartbreak Recovery Blog | Sunny Binjola">
   <meta name="twitter:description" content="Heartbreak recovery insights for men. Somatic healing, identity rebuilding, and purpose discovery.">
   <meta name="twitter:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuDdSl-It05ciB4tNjUWEQbEX4L75X2Z9VyEkEFySyXMYk2beLrxHd6pquIbZgzUZyqdoYQIoYDFHseMTHMPojaxs8_v2WwmzO4ldrnED6dOTk7V9CJHltol--cLmioKdHCeO_xXdKp1bqsvVm422BFWC6HSF4W1ZHiz1oYMfMXsKoUYzAJPDsSYeNQUzB2tKtv_FXxctug9yhVaF8ecH98ofk2simPbroaG_rHRXJTYw87le-PIZhH8QVXt9xobFMmYuTTNoUaNgB4">
-  <meta property="article:modified_time" content="2026-03-26T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-04-02T00:00:00+00:00">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
@@ -81,7 +81,14 @@
             "secondary-fixed-dim": "#69e6a1",
             "outline-variant": "#adada9",
             "secondary-container": "#78f5ae",
-            "on-primary": "#cfffce"
+            "on-primary": "#cfffce",
+            "warm-sand": "#e8dfd0",
+            "warm-terracotta": "#c4724e",
+            "warm-sage": "#7a8c6e",
+            "warm-clay": "#b5906b",
+            "warm-earth": "#6b5744",
+            "warm-cream": "#faf6ef",
+            "warm-moss": "#4a5a3c"
           },
           fontFamily: {
             "headline": ["Outfit"],
@@ -100,174 +107,530 @@
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
-    .editorial-shadow {
-      box-shadow: 0 12px 40px rgba(13, 15, 12, 0.06);
-    }
     .vibrant-gradient {
-      background: linear-gradient(135deg, #006a28 0%, #5cfd80 100%);
-    }
-    .editorial-gradient {
       background: linear-gradient(135deg, #006a28 0%, #5cfd80 100%);
     }
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Warm organic card patterns */
+    .card-pattern-1 {
+      background: linear-gradient(135deg, #e8dfd0 0%, #f5ede0 50%, #faf6ef 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-pattern-1::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,140,110,0.15) 0%, transparent 70%);
+    }
+    .card-pattern-2 {
+      background: linear-gradient(160deg, #f0e8db 0%, #e8dfd0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-pattern-2::before {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,114,78,0.12) 0%, transparent 70%);
+    }
+    .card-pattern-3 {
+      background: linear-gradient(145deg, #eae5dc 0%, #f2ede5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-pattern-3::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,106,40,0.08) 0%, transparent 70%);
+    }
+
+    /* Hero organic shapes */
+    .hero-bg {
+      background: linear-gradient(180deg, #f7f7f2 0%, #f0ebe1 40%, #e8dfd0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,140,110,0.1) 0%, transparent 60%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,114,78,0.08) 0%, transparent 60%);
+    }
+
+    /* Featured card glow */
+    .featured-glow {
+      box-shadow: 0 8px 40px rgba(107, 87, 68, 0.08), 0 2px 12px rgba(107, 87, 68, 0.04);
+    }
+    .featured-glow:hover {
+      box-shadow: 0 12px 48px rgba(107, 87, 68, 0.14), 0 4px 16px rgba(107, 87, 68, 0.06);
+    }
+
+    /* Category pill styles */
+    .pill-healing { background: #f0e8db; color: #6b5744; }
+    .pill-somatic { background: #e6ece2; color: #4a5a3c; }
+    .pill-purpose { background: #e0eee8; color: #005a35; }
+    .pill-science { background: #e8e4df; color: #5a5c58; }
+    .pill-practice { background: #f2e6dc; color: #8a5e3c; }
+    .pill-new { background: #006a28; color: white; }
+
+    /* Divider line with dot */
+    .dot-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dot-divider::before,
+    .dot-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d3cfc6, transparent);
+    }
+
+    /* Staggered animation delays */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
   </style>
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container">
 
-  <!-- NAVBAR (loaded from shared navbar.js) -->
+  <!-- NAVBAR -->
   <div id="navbar"></div>
   <script src="navbar.js"></script>
 
-  <!-- MAIN CONTENT -->
   <main class="pt-24">
 
-    <!-- HERO SECTION -->
-    <section class="py-32 bg-background">
-      <div class="max-w-[1440px] mx-auto px-10 text-center">
-        <span class="font-label text-primary font-bold uppercase tracking-widest text-sm mb-4 block">From The Blog</span>
-        <h1 class="font-headline text-5xl md:text-6xl font-black mb-6 text-on-surface">Men's Heartbreak Recovery Blog</h1>
-        <p class="text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto font-light">Weekly insights on healing, brotherhood, and authentic masculine evolution.</p>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO SECTION — warm, inviting, grounded    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="hero-bg py-24 md:py-32">
+      <div class="max-w-[1200px] mx-auto px-8 relative z-10">
+        <div class="max-w-2xl mx-auto text-center">
+          <span class="inline-block font-label text-warm-terracotta font-bold uppercase tracking-[0.2em] text-xs mb-6">From the Depth</span>
+          <h1 class="font-headline text-5xl md:text-6xl font-black mb-6 text-on-surface leading-tight">Words for Men<br>Who Feel Everything</h1>
+          <p class="text-lg text-on-surface-variant mb-10 font-light leading-relaxed">Healing, embodiment, and the kind of truth<br class="hidden md:block"> you won't find anywhere else.</p>
 
-        <!-- Subscribe Form -->
-        <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-          <input type="email" placeholder="email@address.com" required class="px-6 py-4 rounded-full border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary flex-1 sm:flex-none sm:min-w-[280px] bg-white" />
-          <button type="submit" class="vibrant-gradient text-white px-8 py-4 rounded-full font-bold hover:opacity-90 transition whitespace-nowrap">
-            Subscribe
-          </button>
-        </form>
+          <!-- Subscribe -->
+          <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+            <input type="email" placeholder="your email" required class="px-5 py-3.5 rounded-full border border-warm-sand focus:outline-none focus:ring-2 focus:ring-warm-sage/40 flex-1 bg-white/80 backdrop-blur text-sm" />
+            <button type="submit" class="bg-on-surface text-surface px-7 py-3.5 rounded-full font-bold text-sm hover:bg-warm-earth transition whitespace-nowrap">
+              Subscribe
+            </button>
+          </form>
+          <p class="text-[11px] mt-3 text-on-surface-variant/50 uppercase tracking-widest">Free weekly essays. No spam.</p>
+        </div>
       </div>
     </section>
 
-    <!-- FEATURED BLOG POSTS -->
-    <section class="py-32 bg-surface">
-      <div class="max-w-[1440px] mx-auto px-10">
-        <div class="mb-16">
-          <span class="font-label text-primary font-bold uppercase tracking-widest">Deep Dives</span>
-          <h2 class="font-headline text-5xl font-black mt-4">Heartbreak Recovery for Men</h2>
-          <p class="text-lg text-stone-600 mt-4 max-w-2xl">Research-backed guides on healing after a breakup — from the body up. No platitudes. No shortcuts. The real work.</p>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LATEST — the new article, prominent         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-20 bg-background">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="dot-divider mb-16">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-warm-terracotta font-label">New</span>
         </div>
 
-        <!-- Pillar Post (featured large) -->
-        <a href="blog/complete-guide-heal-after-breakup.html" class="block group mb-10 bg-primary rounded-2xl overflow-hidden fade-up">
-          <div class="p-10 md:p-14">
-            <span class="text-xs font-bold uppercase tracking-widest text-white/60 font-label">Pillar Guide · 20 min read</span>
-            <h3 class="font-headline text-3xl md:text-4xl font-black text-white mt-3 group-hover:opacity-90 transition-opacity">How to Heal After a Breakup as a Man: The Complete Guide</h3>
-            <p class="text-white/80 mt-4 text-lg max-w-2xl">The 5-phase, research-backed framework for men's heartbreak recovery — nervous system regulation, somatic healing, brotherhood, identity work, and initiation.</p>
+        <a href="blog/intelligence-is-cheap-now.html" class="group block fade-up">
+          <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px]">
+            <!-- Visual side -->
+            <div class="relative bg-gradient-to-br from-warm-earth via-warm-clay to-warm-terracotta p-12 md:p-16 flex flex-col justify-between min-h-[320px]">
+              <div>
+                <span class="pill-new text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full inline-block">Latest Essay</span>
+              </div>
+              <div class="mt-auto">
+                <!-- Abstract SVG illustration -->
+                <svg viewBox="0 0 200 120" class="w-48 opacity-20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="60" r="35" stroke="white" stroke-width="1.5"/>
+                  <circle cx="100" cy="50" r="25" stroke="white" stroke-width="1.5"/>
+                  <circle cx="150" cy="70" r="20" stroke="white" stroke-width="1.5"/>
+                  <path d="M75 60 L75 50" stroke="white" stroke-width="1.5"/>
+                  <path d="M125 55 L125 70" stroke="white" stroke-width="1.5"/>
+                  <circle cx="40" cy="60" r="4" fill="white" opacity="0.5"/>
+                  <circle cx="100" cy="50" r="3" fill="white" opacity="0.5"/>
+                </svg>
+              </div>
+            </div>
+            <!-- Content side -->
+            <div class="bg-warm-cream p-12 md:p-16 flex flex-col justify-center">
+              <p class="text-xs font-bold uppercase tracking-widest text-warm-terracotta font-label mb-4">Embodiment &middot; AI &middot; 4 min read</p>
+              <h2 class="font-headline text-3xl md:text-4xl font-black text-on-surface mb-4 group-hover:text-warm-earth transition-colors leading-tight">Intelligence Is Cheap Now. Embodiment Is the Edge.</h2>
+              <p class="text-on-surface-variant leading-relaxed mb-6">AI made intelligence available for $20 a month. So why are you still stuck? The missing piece isn't more knowledge.</p>
+              <span class="text-warm-earth font-bold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">Read essay <span class="text-lg">&rarr;</span></span>
+            </div>
           </div>
         </a>
-
-        <!-- New Pillar Posts -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <a href="blog/why-men-cant-cry.html" class="block group bg-secondary-container rounded-2xl overflow-hidden fade-up">
-            <div class="p-10">
-              <span class="text-xs font-bold uppercase tracking-widest text-on-secondary-container/60 font-label">Somatic Healing · 10 min read</span>
-              <h3 class="font-headline text-2xl md:text-3xl font-black text-on-secondary-container mt-3 group-hover:opacity-90 transition-opacity">Why Men Can't Cry (And What Your Body Is Trying to Tell You)</h3>
-              <p class="text-on-secondary-container/80 mt-4 max-w-xl">The entire men's conversation is neck-up. Your emotional numbness isn't a character flaw — it's your nervous system stuck in survival mode.</p>
-            </div>
-          </a>
-          <a href="blog/you-did-everything-right-still-empty.html" class="block group bg-tertiary-container/20 border border-tertiary/20 rounded-2xl overflow-hidden fade-up">
-            <div class="p-10">
-              <span class="text-xs font-bold uppercase tracking-widest text-tertiary font-label">Find Your Purpose · 9 min read</span>
-              <h3 class="font-headline text-2xl md:text-3xl font-black text-on-surface mt-3 group-hover:text-tertiary transition-colors">You Did Everything Right and Still Feel Empty</h3>
-              <p class="text-on-surface-variant mt-4 max-w-xl">85% of men feel disconnected from purpose. You got the degree, the job, maybe the girl. And it still feels hollow. This is your initiation.</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Blog grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <a href="blog/why-breakups-harder-for-men.html" class="group bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Science · 6 min</span>
-            <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-primary transition-colors">Why Breakups Are Actually Harder for Men (Science Agrees)</h3>
-            <p class="text-stone-600 mt-3 text-sm leading-relaxed">Lancaster University analyzed 184,000 posts. Men discussed heartbreak more than women. Not less. More.</p>
-          </a>
-
-          <a href="blog/five-stages-heartbreak-men.html" class="group bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Framework · 7 min</span>
-            <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-primary transition-colors">The 5 Stages of Heartbreak Every Man Goes Through</h3>
-            <p class="text-stone-600 mt-3 text-sm leading-relaxed">Not tidy grief stages. The real rooms you keep walking back into — numbness, performance, flood, reckoning, rebuild.</p>
-          </a>
-
-          <a href="blog/how-long-to-get-over-breakup.html" class="group bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Timeline · 8 min</span>
-            <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-primary transition-colors">How Long Does It Really Take a Man to Get Over a Breakup?</h3>
-            <p class="text-stone-600 mt-3 text-sm leading-relaxed">The honest answer isn't a number. It's about what you do with the time. Here's what actually determines recovery.</p>
-          </a>
-
-          <a href="blog/nervous-system-hijacked-heartbreak.html" class="group bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Neuroscience · 9 min</span>
-            <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-primary transition-colors">Your Nervous System Is Hijacked: The Science of Heartbreak</h3>
-            <p class="text-stone-600 mt-3 text-sm leading-relaxed">Your brain processes heartbreak through the same pathways as physical injury. Here's the neuroscience — and how to come back online.</p>
-          </a>
-
-          <a href="blog/she-left-now-what-first-7-days.html" class="group bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Field Guide · 10 min</span>
-            <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-primary transition-colors">She Left. Now What? A Man's Guide to the First 7 Days</h3>
-            <p class="text-stone-600 mt-3 text-sm leading-relaxed">Day by day. What's happening inside you, what not to do, and what will actually help. A survival manual.</p>
-          </a>
-
-          <a href="blog/daily-routine-after-breakup.html" class="group bg-surface-container-low rounded-xl p-8 hover:shadow-lg transition-all fade-up">
-            <span class="text-xs font-bold uppercase tracking-widest text-primary font-label">Practice · 10 min</span>
-            <h3 class="font-headline text-xl font-bold mt-3 group-hover:text-primary transition-colors">The Daily Routine That Saved Me After My Worst Breakup</h3>
-            <p class="text-stone-600 mt-3 text-sm leading-relaxed">The exact morning, midday, and evening routine that rebuilt me from the ground up. Not theory. The actual work.</p>
-          </a>
-        </div>
       </div>
     </section>
 
-    <!-- NEWSLETTER BLOG GRID -->
-    <section class="py-32 bg-surface-container-low">
-      <div class="max-w-[1440px] mx-auto px-10">
-        <div class="flex justify-between items-end mb-16">
-          <div>
-            <span class="font-label text-primary font-bold uppercase tracking-widest">From the Newsletter</span>
-            <h2 class="font-headline text-5xl font-black mt-4">More Writing</h2>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PILLAR GUIDE — The Complete Guide (hero)    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-20 bg-surface-container-low">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="dot-divider mb-16">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-warm-sage font-label">Deep Dives</span>
+        </div>
+
+        <a href="blog/complete-guide-heal-after-breakup.html" class="group block mb-8 fade-up">
+          <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px]">
+            <!-- Visual side — tree of phases -->
+            <div class="relative p-12 md:p-16 flex items-center justify-center min-h-[360px]" style="background: linear-gradient(160deg, #4a5a3c 0%, #5d6e4e 40%, #6b5744 100%);">
+              <svg viewBox="0 0 240 280" class="w-52 opacity-30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Trunk -->
+                <line x1="120" y1="280" x2="120" y2="50" stroke="white" stroke-width="2.5"/>
+                <!-- Branches -->
+                <line x1="120" y1="230" x2="60" y2="200" stroke="white" stroke-width="1.5"/>
+                <line x1="120" y1="190" x2="180" y2="160" stroke="white" stroke-width="1.5"/>
+                <line x1="120" y1="150" x2="55" y2="120" stroke="white" stroke-width="1.5"/>
+                <line x1="120" y1="110" x2="185" y2="80" stroke="white" stroke-width="1.5"/>
+                <line x1="120" y1="70" x2="75" y2="40" stroke="white" stroke-width="1.5"/>
+                <!-- Phase circles -->
+                <circle cx="50" cy="195" r="18" stroke="white" stroke-width="1.5"/>
+                <circle cx="190" cy="155" r="18" stroke="white" stroke-width="1.5"/>
+                <circle cx="45" cy="115" r="18" stroke="white" stroke-width="1.5"/>
+                <circle cx="195" cy="75" r="18" stroke="white" stroke-width="1.5"/>
+                <circle cx="65" cy="35" r="18" stroke="white" stroke-width="1.5"/>
+                <!-- Numbered centers -->
+                <text x="50" y="200" text-anchor="middle" fill="white" font-size="14" font-weight="bold" opacity="0.7">1</text>
+                <text x="190" y="160" text-anchor="middle" fill="white" font-size="14" font-weight="bold" opacity="0.7">2</text>
+                <text x="45" y="120" text-anchor="middle" fill="white" font-size="14" font-weight="bold" opacity="0.7">3</text>
+                <text x="195" y="80" text-anchor="middle" fill="white" font-size="14" font-weight="bold" opacity="0.7">4</text>
+                <text x="65" y="40" text-anchor="middle" fill="white" font-size="14" font-weight="bold" opacity="0.7">5</text>
+                <!-- Crown -->
+                <circle cx="120" cy="35" r="22" stroke="white" stroke-width="2"/>
+                <circle cx="120" cy="35" r="6" fill="white" opacity="0.4"/>
+              </svg>
+            </div>
+            <!-- Content side -->
+            <div class="bg-warm-cream p-12 md:p-16 flex flex-col justify-center">
+              <span class="inline-block bg-warm-moss/10 text-warm-moss text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5 w-fit">Pillar Guide &middot; 20 min read</span>
+              <h3 class="font-headline text-3xl md:text-4xl font-black text-on-surface leading-tight group-hover:text-warm-earth transition-colors">How to Heal After a Breakup as a Man: The Complete Guide</h3>
+              <p class="text-on-surface-variant mt-5 leading-relaxed">The 5-phase framework for men's heartbreak recovery. Nervous system regulation, somatic healing, brotherhood, identity work, and initiation.</p>
+              <span class="inline-flex items-center gap-2 text-warm-earth font-bold text-sm mt-8 group-hover:gap-3 transition-all">Start reading <span class="text-lg">&rarr;</span></span>
+            </div>
           </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ALL ARTICLES — each with unique visual      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-20 bg-background">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="dot-divider mb-16">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant font-label">All Articles</span>
+        </div>
+
+        <!-- Row 1: Two visual cards side by side -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+          <!-- Why Men Can't Cry — frozen drop / eye illustration -->
+          <a href="blog/why-men-cant-cry.html" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up">
+            <div class="grid grid-cols-5 min-h-[260px]">
+              <div class="col-span-2 flex items-center justify-center" style="background: linear-gradient(160deg, #7a8c6e 0%, #5d6e4e 100%);">
+                <svg viewBox="0 0 100 140" class="w-16 opacity-30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Eye shape -->
+                  <ellipse cx="50" cy="55" rx="40" ry="28" stroke="white" stroke-width="2"/>
+                  <!-- Iris -->
+                  <circle cx="50" cy="55" r="16" stroke="white" stroke-width="1.5"/>
+                  <!-- Pupil -->
+                  <circle cx="50" cy="55" r="6" fill="white" opacity="0.4"/>
+                  <!-- Frozen tear -->
+                  <path d="M50 83 Q42 100 50 120 Q58 100 50 83Z" stroke="white" stroke-width="1.5"/>
+                  <circle cx="50" cy="105" r="3" fill="white" opacity="0.3"/>
+                </svg>
+              </div>
+              <div class="col-span-3 p-8 bg-white flex flex-col justify-center">
+                <span class="pill-somatic text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-3 w-fit">Somatic Healing &middot; 10 min</span>
+                <h3 class="font-headline text-xl font-black leading-snug group-hover:text-warm-moss transition-colors">Why Men Can't Cry (And What Your Body Is Trying to Tell You)</h3>
+                <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Your emotional numbness isn't a character flaw. It's your nervous system stuck in survival mode.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- You Did Everything Right — hollow circle / compass -->
+          <a href="blog/you-did-everything-right-still-empty.html" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
+            <div class="grid grid-cols-5 min-h-[260px]">
+              <div class="col-span-2 flex items-center justify-center" style="background: linear-gradient(160deg, #b5906b 0%, #8a6e4e 100%);">
+                <svg viewBox="0 0 100 100" class="w-16 opacity-30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Outer circle -->
+                  <circle cx="50" cy="50" r="42" stroke="white" stroke-width="2"/>
+                  <!-- Inner empty circle -->
+                  <circle cx="50" cy="50" r="24" stroke="white" stroke-width="1.5" stroke-dasharray="4 3"/>
+                  <!-- Compass needle -->
+                  <line x1="50" y1="26" x2="50" y2="10" stroke="white" stroke-width="2"/>
+                  <polygon points="50,8 46,18 54,18" fill="white" opacity="0.5"/>
+                  <!-- Tick marks -->
+                  <line x1="50" y1="8" x2="50" y2="3" stroke="white" stroke-width="1.5"/>
+                  <line x1="92" y1="50" x2="97" y2="50" stroke="white" stroke-width="1.5"/>
+                  <line x1="50" y1="92" x2="50" y2="97" stroke="white" stroke-width="1.5"/>
+                  <line x1="8" y1="50" x2="3" y2="50" stroke="white" stroke-width="1.5"/>
+                  <!-- Center dot — empty -->
+                  <circle cx="50" cy="50" r="3" stroke="white" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="col-span-3 p-8 bg-white flex flex-col justify-center">
+                <span class="pill-purpose text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-3 w-fit">Purpose &middot; 9 min</span>
+                <h3 class="font-headline text-xl font-black leading-snug group-hover:text-warm-earth transition-colors">You Did Everything Right and Still Feel Empty</h3>
+                <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">You got the degree, the job, maybe the girl. And it still feels hollow. This is your initiation.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Row 2: Three visual cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+
+          <!-- Why Breakups Are Harder — broken graph / data viz -->
+          <a href="blog/why-breakups-harder-for-men.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
+            <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #5a5c58 0%, #767773 100%);">
+              <svg viewBox="0 0 160 80" class="w-32 opacity-25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bar chart with emotional gap -->
+                <rect x="15" y="30" width="18" height="50" rx="3" stroke="white" stroke-width="1.5"/>
+                <rect x="41" y="10" width="18" height="70" rx="3" stroke="white" stroke-width="1.5" fill="white" fill-opacity="0.15"/>
+                <rect x="67" y="40" width="18" height="40" rx="3" stroke="white" stroke-width="1.5"/>
+                <rect x="93" y="5" width="18" height="75" rx="3" stroke="white" stroke-width="1.5" fill="white" fill-opacity="0.15"/>
+                <rect x="119" y="25" width="18" height="55" rx="3" stroke="white" stroke-width="1.5"/>
+                <!-- Trend line -->
+                <path d="M24 30 L50 10 L76 40 L102 5 L128 25" stroke="white" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+              </svg>
+              <span class="absolute top-4 left-4 pill-science text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Science &middot; 6 min</span>
+            </div>
+            <div class="p-6 bg-white">
+              <h3 class="font-headline text-lg font-bold leading-snug group-hover:text-warm-earth transition-colors">Why Breakups Are Actually Harder for Men (Science Agrees)</h3>
+              <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Lancaster University analyzed 184,000 posts. Men discussed heartbreak more than women.</p>
+            </div>
+          </a>
+
+          <!-- 5 Stages — staircase / rooms illustration -->
+          <a href="blog/five-stages-heartbreak-men.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
+            <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #c4724e 0%, #b5906b 100%);">
+              <svg viewBox="0 0 160 80" class="w-32 opacity-25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Five doors / rooms -->
+                <rect x="5" y="20" width="24" height="55" rx="4" stroke="white" stroke-width="1.5"/>
+                <rect x="35" y="30" width="24" height="45" rx="4" stroke="white" stroke-width="1.5"/>
+                <rect x="65" y="10" width="24" height="65" rx="4" stroke="white" stroke-width="1.5" fill="white" fill-opacity="0.1"/>
+                <rect x="95" y="25" width="24" height="50" rx="4" stroke="white" stroke-width="1.5"/>
+                <rect x="125" y="15" width="24" height="60" rx="4" stroke="white" stroke-width="1.5"/>
+                <!-- Door handles -->
+                <circle cx="25" cy="50" r="2" fill="white" opacity="0.5"/>
+                <circle cx="55" cy="55" r="2" fill="white" opacity="0.5"/>
+                <circle cx="85" cy="45" r="2" fill="white" opacity="0.5"/>
+                <circle cx="115" cy="52" r="2" fill="white" opacity="0.5"/>
+                <circle cx="145" cy="48" r="2" fill="white" opacity="0.5"/>
+              </svg>
+              <span class="absolute top-4 left-4 pill-healing text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Framework &middot; 7 min</span>
+            </div>
+            <div class="p-6 bg-white">
+              <h3 class="font-headline text-lg font-bold leading-snug group-hover:text-warm-earth transition-colors">The 5 Stages of Heartbreak Every Man Goes Through</h3>
+              <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Not tidy grief stages. The rooms you keep walking back into &mdash; numbness, performance, flood, reckoning, rebuild.</p>
+            </div>
+          </a>
+
+          <!-- How Long — hourglass / time illustration -->
+          <a href="blog/how-long-to-get-over-breakup.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
+            <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #6b5744 0%, #b5906b 100%);">
+              <svg viewBox="0 0 80 120" class="w-14 opacity-25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hourglass -->
+                <line x1="15" y1="5" x2="65" y2="5" stroke="white" stroke-width="2"/>
+                <line x1="15" y1="115" x2="65" y2="115" stroke="white" stroke-width="2"/>
+                <path d="M20 5 Q20 50 40 60 Q60 50 60 5" stroke="white" stroke-width="1.5" fill="white" fill-opacity="0.08"/>
+                <path d="M20 115 Q20 70 40 60 Q60 70 60 115" stroke="white" stroke-width="1.5" fill="white" fill-opacity="0.08"/>
+                <!-- Sand grains falling -->
+                <circle cx="40" cy="65" r="1.5" fill="white" opacity="0.5"/>
+                <circle cx="40" cy="72" r="1.5" fill="white" opacity="0.4"/>
+                <circle cx="40" cy="79" r="1.5" fill="white" opacity="0.3"/>
+                <!-- Collected sand -->
+                <path d="M28 115 Q40 95 52 115" fill="white" opacity="0.15"/>
+              </svg>
+              <span class="absolute top-4 left-4 pill-healing text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Timeline &middot; 8 min</span>
+            </div>
+            <div class="p-6 bg-white">
+              <h3 class="font-headline text-lg font-bold leading-snug group-hover:text-warm-earth transition-colors">How Long Does It Really Take a Man to Get Over a Breakup?</h3>
+              <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">The honest answer isn't a number. It's about what you do with the time.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Row 3: Three more visual cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Nervous System Hijacked — neural network / body map -->
+          <a href="blog/nervous-system-hijacked-heartbreak.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
+            <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #4a5a3c 0%, #7a8c6e 100%);">
+              <svg viewBox="0 0 120 100" class="w-28 opacity-25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Neural network -->
+                <circle cx="60" cy="20" r="10" stroke="white" stroke-width="1.5"/>
+                <circle cx="25" cy="50" r="8" stroke="white" stroke-width="1.5"/>
+                <circle cx="60" cy="55" r="8" stroke="white" stroke-width="1.5"/>
+                <circle cx="95" cy="50" r="8" stroke="white" stroke-width="1.5"/>
+                <circle cx="35" cy="85" r="8" stroke="white" stroke-width="1.5"/>
+                <circle cx="85" cy="85" r="8" stroke="white" stroke-width="1.5"/>
+                <!-- Connections -->
+                <line x1="55" y1="28" x2="30" y2="44" stroke="white" stroke-width="1"/>
+                <line x1="60" y1="30" x2="60" y2="47" stroke="white" stroke-width="1"/>
+                <line x1="65" y1="28" x2="90" y2="44" stroke="white" stroke-width="1"/>
+                <line x1="30" y1="57" x2="53" y2="55" stroke="white" stroke-width="1"/>
+                <line x1="67" y1="55" x2="88" y2="52" stroke="white" stroke-width="1"/>
+                <line x1="28" y1="57" x2="33" y2="78" stroke="white" stroke-width="1"/>
+                <line x1="92" y1="57" x2="87" y2="78" stroke="white" stroke-width="1"/>
+                <line x1="60" y1="63" x2="40" y2="80" stroke="white" stroke-width="1"/>
+                <line x1="60" y1="63" x2="80" y2="80" stroke="white" stroke-width="1"/>
+                <!-- Pulse at center -->
+                <circle cx="60" cy="20" r="4" fill="white" opacity="0.4"/>
+              </svg>
+              <span class="absolute top-4 left-4 pill-science text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Neuroscience &middot; 9 min</span>
+            </div>
+            <div class="p-6 bg-white">
+              <h3 class="font-headline text-lg font-bold leading-snug group-hover:text-warm-earth transition-colors">Your Nervous System Is Hijacked: The Science of Heartbreak</h3>
+              <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Your brain processes heartbreak through the same pathways as physical injury.</p>
+            </div>
+          </a>
+
+          <!-- She Left — 7 day calendar / sunrise -->
+          <a href="blog/she-left-now-what-first-7-days.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
+            <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #8a5e3c 0%, #c4724e 100%);">
+              <svg viewBox="0 0 160 80" class="w-32 opacity-25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- 7 suns rising over horizon -->
+                <line x1="0" y1="60" x2="160" y2="60" stroke="white" stroke-width="1"/>
+                <!-- Day markers -->
+                <circle cx="14" cy="55" r="6" stroke="white" stroke-width="1" opacity="0.4"/>
+                <circle cx="37" cy="48" r="6" stroke="white" stroke-width="1" opacity="0.5"/>
+                <circle cx="60" cy="42" r="6" stroke="white" stroke-width="1" opacity="0.6"/>
+                <circle cx="83" cy="35" r="7" stroke="white" stroke-width="1" opacity="0.7"/>
+                <circle cx="106" cy="28" r="7" stroke="white" stroke-width="1.5" opacity="0.8"/>
+                <circle cx="129" cy="22" r="8" stroke="white" stroke-width="1.5" opacity="0.9"/>
+                <circle cx="150" cy="15" r="9" stroke="white" stroke-width="1.5"/>
+                <!-- Rays on final sun -->
+                <line x1="150" y1="2" x2="150" y2="6" stroke="white" stroke-width="1"/>
+                <line x1="163" y1="15" x2="159" y2="15" stroke="white" stroke-width="1"/>
+                <line x1="137" y1="15" x2="141" y2="15" stroke="white" stroke-width="1"/>
+                <circle cx="150" cy="15" r="3" fill="white" opacity="0.4"/>
+              </svg>
+              <span class="absolute top-4 left-4 pill-practice text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Field Guide &middot; 10 min</span>
+            </div>
+            <div class="p-6 bg-white">
+              <h3 class="font-headline text-lg font-bold leading-snug group-hover:text-warm-earth transition-colors">She Left. Now What? A Man's Guide to the First 7 Days</h3>
+              <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">Day by day. What's happening inside you, what not to do, and what will actually help.</p>
+            </div>
+          </a>
+
+          <!-- Daily Routine — sun/moon cycle -->
+          <a href="blog/daily-routine-after-breakup.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
+            <div class="h-40 flex items-center justify-center relative" style="background: linear-gradient(135deg, #6b5744 0%, #4a5a3c 100%);">
+              <svg viewBox="0 0 120 100" class="w-24 opacity-25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Circular daily rhythm -->
+                <circle cx="60" cy="50" r="38" stroke="white" stroke-width="1.5" stroke-dasharray="6 4"/>
+                <!-- Sun (morning) -->
+                <circle cx="60" cy="12" r="10" stroke="white" stroke-width="1.5"/>
+                <line x1="60" y1="0" x2="60" y2="2" stroke="white" stroke-width="1"/>
+                <line x1="70" y1="5" x2="68" y2="7" stroke="white" stroke-width="1"/>
+                <line x1="50" y1="5" x2="52" y2="7" stroke="white" stroke-width="1"/>
+                <circle cx="60" cy="12" r="3" fill="white" opacity="0.4"/>
+                <!-- Moon (evening) -->
+                <circle cx="60" cy="88" r="10" stroke="white" stroke-width="1.5"/>
+                <circle cx="55" cy="85" r="8" fill="white" fill-opacity="0.05" stroke="white" stroke-width="0"/>
+                <!-- Midday marker -->
+                <circle cx="98" cy="50" r="4" stroke="white" stroke-width="1"/>
+                <!-- Arrow showing cycle -->
+                <path d="M82 18 L88 14 L84 22" stroke="white" stroke-width="1.5" fill="none"/>
+              </svg>
+              <span class="absolute top-4 left-4 pill-practice text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Practice &middot; 10 min</span>
+            </div>
+            <div class="p-6 bg-white">
+              <h3 class="font-headline text-lg font-bold leading-snug group-hover:text-warm-earth transition-colors">The Daily Routine That Saved Me After My Worst Breakup</h3>
+              <p class="text-on-surface-variant mt-2 text-sm leading-relaxed">The exact morning, midday, and evening routine. Not theory. The actual work.</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FROM THE NEWSLETTER — RSS feed grid          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-20 bg-surface-container-low">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="dot-divider mb-16">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant font-label">From the Newsletter</span>
         </div>
 
         <!-- Loading Spinner -->
         <div id="blogLoading" class="flex justify-center mb-12">
-          <div class="w-12 h-12 border-4 border-primary-container border-t-primary rounded-full animate-spin"></div>
+          <div class="w-10 h-10 border-3 border-warm-sand border-t-warm-earth rounded-full animate-spin"></div>
         </div>
 
         <!-- Grid -->
-        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-          <!-- Posts rendered here -->
-        </div>
+        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"></div>
 
-        <!-- Load More Button -->
+        <!-- Load More -->
         <div id="loadMoreWrap" class="text-center" style="display: none;">
-          <button onclick="showMorePosts()" class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition">
+          <button onclick="showMorePosts()" class="bg-on-surface text-surface px-8 py-3 rounded-full font-bold text-sm hover:bg-warm-earth transition">
             Load More Posts
           </button>
         </div>
       </div>
     </section>
 
-    <!-- NEWSLETTER CTA BANNER -->
-    <section class="bg-inverse-surface text-surface py-32">
-      <div class="max-w-[1440px] mx-auto px-10">
-        <div class="max-w-2xl mx-auto text-center">
-          <h2 class="font-headline text-4xl font-black mb-6">Join the Newsletter</h2>
-          <p class="text-xl mb-8 opacity-90 font-light">Get weekly insights on healing, brotherhood, and authentic masculine evolution delivered to your inbox.</p>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- NEWSLETTER CTA — warm, grounded              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="py-24" style="background: linear-gradient(160deg, #6b5744 0%, #4a5a3c 50%, #3d4a32 100%);">
+      <div class="max-w-[600px] mx-auto px-8 text-center">
+        <p class="text-white/50 text-xs font-bold uppercase tracking-[0.2em] mb-6">Join the Brotherhood</p>
+        <h2 class="font-headline text-3xl md:text-4xl font-black text-white mb-4 leading-tight">One email a week.<br>No noise. Just depth.</h2>
+        <p class="text-white/60 mb-10 leading-relaxed">Healing insights, somatic practices, and the kind of truth that lands in your body &mdash; not just your inbox.</p>
 
-          <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-3 justify-center">
-            <input type="email" placeholder="email@address.com" required class="px-6 py-4 rounded-full border border-surface-container focus:outline-none focus:ring-2 focus:ring-primary-container flex-1 sm:flex-none sm:min-w-[280px] text-on-surface placeholder-on-surface-variant" />
-            <button type="submit" class="vibrant-gradient text-white px-8 py-4 rounded-full font-bold hover:opacity-90 transition whitespace-nowrap">
-              Subscribe via Beehiiv
-            </button>
-          </form>
-
-          <p class="text-[10px] mt-4 opacity-50 uppercase tracking-widest">No spam. Only growth.</p>
-        </div>
+        <form onsubmit="handleSubscribe(event)" class="flex flex-col sm:flex-row gap-3 justify-center">
+          <input type="email" placeholder="your email" required class="px-5 py-3.5 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/30 flex-1 bg-white/10 backdrop-blur text-white placeholder-white/40 text-sm" />
+          <button type="submit" class="bg-white text-warm-earth px-7 py-3.5 rounded-full font-bold text-sm hover:bg-warm-cream transition whitespace-nowrap">
+            Subscribe
+          </button>
+        </form>
+        <p class="text-[10px] mt-4 text-white/30 uppercase tracking-widest">Free. Unsubscribe anytime.</p>
       </div>
     </section>
 
   </main>
 
   <div class="text-center py-4 text-sm text-on-surface-variant/60">
-    <time datetime="2026-03-26">Last updated: March 26, 2026</time>
+    <time datetime="2026-04-02">Last updated: April 2, 2026</time>
   </div>
 
   <div id="footer"></div>
@@ -275,8 +638,6 @@
   <script src="seo.js"></script>
 
   <script>
-    // (Hamburger toggle now handled by navbar.js)
-
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
@@ -305,14 +666,21 @@
         frame.src = `https://sunnys-newsletter.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`;
         document.body.appendChild(frame); setTimeout(() => frame.remove(), 5000);
       } catch (err) { console.warn('Beehiiv:', err); }
-      btn.textContent = "You're in ✓"; form.reset();
+      btn.textContent = "You're in"; form.reset();
       setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 3000);
     }
 
     // RSS Feed
     const BEEHIIV_FEED = 'https://sunnys-newsletter.beehiiv.com/feed';
     const PROXIES = ['https://api.allorigins.win/raw?url=', 'https://corsproxy.io/?'];
-    const gradients = ['linear-gradient(135deg, #006a28, #00693f)', 'linear-gradient(135deg, #00693f, #006572)', 'linear-gradient(135deg, #006572, #006a28)', 'linear-gradient(135deg, #006a28, #005d22)', 'linear-gradient(135deg, #00693f, #006a28)', 'linear-gradient(135deg, #006572, #00693f)'];
+    const warmGradients = [
+      'linear-gradient(135deg, #6b5744, #b5906b)',
+      'linear-gradient(135deg, #7a8c6e, #4a5a3c)',
+      'linear-gradient(135deg, #c4724e, #b5906b)',
+      'linear-gradient(135deg, #4a5a3c, #6b5744)',
+      'linear-gradient(135deg, #b5906b, #c4724e)',
+      'linear-gradient(135deg, #6b5744, #7a8c6e)'
+    ];
     const fallbackPosts = [
       { title: 'The War Is Over', excerpt: 'Why the armor you built to survive is now keeping you from living.', date: 'Mar 05, 2026', link: 'https://sunnys-newsletter.beehiiv.com/' },
       { title: 'Fear Screams. Intuition Is Simple.', excerpt: 'How to tell the difference between the voice that protects you and the one that guides you.', date: 'Feb 26, 2026', link: 'https://sunnys-newsletter.beehiiv.com/' },
@@ -329,17 +697,17 @@
       posts.forEach((p, i) => {
         const card = document.createElement('a');
         card.href = p.link; card.target = '_blank'; card.rel = 'noopener';
-        card.className = 'group block bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow hover:translate-y-[-8px] transition-all duration-300 fade-up';
+        card.className = 'group block rounded-2xl overflow-hidden bg-white featured-glow hover:translate-y-[-4px] transition-all duration-500 fade-up';
         if (i >= visibleCount) card.style.display = 'none';
         card.setAttribute('data-index', i);
         card.innerHTML = `
-          <div class="aspect-video overflow-hidden" style="background:${gradients[i%gradients.length]}">
-            ${p.imgSrc ? `<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="${p.imgSrc}" alt="${p.title}" loading="lazy">` : `<div class="w-full h-full flex items-center justify-center p-6"><span class="text-white font-headline text-xl italic text-center">${p.title}</span></div>`}
+          <div class="aspect-[16/9] overflow-hidden relative" style="background:${warmGradients[i % warmGradients.length]}">
+            ${p.imgSrc ? `<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${p.imgSrc}" alt="${p.title}" loading="lazy">` : `<div class="w-full h-full flex items-center justify-center p-8"><span class="text-white/80 font-headline text-xl text-center leading-tight">${p.title}</span></div>`}
           </div>
           <div class="p-6">
-            <span class="text-xs font-bold uppercase tracking-widest text-secondary">Featured</span>
-            <h3 class="font-headline text-2xl font-bold mt-4 group-hover:text-primary transition-colors">${p.title}</h3>
-            <p class="text-on-surface-variant mt-4 line-clamp-2">${p.excerpt}</p>
+            ${p.date ? `<span class="text-[10px] font-bold uppercase tracking-widest text-warm-clay font-label">${p.date}</span>` : ''}
+            <h3 class="font-headline text-lg font-bold mt-2 group-hover:text-warm-earth transition-colors leading-snug">${p.title}</h3>
+            <p class="text-on-surface-variant mt-2 text-sm leading-relaxed line-clamp-2">${p.excerpt}</p>
           </div>
         `;
         grid.appendChild(card);
