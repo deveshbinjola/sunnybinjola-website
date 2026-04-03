@@ -223,6 +223,43 @@
     .delay-3 { transition-delay: 0.3s; }
     .delay-4 { transition-delay: 0.4s; }
     .delay-5 { transition-delay: 0.5s; }
+
+    /* Tag filter bar */
+    .tag-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .tag-btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-family: Manrope;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1.5px solid #adada9;
+      color: #5a5c58;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tag-btn:hover {
+      border-color: #006a28;
+      color: #006a28;
+    }
+    .tag-btn.active {
+      background: #006a28;
+      border-color: #006a28;
+      color: white;
+    }
+    .blog-card-hidden {
+      display: none !important;
+    }
+    .section-hidden {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden selection:bg-primary-container">
@@ -258,13 +295,13 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- LATEST — the new article, prominent         -->
     <!-- ═══════════════════════════════════════════ -->
-    <section class="py-20 bg-background">
+    <section class="py-20 bg-background filterable-section" id="section-latest">
       <div class="max-w-[1200px] mx-auto px-8">
         <div class="dot-divider mb-16">
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary font-label">New</span>
         </div>
 
-        <a href="blog/intelligence-is-cheap-now.html" class="group block fade-up">
+        <a href="blog/intelligence-is-cheap-now.html" data-tags="embodiment,purpose" class="group block fade-up">
           <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px]">
             <!-- Visual side -->
             <div class="relative min-h-[320px] overflow-hidden">
@@ -288,10 +325,28 @@
       </div>
     </section>
 
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TAG FILTER BAR                              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="pt-12 pb-4 bg-background">
+      <div class="max-w-[1200px] mx-auto px-8">
+        <div class="tag-bar" id="tagBar">
+          <button class="tag-btn active" data-filter="all">All</button>
+          <button class="tag-btn" data-filter="heartbreak">Heartbreak</button>
+          <button class="tag-btn" data-filter="somatic-healing">Somatic Healing</button>
+          <button class="tag-btn" data-filter="relationships">Relationships</button>
+          <button class="tag-btn" data-filter="embodiment">Embodiment</button>
+          <button class="tag-btn" data-filter="purpose">Purpose</button>
+          <button class="tag-btn" data-filter="intimacy">Intimacy</button>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══════════════════════════════════════════ -->
     <!-- ALL ARTICLES — each with unique visual      -->
     <!-- ═══════════════════════════════════════════ -->
-    <section class="py-20 bg-background">
+    <section class="py-20 bg-background filterable-section" id="section-all-articles">
       <div class="max-w-[1200px] mx-auto px-8">
         <div class="dot-divider mb-16">
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant font-label">All Articles</span>
@@ -299,7 +354,7 @@
 
         <!-- New: What Women Actually Want -->
         <div class="mb-6">
-          <a href="blog/what-women-actually-want.html" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up">
+          <a href="blog/what-women-actually-want.html" data-tags="relationships,intimacy" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up">
             <div class="grid grid-cols-5 min-h-[260px]">
               <div class="col-span-2 relative overflow-hidden">
                 <img src="blog/images/4.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
@@ -318,7 +373,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 
           <!-- Why Men Can't Cry — frozen drop / eye illustration -->
-          <a href="blog/why-men-cant-cry.html" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up">
+          <a href="blog/why-men-cant-cry.html" data-tags="somatic-healing,embodiment" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up">
             <div class="grid grid-cols-5 min-h-[260px]">
               <div class="col-span-2 relative overflow-hidden">
                 <img src="blog/images/6.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
@@ -333,7 +388,7 @@
           </a>
 
           <!-- You Did Everything Right — hollow circle / compass -->
-          <a href="blog/you-did-everything-right-still-empty.html" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
+          <a href="blog/you-did-everything-right-still-empty.html" data-tags="purpose,embodiment" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
             <div class="grid grid-cols-5 min-h-[260px]">
               <div class="col-span-2 relative overflow-hidden">
                 <img src="blog/images/9.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
@@ -352,7 +407,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 
           <!-- Why Breakups Are Harder — broken graph / data viz -->
-          <a href="blog/why-breakups-harder-for-men.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
+          <a href="blog/why-breakups-harder-for-men.html" data-tags="heartbreak,intimacy" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
             <div class="h-48 relative overflow-hidden">
               <img src="blog/images/3.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -365,7 +420,7 @@
           </a>
 
           <!-- 5 Stages — staircase / rooms illustration -->
-          <a href="blog/five-stages-heartbreak-men.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
+          <a href="blog/five-stages-heartbreak-men.html" data-tags="heartbreak" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
             <div class="h-48 relative overflow-hidden">
               <img src="blog/images/4.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -378,7 +433,7 @@
           </a>
 
           <!-- How Long — hourglass / time illustration -->
-          <a href="blog/how-long-to-get-over-breakup.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
+          <a href="blog/how-long-to-get-over-breakup.html" data-tags="heartbreak" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
             <div class="h-48 relative overflow-hidden">
               <img src="blog/images/7.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -395,7 +450,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <!-- Nervous System Hijacked — neural network / body map -->
-          <a href="blog/nervous-system-hijacked-heartbreak.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
+          <a href="blog/nervous-system-hijacked-heartbreak.html" data-tags="somatic-healing,heartbreak" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
             <div class="h-48 relative overflow-hidden">
               <img src="blog/images/8.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -408,7 +463,7 @@
           </a>
 
           <!-- She Left — 7 day calendar / sunrise -->
-          <a href="blog/she-left-now-what-first-7-days.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
+          <a href="blog/she-left-now-what-first-7-days.html" data-tags="heartbreak" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
             <div class="h-48 relative overflow-hidden">
               <img src="blog/images/2.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -421,7 +476,7 @@
           </a>
 
           <!-- Daily Routine — sun/moon cycle -->
-          <a href="blog/daily-routine-after-breakup.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
+          <a href="blog/daily-routine-after-breakup.html" data-tags="heartbreak,embodiment" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
             <div class="h-48 relative overflow-hidden">
               <img src="blog/images/9.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -440,13 +495,13 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- PILLAR GUIDE — The Complete Guide (hero)    -->
     <!-- ═══════════════════════════════════════════ -->
-    <section class="py-20 bg-surface-container-low">
+    <section class="py-20 bg-surface-container-low filterable-section" id="section-deep-dives">
       <div class="max-w-[1200px] mx-auto px-8">
         <div class="dot-divider mb-16">
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-warm-sage font-label">Deep Dives</span>
         </div>
 
-        <a href="blog/complete-guide-heal-after-breakup.html" class="group block mb-8 fade-up">
+        <a href="blog/complete-guide-heal-after-breakup.html" data-tags="heartbreak" class="group block mb-8 fade-up">
           <div class="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px]">
             <!-- Visual side — tree of phases -->
             <div class="relative min-h-[360px] overflow-hidden">
@@ -468,7 +523,7 @@
     <!-- ═══════════════════════════════════════════ -->
     <!-- FEATURED NEW — Poems & Somatic Exercises     -->
     <!-- ═══════════════════════════════════════════ -->
-    <section class="py-20 bg-background">
+    <section class="py-20 bg-background filterable-section" id="section-featured">
       <div class="max-w-[1200px] mx-auto px-8">
         <div class="dot-divider mb-16">
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-primary font-label">Featured</span>
@@ -476,7 +531,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <!-- Poems That Heal Heartbreak -->
-          <a href="blog/poems-that-heal-heartbreak.html" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up">
+          <a href="blog/poems-that-heal-heartbreak.html" data-tags="heartbreak,embodiment" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up">
             <div class="grid grid-cols-5 min-h-[260px]">
               <div class="col-span-2 relative overflow-hidden">
                 <img src="blog/images/6.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
@@ -491,7 +546,7 @@
           </a>
 
           <!-- 7 Somatic Exercises -->
-          <a href="blog/somatic-exercises-heal-heartbreak.html" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
+          <a href="blog/somatic-exercises-heal-heartbreak.html" data-tags="somatic-healing,embodiment" class="group block rounded-3xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-1">
             <div class="grid grid-cols-5 min-h-[260px]">
               <div class="col-span-2 relative overflow-hidden">
                 <img src="blog/images/3.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
@@ -510,7 +565,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
           <!-- Best Resources -->
-          <a href="blog/best-heartbreak-recovery-resources-men.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
+          <a href="blog/best-heartbreak-recovery-resources-men.html" data-tags="heartbreak" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-2">
             <div class="h-40 relative overflow-hidden">
               <img src="blog/images/8.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -523,7 +578,7 @@
           </a>
 
           <!-- Podcasts -->
-          <a href="blog/best-heartbreak-podcasts-men.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
+          <a href="blog/best-heartbreak-podcasts-men.html" data-tags="heartbreak" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-3">
             <div class="h-40 relative overflow-hidden">
               <img src="blog/images/9.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -536,7 +591,7 @@
           </a>
 
           <!-- Support Groups -->
-          <a href="blog/support-groups-men-heartbreak.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-4">
+          <a href="blog/support-groups-men-heartbreak.html" data-tags="heartbreak" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-4">
             <div class="h-40 relative overflow-hidden">
               <img src="blog/images/7.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -549,7 +604,7 @@
           </a>
 
           <!-- When Therapy Isn't Enough -->
-          <a href="blog/when-therapy-isnt-enough.html" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-5">
+          <a href="blog/when-therapy-isnt-enough.html" data-tags="heartbreak,somatic-healing" class="group block rounded-2xl overflow-hidden featured-glow transition-all duration-500 hover:translate-y-[-4px] fade-up delay-5">
             <div class="h-40 relative overflow-hidden">
               <img src="blog/images/2.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -610,10 +665,81 @@
       </div>
     </section>
 
+
+    <!-- Tag Filter Script -->
+    <script>
+    (function() {
+      const bar = document.getElementById('tagBar');
+      if (!bar) return;
+
+      bar.addEventListener('click', function(e) {
+        const btn = e.target.closest('.tag-btn');
+        if (!btn) return;
+
+        // Update active state
+        bar.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        // Get all filterable cards (links with data-tags)
+        const cards = document.querySelectorAll('a[data-tags]');
+
+        if (filter === 'all') {
+          // Show everything
+          cards.forEach(card => {
+            card.classList.remove('blog-card-hidden');
+            card.classList.add('visible');
+          });
+          // Show all grid parents
+          document.querySelectorAll('.grid').forEach(g => g.style.display = '');
+          document.querySelectorAll('.filterable-section').forEach(s => s.classList.remove('section-hidden'));
+          // Show standalone wrappers
+          const standalone = document.querySelector('#section-all-articles > div > div.mb-6:first-of-type');
+          if (standalone) standalone.style.display = '';
+          return;
+        }
+
+        // Filter cards
+        cards.forEach(card => {
+          const cardTags = card.dataset.tags.split(',');
+          if (cardTags.includes(filter)) {
+            card.classList.remove('blog-card-hidden');
+            card.classList.add('visible');
+          } else {
+            card.classList.add('blog-card-hidden');
+          }
+        });
+
+        // Handle grid containers — hide if all children hidden
+        document.querySelectorAll('.filterable-section .grid').forEach(grid => {
+          const visibleCards = grid.querySelectorAll('a[data-tags]:not(.blog-card-hidden)');
+          grid.style.display = visibleCards.length === 0 ? 'none' : '';
+        });
+
+        // Handle standalone card wrapper (What Women Actually Want)
+        const allArticlesDiv = document.querySelector('#section-all-articles > div');
+        if (allArticlesDiv) {
+          const standaloneWrap = allArticlesDiv.querySelector(':scope > div.mb-6:first-of-type');
+          if (standaloneWrap) {
+            const visCard = standaloneWrap.querySelector('a[data-tags]:not(.blog-card-hidden)');
+            standaloneWrap.style.display = visCard ? '' : 'none';
+          }
+        }
+
+        // Hide entire sections if no visible cards
+        document.querySelectorAll('.filterable-section').forEach(section => {
+          const visibleInSection = section.querySelectorAll('a[data-tags]:not(.blog-card-hidden)');
+          section.classList.toggle('section-hidden', visibleInSection.length === 0);
+        });
+      });
+    })();
+    </script>
+
   </main>
 
   <div class="text-center py-4 text-sm text-on-surface-variant/60">
-    <time datetime="2026-04-02">Last updated: April 2, 2026</time>
+    <time datetime="2026-04-03">Last updated: April 3, 2026</time>
   </div>
 
   <div id="footer"></div>
