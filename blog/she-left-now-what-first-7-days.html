@@ -142,7 +142,7 @@
     /* ═══ VISUAL UPGRADES ═══ */
 
     .blog-hero {
-      background: linear-gradient(180deg, #f7f7f2 0%, #f0ebe1 50%, #e8dfd0 100%);
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
       position: relative;
       overflow: hidden;
     }
@@ -165,14 +165,14 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,114,78,0.06) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
     article hr {
       border: none !important;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #d3cfc6, transparent);
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
       margin: 3rem auto !important;
       position: relative;
       max-width: 200px;
@@ -186,16 +186,16 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #c4b59b;
+      background: #006a28;
     }
 
     article blockquote {
-      border-left: 3px solid #c4724e !important;
+      border-left: 3px solid #006a28 !important;
       padding: 1.5rem 1.5rem 1.5rem 2rem !important;
       font-style: italic;
       color: #5a5c58;
       margin: 2.5rem 0 !important;
-      background: linear-gradient(135deg, #faf6ef 0%, #f5ede0 100%);
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
       border-radius: 0 12px 12px 0;
       position: relative;
     }
@@ -205,7 +205,7 @@
       top: -8px;
       left: 12px;
       font-size: 3rem;
-      color: #c4724e;
+      color: #006a28;
       opacity: 0.25;
       font-family: Georgia, serif;
       line-height: 1;
@@ -224,7 +224,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #c4724e;
+      background: #006a28;
     }
 
     article > p:first-of-type {
@@ -235,14 +235,14 @@
     }
 
     article .bold-stat {
-      color: #c4724e;
+      color: #006a28;
       font-weight: 700;
     }
 
     .hero-pill {
       display: inline-block;
-      background: rgba(196,114,78,0.12);
-      color: #8a5e3c;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -252,9 +252,62 @@
       margin-bottom: 1.25rem;
     }
 
+  
+
+    /* Hero photo banner */
+    .blog-hero-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -40px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.85);
+    }
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 420px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -60px;
+      }
+    }
+
+    /* Reading progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
   </style>
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden">
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
+<script>
+(function() {
+  const bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  function updateProgress() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) { bar.style.width = '0%'; return; }
+    const scrolled = (window.scrollY / docHeight) * 100;
+    bar.style.width = Math.min(scrolled, 100) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
+</script>
+
 
 <!-- NAVBAR -->
 <div id="navbar"></div>
@@ -262,18 +315,22 @@
 
 <main>
 <!-- Hero Section -->
-<section class="blog-hero pt-32 pb-16 px-6 sm:px-8">
+<section class="blog-hero pt-0 pb-16 px-6 sm:px-8">
+  <img src="images/8.jpg" alt="" class="blog-hero-image" loading="eager" />
+  <div class="pt-10">
+
   <div class="max-w-3xl mx-auto">
     <span class="hero-pill">Field Guide &middot; 10 min read</span>
       <h1 class="font-headline text-3xl sm:text-4xl font-black mb-6 text-on-surface">She Left. Now What? A Man's Guide to the First 7 Days</h1>
 
-    <div class="flex flex-wrap gap-4 text-stone-600 text-sm mb-8">
+    <div class="flex flex-wrap gap-4 text-on-surface-variant text-sm mb-8">
       <span>By <span class="font-semibold text-primary">Sunny Binjola</span></span>
       <span>•</span>
       <span>March 25, 2026</span>
       <span>•</span>
       <span>10 min read</span>
     </div>
+  </div>
   </div>
 </section>
 
@@ -300,34 +357,34 @@
   <div class="max-w-3xl mx-auto px-6 sm:px-8">
 
     <div class="prose prose-lg max-w-none">
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">She's gone. The door closed. Maybe it was a conversation. Maybe it was a text. Maybe you came home and the closet was half-empty.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">She's gone. The door closed. Maybe it was a conversation. Maybe it was a text. Maybe you came home and the closet was half-empty.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">It doesn't matter how it happened. What matters is that right now, your chest feels like someone parked a truck on it. Your hands are shaking. Your brain is looping the same three sentences she said.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">It doesn't matter how it happened. What matters is that right now, your chest feels like someone parked a truck on it. Your hands are shaking. Your brain is looping the same three sentences she said.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I've been here. Most men have. And most men will do exactly the wrong thing in the next seven days.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I've been here. Most men have. And most men will do exactly the wrong thing in the next seven days.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">This isn't a motivational pep talk. This is a field guide. Day by day. What's happening inside you, what not to do, and what will actually help.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">This isn't a motivational pep talk. This is a field guide. Day by day. What's happening inside you, what not to do, and what will actually help.</p>
 
       <!-- Day 1 -->
       <h2 id="day-1-the-shock" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Day 1: The Shock</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your body is not broken. It's doing exactly what it was designed to do.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your body is not broken. It's doing exactly what it was designed to do.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's what's happening: your brain is processing this the same way it processes physical injury. The anterior cingulate cortex — the same region that lights up when you break a bone — is firing. Your cortisol is spiking. Your dopamine, serotonin, oxytocin, endorphins — all crashing.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's what's happening: your brain is processing this the same way it processes physical injury. The anterior cingulate cortex — the same region that lights up when you break a bone — is firing. Your cortisol is spiking. Your dopamine, serotonin, oxytocin, endorphins — all crashing.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You are, neurologically speaking, in withdrawal.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You are, neurologically speaking, in withdrawal.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You might feel numb. You might feel like you're watching yourself from outside your body. That's your nervous system hitting the emergency brake. Fight, flight, freeze — pick one. Your body already did.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You might feel numb. You might feel like you're watching yourself from outside your body. That's your nervous system hitting the emergency brake. Fight, flight, freeze — pick one. Your body already did.</p>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What NOT to do:</h3>
-      <ul class="space-y-3 text-lg text-stone-700 mb-8">
+      <ul class="space-y-3 text-lg text-on-surface mb-8">
         <li>- Don't call her. You are not in a state to have a conversation that matters.</li>
         <li>- Don't drink. Alcohol disrupts your sleep architecture and amplifies anxiety within 24 hours. You'll wake up at 3am with your heart pounding and her face behind your eyelids.</li>
         <li>- Don't make any decisions. Not about the apartment. Not about social media. Not about anything.</li>
       </ul>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What to do instead:</h3>
-      <ol class="space-y-3 text-lg text-stone-700 mb-12">
+      <ol class="space-y-3 text-lg text-on-surface mb-12">
         <li><strong>1. Drink water.</strong> Sounds stupid. Do it anyway. Cortisol dehydrates you. Your body is burning fuel it doesn't have.</li>
         <li><strong>2. Put your feet on the floor.</strong> Literally. Bare feet on ground. This activates your vagus nerve and tells your nervous system you are not actually dying.</li>
         <li><strong>3. Set one alarm for tomorrow.</strong> Just one. Something that gets you vertical. That's your only job for Day 2 — get vertical.</li>
@@ -336,29 +393,29 @@
       <!-- Day 2 -->
       <h2 id="day-2-the-urge" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Day 2: The Urge</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Today, every cell in your body will scream at you to fix this.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Today, every cell in your body will scream at you to fix this.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You'll draft the text. The long one. The one where you explain everything perfectly and she finally understands. You'll write it three times. You might write it ten times.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You'll draft the text. The long one. The one where you explain everything perfectly and she finally understands. You'll write it three times. You might write it ten times.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Don't send it. Not because she doesn't deserve an answer. Because you don't have one yet. You're not thinking. You're reacting. There is a difference and it matters.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Don't send it. Not because she doesn't deserve an answer. Because you don't have one yet. You're not thinking. You're reacting. There is a difference and it matters.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8"><span class="text-primary font-bold">62% of men immerse themselves in work or hobbies after a breakup</span>. Not because they're strong. Because they're terrified of what happens when they stop moving. I know. I've been that guy — gym at 6am, work until midnight, fall asleep to a podcast so the silence doesn't eat me alive.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8"><span class="text-primary font-bold">62% of men immerse themselves in work or hobbies after a breakup</span>. Not because they're strong. Because they're terrified of what happens when they stop moving. I know. I've been that guy — gym at 6am, work until midnight, fall asleep to a podcast so the silence doesn't eat me alive.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's what workaholism actually costs you: Professor Cristian Balducci's research on work addiction shows that work addicts who had neglected relationships <span class="text-primary font-bold">"were some of the saddest participants in the study and were filled with regret."</span> They thought the hustle was healing. It was just delaying. By the time they paused long enough to feel the pain, it had calcified.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's what workaholism actually costs you: Professor Cristian Balducci's research on work addiction shows that work addicts who had neglected relationships <span class="text-primary font-bold">"were some of the saddest participants in the study and were filled with regret."</span> They thought the hustle was healing. It was just delaying. By the time they paused long enough to feel the pain, it had calcified.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">That's not healing. That's hiding with a productive mask on.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">That's not healing. That's hiding with a productive mask on.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And here's something else nobody talks about: the rebound paradox. <span class="text-primary font-bold">A quick rebound can actually indicate how deeply a man is hurt, as he is desperately trying to soothe his pain.</span> It's not strength. It's not moving on. It's self-medication wearing a dating profile. If you feel the urge to jump into someone else, that's not readiness. That's your nervous system screaming for relief.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And here's something else nobody talks about: the rebound paradox. <span class="text-primary font-bold">A quick rebound can actually indicate how deeply a man is hurt, as he is desperately trying to soothe his pain.</span> It's not strength. It's not moving on. It's self-medication wearing a dating profile. If you feel the urge to jump into someone else, that's not readiness. That's your nervous system screaming for relief.</p>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What NOT to do:</h3>
-      <ul class="space-y-3 text-lg text-stone-700 mb-8">
+      <ul class="space-y-3 text-lg text-on-surface mb-8">
         <li>- Don't send the text. Put your phone in another room if you have to.</li>
         <li>- Don't numb. No alcohol. No weed. No doom-scrolling until 4am. If you numb the pain, you extend it. Every time.</li>
         <li>- Don't perform being okay. Not for your boys. Not for Instagram. Not for yourself.</li>
       </ul>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What to do instead:</h3>
-      <ol class="space-y-3 text-lg text-stone-700 mb-12">
+      <ol class="space-y-3 text-lg text-on-surface mb-12">
         <li><strong>1. Move your body for 20 minutes.</strong> Not a PR attempt. Walk. Stretch. Shadow box. Physical movement releases trapped emotion that words can't reach.</li>
         <li><strong>2. Write it down.</strong> Not to her. To no one. Grab a piece of paper and vomit every thought onto it. Then fold it up. You never have to read it again.</li>
         <li><strong>3. Eat one real meal.</strong> Grief disrupts appetite. Your body doesn't want food. Feed it anyway. Protein. Something warm. Treat yourself like someone you're responsible for keeping alive — because you are.</li>
@@ -367,24 +424,24 @@
       <!-- Day 3 -->
       <h2 id="day-3-the-flood" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Day 3: The Flood</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is the day most men break.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is the day most men break.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The numbness wears off. The shock absorbers fail. And the wave hits — not a wave, really. A wall.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The numbness wears off. The shock absorbers fail. And the wave hits — not a wave, really. A wall.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You might cry. Let me be direct about this: crying releases oxytocin and endorphins. It is a biological mechanism for pain relief. It is not weakness. It is your body doing exactly what it was engineered to do. The men I respect most are the ones who learned this.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You might cry. Let me be direct about this: crying releases oxytocin and endorphins. It is a biological mechanism for pain relief. It is not weakness. It is your body doing exactly what it was engineered to do. The men I respect most are the ones who learned this.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You might rage. You might collapse. You might do both in the same hour.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You might rage. You might collapse. You might do both in the same hour.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's what I need you to understand: emotions show up as body sensations first. Before the thought, before the story, there's a tightness in your throat. A heat in your chest. A hollowness in your stomach. That's real. That's where the work is.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's what I need you to understand: emotions show up as body sensations first. Before the thought, before the story, there's a tightness in your throat. A heat in your chest. A hollowness in your stomach. That's real. That's where the work is.</p>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What NOT to do:</h3>
-      <ul class="space-y-3 text-lg text-stone-700 mb-8">
+      <ul class="space-y-3 text-lg text-on-surface mb-8">
         <li>- Don't fight it. You will not win a war against your own nervous system.</li>
         <li>- Don't judge what comes up. Anger, sadness, relief, guilt — sometimes all at once. None of it is wrong.</li>
       </ul>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What to do instead:</h3>
-      <ol class="space-y-3 text-lg text-stone-700 mb-12">
+      <ol class="space-y-3 text-lg text-on-surface mb-12">
         <li><strong>1. Name where you feel it.</strong> Put your hand on the part of your body that's holding it. Chest. Gut. Throat. Say out loud: "I feel this here." That's it. That's enough.</li>
         <li><strong>2. Breathe.</strong> Box breathing: 4 seconds in, 4 seconds hold, 4 seconds out, 4 seconds hold. Repeat for 5 minutes. Breathwork bypasses the conscious mind. It speaks directly to the part of you that's drowning.</li>
         <li><strong>3. Let the wave pass.</strong> Set a timer for 10 minutes. Let yourself feel it fully for 10 minutes. When the timer goes off, stand up. Splash cold water on your face. You survived it. You'll survive the next one.</li>
@@ -393,26 +450,26 @@
       <!-- Day 4 -->
       <h2 id="day-4-the-questions" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Day 4: The Questions</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Today your mind takes over.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Today your mind takes over.</p>
 
-      <blockquote class="border-l-4 border-primary pl-6 italic text-stone-600 my-8"><em>What did I do wrong? Was there someone else? Could I have been better? Did she ever really love me?</em></blockquote>
+      <blockquote class="border-l-4 border-primary pl-6 italic text-on-surface-variant my-8"><em>What did I do wrong? Was there someone else? Could I have been better? Did she ever really love me?</em></blockquote>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The questions are a trap. Not because they're invalid — some of them might be important later. But right now, your brain is not looking for answers. It's looking for control. If you can find the reason, you can fix it. If you can fix it, you can undo this.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The questions are a trap. Not because they're invalid — some of them might be important later. But right now, your brain is not looking for answers. It's looking for control. If you can find the reason, you can fix it. If you can fix it, you can undo this.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You can't undo this.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You can't undo this.</p>
 
-      <blockquote class="border-l-4 border-primary pl-6 italic text-stone-600 my-8">"Trauma is not what happens to us, but what we hold inside in the absence of an empathetic witness." — Peter Levine</blockquote>
+      <blockquote class="border-l-4 border-primary pl-6 italic text-on-surface-variant my-8">"Trauma is not what happens to us, but what we hold inside in the absence of an empathetic witness." — Peter Levine</blockquote>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You're holding a lot right now. The questions are your mind trying to organize the chaos. But the chaos doesn't need organizing yet. It needs witnessing.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You're holding a lot right now. The questions are your mind trying to organize the chaos. But the chaos doesn't need organizing yet. It needs witnessing.</p>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What NOT to do:</h3>
-      <ul class="space-y-3 text-lg text-stone-700 mb-8">
+      <ul class="space-y-3 text-lg text-on-surface mb-8">
         <li>- Don't stalk her social media. Block or mute if you have to. Every post you see resets the clock.</li>
         <li>- Don't interrogate mutual friends. You're not gathering intelligence. You're picking at a wound.</li>
       </ul>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What to do instead:</h3>
-      <ol class="space-y-3 text-lg text-stone-700 mb-12">
+      <ol class="space-y-3 text-lg text-on-surface mb-12">
         <li><strong>1. Redirect the loop.</strong> When the questions start spiraling, write down: "What do I need right now?" Not what do I need from her. What do I need. Water? Sleep? Air? Go get that thing.</li>
         <li><strong>2. Move again.</strong> Harder today. Run. Lift. Hit a bag. Your body is full of cortisol and it needs somewhere to go.</li>
         <li><strong>3. Journal one honest sentence.</strong> Just one. "I'm scared I'll never feel this again." "I'm angry she gave up." "I don't know who I am without her." Write the sentence you're most afraid to say out loud.</li>
@@ -421,16 +478,16 @@
       <!-- Day 5 -->
       <h2 id="day-5-the-body" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Day 5: The Body</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">By now, you've probably noticed: you're not sleeping right. Your appetite is gone or you're eating everything. Your energy comes in random spikes and crashes.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">By now, you've probably noticed: you're not sleeping right. Your appetite is gone or you're eating everything. Your energy comes in random spikes and crashes.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is your nervous system stuck in survival mode. Dr. Mike Sagun puts it like this: "Many men are walking around in a low-grade state of survival. Numb, over-functioning, or quietly anxious."</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is your nervous system stuck in survival mode. Dr. Mike Sagun puts it like this: "Many men are walking around in a low-grade state of survival. Numb, over-functioning, or quietly anxious."</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">That was me for months after my worst breakup. I looked fine. I was dying inside. The body keeps the score, and right now, your body is keeping a very detailed one.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">That was me for months after my worst breakup. I looked fine. I was dying inside. The body keeps the score, and right now, your body is keeping a very detailed one.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Today, you start working with it instead of against it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Today, you start working with it instead of against it.</p>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What to do:</h3>
-      <ol class="space-y-3 text-lg text-stone-700 mb-12">
+      <ol class="space-y-3 text-lg text-on-surface mb-12">
         <li><strong>1. Cold exposure.</strong> 30 seconds of cold water at the end of your shower. It's not about toughness. Cold activates the vagus nerve and forces a parasympathetic reset. Your nervous system needs the manual override.</li>
         <li><strong>2. Regulate your sleep.</strong> Same bed time. Same wake time. No phone in the bedroom. Your circadian rhythm is shattered — rebuild it like you're laying bricks. One at a time.</li>
         <li><strong>3. Try a body scan.</strong> Lie on the floor. Start at your feet. Notice what each part of your body feels like — not what you think it should feel, but what it actually does. Tension. Heat. Numbness. Tingling. You're re-establishing communication with a system you've probably been ignoring for years.</li>
@@ -439,22 +496,22 @@
       <!-- Day 6 -->
       <h2 id="day-6-the-reach" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Day 6: The Reach</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This will be the hardest day. Not because of what you feel. Because of what I'm asking you to do.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This will be the hardest day. Not because of what you feel. Because of what I'm asking you to do.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Tell one person.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Tell one person.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Not the whole story. Not a therapy session. Just: "Hey man, I'm going through something. She left. I'm not okay."</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Not the whole story. Not a therapy session. Just: "Hey man, I'm going through something. She left. I'm not okay."</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's why this matters: <span class="text-primary font-bold">68% of divorced men relied solely on their spouse for emotional intimacy. 15% of men have zero close friends</span>. If she was your only person — your only outlet for vulnerability, your only witness — then you didn't just lose a girlfriend or a wife. You lost your entire emotional infrastructure.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's why this matters: <span class="text-primary font-bold">68% of divorced men relied solely on their spouse for emotional intimacy. 15% of men have zero close friends</span>. If she was your only person — your only outlet for vulnerability, your only witness — then you didn't just lose a girlfriend or a wife. You lost your entire emotional infrastructure.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">That's not her fault. And it's not yours. But it's your responsibility to rebuild.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">That's not her fault. And it's not yours. But it's your responsibility to rebuild.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is where <span class="text-primary font-bold">"invisible heartbreak"</span> becomes real. Most men experience heartbreak as prolonged, hidden distress — emotional pain that festers because you're conditioned to keep it locked down. The silence compounds the damage. Your friends can't help you if they don't know you're drowning. Your body can't start healing if your mind is still demanding silence.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is where <span class="text-primary font-bold">"invisible heartbreak"</span> becomes real. Most men experience heartbreak as prolonged, hidden distress — emotional pain that festers because you're conditioned to keep it locked down. The silence compounds the damage. Your friends can't help you if they don't know you're drowning. Your body can't start healing if your mind is still demanding silence.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Travis Streb says: "Practice, not performance." You're not performing being vulnerable. You're practicing it. Badly. Awkwardly. That's the point.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Travis Streb says: "Practice, not performance." You're not performing being vulnerable. You're practicing it. Badly. Awkwardly. That's the point.</p>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What to do:</h3>
-      <ol class="space-y-3 text-lg text-stone-700 mb-12">
+      <ol class="space-y-3 text-lg text-on-surface mb-12">
         <li><strong>1. Pick one person.</strong> Brother, friend, cousin, mentor. Someone who won't fix you or minimize you. Text them: "Can we talk? Not looking for advice. Just need someone to hear me."</li>
         <li><strong>2. If you don't have that person, find a men's circle or a therapist.</strong> No shame in either. You wouldn't set a broken bone yourself. This is the same thing.</li>
         <li><strong>3. Accept that it will feel wrong.</strong> Every instinct you have will tell you to handle this alone. That instinct is the problem. It's the thing that helped build the wall she eventually walked away from.</li>
@@ -463,24 +520,24 @@
       <!-- Day 7 -->
       <h2 id="day-7-the-commitment" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Day 7: The Commitment</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You made it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You made it.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Seven days. You didn't blow up your life. You didn't numb yourself into a coma. You didn't send the text.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Seven days. You didn't blow up your life. You didn't numb yourself into a coma. You didn't send the text.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You felt it. Maybe for the first time in a long time, you actually felt something all the way through instead of stuffing it into a box and deadlifting it into the ground.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You felt it. Maybe for the first time in a long time, you actually felt something all the way through instead of stuffing it into a box and deadlifting it into the ground.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">But here's what nobody tells you: many men struggle with what researchers call <span class="text-primary font-bold">"self-disenfranchisement"</span> — the internalized belief that your loss is not valid or important. You think "it's just a breakup," so you minimize it. You think real men don't struggle with this, so you hide it. You tell yourself you should be over it by now, so you judge yourself for not being.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">But here's what nobody tells you: many men struggle with what researchers call <span class="text-primary font-bold">"self-disenfranchisement"</span> — the internalized belief that your loss is not valid or important. You think "it's just a breakup," so you minimize it. You think real men don't struggle with this, so you hide it. You tell yourself you should be over it by now, so you judge yourself for not being.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The clinical reality, according to the <em>Journal of Clinical Psychology</em> (2026), now conceptualizes romantic breakups as involving <span class="text-primary font-bold">"elements of loss, trauma, and relational rupture."</span> This isn't metaphorical language to make you feel better. This is the medical field officially recognizing that what you're going through is legitimate psychological injury. Your pain is real. Your grief is valid. And you don't need to apologize for it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The clinical reality, according to the <em>Journal of Clinical Psychology</em> (2026), now conceptualizes romantic breakups as involving <span class="text-primary font-bold">"elements of loss, trauma, and relational rupture."</span> This isn't metaphorical language to make you feel better. This is the medical field officially recognizing that what you're going through is legitimate psychological injury. Your pain is real. Your grief is valid. And you don't need to apologize for it.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Now comes the real question: <em>What kind of man do you want to be on the other side of this?</em></p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Now comes the real question: <em>What kind of man do you want to be on the other side of this?</em></p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Because here's what no one tells you about heartbreak — it doesn't just reveal who you are. It reveals who you've been pretending to be. Every coping mechanism, every wall, every way you made yourself small or hard or distant. She didn't leave for no reason. And even if her reasons were wrong, the mirror she held up might be right.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Because here's what no one tells you about heartbreak — it doesn't just reveal who you are. It reveals who you've been pretending to be. Every coping mechanism, every wall, every way you made yourself small or hard or distant. She didn't leave for no reason. And even if her reasons were wrong, the mirror she held up might be right.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This isn't about winning her back. This is about becoming the kind of man who never has to wonder why she left. Because he already knows himself.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This isn't about winning her back. This is about becoming the kind of man who never has to wonder why she left. Because he already knows himself.</p>
 
       <h3 class="font-headline text-2xl font-black mt-10 mb-4 text-on-surface">What to do:</h3>
-      <ol class="space-y-3 text-lg text-stone-700 mb-12">
+      <ol class="space-y-3 text-lg text-on-surface mb-12">
         <li><strong>1. Write down three commitments.</strong> Not goals. Commitments. "I will feel what I feel without running from it." "I will build friendships that go deeper than sports and surface talk." "I will learn my own nervous system like a language I should have been taught as a boy."</li>
         <li><strong>2. Book one appointment.</strong> Therapist. Men's group. Coach. Someone who will walk with you into the parts of yourself you've been avoiding.</li>
         <li><strong>3. Re-read everything you wrote this week.</strong> The vomit-pages. The one honest sentences. The commitments. That's not your pain talking. That's you. Maybe for the first time.</li>
@@ -489,15 +546,15 @@
       <!-- The Bottom Line -->
       <h2 id="the-bottom-line" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Bottom Line</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">She left. It happened. And you're still here.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">She left. It happened. And you're still here.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Not "everything happens for a reason." Not "you'll find someone better." I'm not going to insult you with that.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Not "everything happens for a reason." Not "you'll find someone better." I'm not going to insult you with that.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">What I will say is this: the pain you're in right now is the exact doorway most men spend their entire lives avoiding. You can walk through it. Or you can spend the next decade going around it, numbing it, performing over it — and end up right back here with the next woman who gets close enough to see the truth.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">What I will say is this: the pain you're in right now is the exact doorway most men spend their entire lives avoiding. You can walk through it. Or you can spend the next decade going around it, numbing it, performing over it — and end up right back here with the next woman who gets close enough to see the truth.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-16">Your nervous system is not your enemy. Your emotions are not your weakness. The body you've been ignoring is the same body that will carry you through this — if you let it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-16">Your nervous system is not your enemy. Your emotions are not your weakness. The body you've been ignoring is the same body that will carry you through this — if you let it.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">This is day one of the rest of your life.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">This is day one of the rest of your life.</p>
 
       <!-- FAQ Section -->
       <div class="bg-surface-container-low rounded-lg p-8 mt-16 mb-12">
@@ -505,22 +562,22 @@
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Should I reach out to her in the first week?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">No. You're not in a state to have a conversation that matters. Your prefrontal cortex is offline. Your nervous system is flooded with stress hormones. Anything you say will be reaction, not action. Wait until you're thinking clearly — at least a week, preferably longer.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">No. You're not in a state to have a conversation that matters. Your prefrontal cortex is offline. Your nervous system is flooded with stress hormones. Anything you say will be reaction, not action. Wait until you're thinking clearly — at least a week, preferably longer.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Why is alcohol so bad after a breakup?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Alcohol disrupts your sleep architecture and amplifies anxiety within 24 hours. You'll wake up at 3am with your heart pounding and her face behind your eyelids. It also prevents the neurochemical processing your body needs to heal. It's a debt collector — every drink borrows calm from tomorrow and charges interest in anxiety.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Alcohol disrupts your sleep architecture and amplifies anxiety within 24 hours. You'll wake up at 3am with your heart pounding and her face behind your eyelids. It also prevents the neurochemical processing your body needs to heal. It's a debt collector — every drink borrows calm from tomorrow and charges interest in anxiety.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">What if I don't have anyone to talk to?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Find a men's circle or a therapist. 68% of men rely solely on their spouse for emotional intimacy, which leaves them isolated after breakup. This is not weakness. It's the thing that needs to change. A single conversation with a brother, friend, or professional can interrupt the isolation spiral.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Find a men's circle or a therapist. 68% of men rely solely on their spouse for emotional intimacy, which leaves them isolated after breakup. This is not weakness. It's the thing that needs to change. A single conversation with a brother, friend, or professional can interrupt the isolation spiral.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Is it normal to not feel much on day 1?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Yes. Numbness and dissociation are your nervous system's emergency brakes. You're not broken — you're in shock. Your body is protecting you from emotional overwhelm. The wave will come later. That's when the real work begins.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Yes. Numbness and dissociation are your nervous system's emergency brakes. You're not broken — you're in shock. Your body is protecting you from emotional overwhelm. The wave will come later. That's when the real work begins.</p>
         </details>
       </div>
 
@@ -538,7 +595,7 @@
     <!-- Sources -->
     <div class="mt-16 pt-8 border-t border-surface-variant">
       <h3 class="font-headline text-lg font-bold mb-4 text-on-surface">Sources & Further Reading</h3>
-      <ul class="space-y-2 text-sm text-stone-500">
+      <ul class="space-y-2 text-sm text-on-surface-variant">
         <li>Kross, E., et al. (2011). "Social rejection shares somatosensory representations with physical pain." <em>Proceedings of the National Academy of Sciences</em>.</li>
         <li>Fisher, H. E., et al. (2010). "Reward, addiction, and emotion regulation systems associated with rejection in love." <em>Journal of Neurophysiology</em>.</li>
         <li>Morris, C. E., & Reiber, C. (2011). "Frequency, intensity and expression of post-relationship grief." <em>Evolutionary Behavioral Sciences</em>.</li>

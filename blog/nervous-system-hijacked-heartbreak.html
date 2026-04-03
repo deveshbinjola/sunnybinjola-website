@@ -142,7 +142,7 @@
     /* ═══ VISUAL UPGRADES ═══ */
 
     .blog-hero {
-      background: linear-gradient(180deg, #f7f7f2 0%, #f0ebe1 50%, #e8dfd0 100%);
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
       position: relative;
       overflow: hidden;
     }
@@ -165,14 +165,14 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,114,78,0.06) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
     article hr {
       border: none !important;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #d3cfc6, transparent);
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
       margin: 3rem auto !important;
       position: relative;
       max-width: 200px;
@@ -186,16 +186,16 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #c4b59b;
+      background: #006a28;
     }
 
     article blockquote {
-      border-left: 3px solid #c4724e !important;
+      border-left: 3px solid #006a28 !important;
       padding: 1.5rem 1.5rem 1.5rem 2rem !important;
       font-style: italic;
       color: #5a5c58;
       margin: 2.5rem 0 !important;
-      background: linear-gradient(135deg, #faf6ef 0%, #f5ede0 100%);
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
       border-radius: 0 12px 12px 0;
       position: relative;
     }
@@ -205,7 +205,7 @@
       top: -8px;
       left: 12px;
       font-size: 3rem;
-      color: #c4724e;
+      color: #006a28;
       opacity: 0.25;
       font-family: Georgia, serif;
       line-height: 1;
@@ -224,7 +224,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #c4724e;
+      background: #006a28;
     }
 
     article > p:first-of-type {
@@ -235,14 +235,14 @@
     }
 
     article .bold-stat {
-      color: #c4724e;
+      color: #006a28;
       font-weight: 700;
     }
 
     .hero-pill {
       display: inline-block;
-      background: rgba(196,114,78,0.12);
-      color: #8a5e3c;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -252,9 +252,62 @@
       margin-bottom: 1.25rem;
     }
 
+  
+
+    /* Hero photo banner */
+    .blog-hero-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -40px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.85);
+    }
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 420px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -60px;
+      }
+    }
+
+    /* Reading progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
   </style>
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden">
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
+<script>
+(function() {
+  const bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  function updateProgress() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) { bar.style.width = '0%'; return; }
+    const scrolled = (window.scrollY / docHeight) * 100;
+    bar.style.width = Math.min(scrolled, 100) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
+</script>
+
 
 <!-- NAVBAR -->
 <div id="navbar"></div>
@@ -262,18 +315,22 @@
 
 <main>
 <!-- Hero Section -->
-<section class="blog-hero pt-32 pb-16 px-6 sm:px-8">
+<section class="blog-hero pt-0 pb-16 px-6 sm:px-8">
+  <img src="images/7.jpg" alt="" class="blog-hero-image" loading="eager" />
+  <div class="pt-10">
+
   <div class="max-w-3xl mx-auto">
     <span class="hero-pill">Neuroscience &middot; 9 min read</span>
       <h1 class="font-headline text-3xl sm:text-4xl font-black mb-6 text-on-surface">Your Nervous System Is Hijacked: The Science of Heartbreak</h1>
 
-    <div class="flex flex-wrap gap-4 text-stone-600 text-sm mb-8">
+    <div class="flex flex-wrap gap-4 text-on-surface-variant text-sm mb-8">
       <span>By <span class="font-semibold text-primary">Sunny Binjola</span></span>
       <span>•</span>
       <span>March 25, 2026</span>
       <span>•</span>
       <span>9 min read</span>
     </div>
+  </div>
   </div>
 </section>
 
@@ -299,170 +356,170 @@
   <div class="max-w-3xl mx-auto px-6 sm:px-8">
 
     <div class="prose prose-lg max-w-none">
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You know it before your mind does.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You know it before your mind does.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The chest caves in first. Not metaphorically — literally. A compression behind the sternum like someone parked a truck on your ribcage. Then the jaw locks. The stomach drops into a pit that wasn't there five seconds ago. Your hands go cold. Your throat closes.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The chest caves in first. Not metaphorically — literally. A compression behind the sternum like someone parked a truck on your ribcage. Then the jaw locks. The stomach drops into a pit that wasn't there five seconds ago. Your hands go cold. Your throat closes.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You haven't thought a single thought yet. Your body already knows.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You haven't thought a single thought yet. Your body already knows.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">This is not poetry. This is neuroscience. And if you don't understand what's happening inside your own nervous system right now, you will spend the next year — maybe the next decade — white-knuckling through a war you can't win. Because you don't even know where the battlefield is.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">This is not poetry. This is neuroscience. And if you don't understand what's happening inside your own nervous system right now, you will spend the next year — maybe the next decade — white-knuckling through a war you can't win. Because you don't even know where the battlefield is.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">It's not in your head. It's in your body.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">It's not in your head. It's in your body.</p>
 
       <!-- Section: Your Brain Thinks You're Dying -->
       <h2 id="your-brain-thinks-youre-dying" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Your Brain Thinks You're Dying</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's the part that changed everything for me.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's the part that changed everything for me.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your brain processes heartbreak through the same neural pathways as physical pain. The anterior cingulate cortex — the same region that fires when you break a bone or burn your hand on a stove — lights up identically during emotional rejection. Brain scans don't lie. Your nervous system cannot tell the difference between a shattered femur and a shattered relationship.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your brain processes heartbreak through the same neural pathways as physical pain. The anterior cingulate cortex — the same region that fires when you break a bone or burn your hand on a stove — lights up identically during emotional rejection. Brain scans don't lie. Your nervous system cannot tell the difference between a shattered femur and a shattered relationship.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This isn't just theory. A 2025 fMRI study published in the <em>Journal of Affective Disorders</em> examined 94 participants and found that romantic breakups activate the hippocampus and amygdala with neural patterns identical to physical assault victims. Let that sink in: the injury happening to your brain right now registers as indistinguishable from physical trauma. Your body isn't overreacting. It's responding to real neurological injury.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This isn't just theory. A 2025 fMRI study published in the <em>Journal of Affective Disorders</em> examined 94 participants and found that romantic breakups activate the hippocampus and amygdala with neural patterns identical to physical assault victims. Let that sink in: the injury happening to your brain right now registers as indistinguishable from physical trauma. Your body isn't overreacting. It's responding to real neurological injury.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Dr. Helen Fisher puts it this way: <span class="text-primary font-bold">"Romantic rejection activates the anterior cingulate cortex and right ventral prefrontal cortex—the same brain regions that process physical pain from burns or broken bones."</span> This is why heartbreak doesn't just feel devastating. It feels like your body is literally on fire.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Dr. Helen Fisher puts it this way: <span class="text-primary font-bold">"Romantic rejection activates the anterior cingulate cortex and right ventral prefrontal cortex—the same brain regions that process physical pain from burns or broken bones."</span> This is why heartbreak doesn't just feel devastating. It feels like your body is literally on fire.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Romantic breakups trigger trauma-like brain activity. Not "kind of like" trauma. Actual trauma-patterned responses — symptoms that mirror depression, anxiety, and PTSD. Your limbic system floods. Your prefrontal cortex — the part responsible for rational decision-making and emotional regulation — goes offline.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Romantic breakups trigger trauma-like brain activity. Not "kind of like" trauma. Actual trauma-patterned responses — symptoms that mirror depression, anxiety, and PTSD. Your limbic system floods. Your prefrontal cortex — the part responsible for rational decision-making and emotional regulation — goes offline.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is why you can't think straight. Why you stare at the wall for forty-five minutes. Why you open the fridge, forget why, close it, and sit back down. Your brain's executive function has been hijacked by a system that is older, louder, and more powerful than logic.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is why you can't think straight. Why you stare at the wall for forty-five minutes. Why you open the fridge, forget why, close it, and sit back down. Your brain's executive function has been hijacked by a system that is older, louder, and more powerful than logic.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Dr. O'Connor's research shows grief activates specific neural pathways essential for emotional processing. Your brain isn't malfunctioning. It's doing exactly what it was designed to do in the face of catastrophic loss. The problem is nobody ever told you that. So you think you're weak. You think you're broken. You think something is wrong with you.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Dr. O'Connor's research shows grief activates specific neural pathways essential for emotional processing. Your brain isn't malfunctioning. It's doing exactly what it was designed to do in the face of catastrophic loss. The problem is nobody ever told you that. So you think you're weak. You think you're broken. You think something is wrong with you.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">Nothing is wrong with you. Your nervous system is doing its job. You just never learned how it works.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">Nothing is wrong with you. Your nervous system is doing its job. You just never learned how it works.</p>
 
       <!-- Section: The Chemical Crash -->
       <h2 id="the-chemical-crash" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Chemical Crash</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Let me give you the cocktail.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Let me give you the cocktail.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">When heartbreak hits, your <span class="text-primary font-bold">cortisol — the stress hormone — spikes hard</span>. Your body enters a sustained state of high alert. Meanwhile, every neurochemical that makes you feel alive drops to the floor: <span class="text-primary font-bold">dopamine (motivation, pleasure), serotonin (mood, stability), oxytocin (connection, safety), and endorphins (natural pain relief)</span>.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">When heartbreak hits, your <span class="text-primary font-bold">cortisol — the stress hormone — spikes hard</span>. Your body enters a sustained state of high alert. Meanwhile, every neurochemical that makes you feel alive drops to the floor: <span class="text-primary font-bold">dopamine (motivation, pleasure), serotonin (mood, stability), oxytocin (connection, safety), and endorphins (natural pain relief)</span>.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">All of them. At once.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">All of them. At once.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Read that again. Your stress skyrockets while every single chemical that buffers you against suffering bottoms out simultaneously. You are flooded with threat signals and stripped of your defenses. That's not a bad day. That's a neurochemical ambush.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Read that again. Your stress skyrockets while every single chemical that buffers you against suffering bottoms out simultaneously. You are flooded with threat signals and stripped of your defenses. That's not a bad day. That's a neurochemical ambush.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is why heartbreak doesn't feel like sadness. It feels like dying. Because your body's entire chemical architecture has been restructured around survival.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is why heartbreak doesn't feel like sadness. It feels like dying. Because your body's entire chemical architecture has been restructured around survival.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Grief is a whole-brain response. It doesn't just touch your emotions — it disrupts cognition, physical health, basic body rhythms. Sleep fractures. Appetite disappears or becomes ravenous. Energy regulation collapses. You're exhausted but wired. Hungry but nauseous. Tired but unable to close your eyes without seeing her face.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Grief is a whole-brain response. It doesn't just touch your emotions — it disrupts cognition, physical health, basic body rhythms. Sleep fractures. Appetite disappears or becomes ravenous. Energy regulation collapses. You're exhausted but wired. Hungry but nauseous. Tired but unable to close your eyes without seeing her face.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">Your body is not betraying you. It's trying to keep you alive in a world it now registers as fundamentally unsafe. And it will keep doing this until you intervene — not with willpower, but with biology.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">Your body is not betraying you. It's trying to keep you alive in a world it now registers as fundamentally unsafe. And it will keep doing this until you intervene — not with willpower, but with biology.</p>
 
       <!-- Section: The Four Survival Modes -->
       <h2 id="the-four-survival-modes-which-one-are-you-stuck-in" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Four Survival Modes (Which One Are You Stuck In?)</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's where it gets personal.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's where it gets personal.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Dr. Mike Sagun says something I think about constantly: "Many men are walking around in a low-grade state of survival. Numb, over-functioning, or quietly anxious."</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Dr. Mike Sagun says something I think about constantly: "Many men are walking around in a low-grade state of survival. Numb, over-functioning, or quietly anxious."</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">He's not talking about soldiers. He's talking about you. The guy at the office. The guy at the gym. The guy who says "I'm good, bro" with a jaw so tight he could crack a walnut with his molars.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">He's not talking about soldiers. He's talking about you. The guy at the office. The guy at the gym. The guy who says "I'm good, bro" with a jaw so tight he could crack a walnut with his molars.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">When your nervous system gets hijacked by heartbreak, it defaults to one of four survival states. Most men get stuck in one and build an entire personality around it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">When your nervous system gets hijacked by heartbreak, it defaults to one of four survival states. Most men get stuck in one and build an entire personality around it.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">Fight: The Rage That Feels Like Power</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You get angry. At her, at yourself, at the universe. You pick arguments. You hit the bag harder. You become cutting, sharp, mean — and it feels good because anger is the one emotion men are allowed to have. It creates the illusion of control.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You get angry. At her, at yourself, at the universe. You pick arguments. You hit the bag harder. You become cutting, sharp, mean — and it feels good because anger is the one emotion men are allowed to have. It creates the illusion of control.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">But fight mode isn't strength. It's a wound wearing armor. Underneath the rage is the grief you won't touch. The anger is just a bodyguard standing in front of a door you're terrified to open.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">But fight mode isn't strength. It's a wound wearing armor. Underneath the rage is the grief you won't touch. The anger is just a bodyguard standing in front of a door you're terrified to open.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">Flight: The Man Who Won't Stop Moving</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You bury yourself. Work. Gym. Side projects. Twelve-hour days that feel like discipline but are actually escape velocity. You're not building — you're running. And you will run until your body forces you to stop.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You bury yourself. Work. Gym. Side projects. Twelve-hour days that feel like discipline but are actually escape velocity. You're not building — you're running. And you will run until your body forces you to stop.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Flight looks like ambition. It gets praised. Your friends say "he's really bouncing back." But you're not bouncing. You're sprinting from a burning building and calling it a morning jog.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Flight looks like ambition. It gets praised. Your friends say "he's really bouncing back." But you're not bouncing. You're sprinting from a burning building and calling it a morning jog.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">Freeze: The Disappearing Act</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You shut down. Stare at the ceiling. Can't make decisions. Can't feel anything. The world goes grey and flat and distant, like watching your own life through a window.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You shut down. Stare at the ceiling. Can't make decisions. Can't feel anything. The world goes grey and flat and distant, like watching your own life through a window.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Freeze is the most misunderstood survival state. It looks like laziness. It looks like not caring. It's neither. It's your nervous system pulling the emergency brake because the threat is too overwhelming to fight or flee from. You didn't choose to go numb. Your body chose for you.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Freeze is the most misunderstood survival state. It looks like laziness. It looks like not caring. It's neither. It's your nervous system pulling the emergency brake because the threat is too overwhelming to fight or flee from. You didn't choose to go numb. Your body chose for you.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">Fawn: The Man Who Over-Gives</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You people-please. You become hyper-accommodating. You apologize for things that aren't your fault. You twist yourself into whatever shape you think will prevent the next abandonment.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You people-please. You become hyper-accommodating. You apologize for things that aren't your fault. You twist yourself into whatever shape you think will prevent the next abandonment.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Fawn is the survival mode nobody talks about in men because it doesn't look masculine. But it's everywhere — in the guy who lost himself in the relationship, who said yes when he meant no, who abandoned his own needs so thoroughly he forgot he had them.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Fawn is the survival mode nobody talks about in men because it doesn't look masculine. But it's everywhere — in the guy who lost himself in the relationship, who said yes when he meant no, who abandoned his own needs so thoroughly he forgot he had them.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's the deeper truth that nobody tells you: <span class="text-primary font-bold">boys are socialized from a young age to suppress vulnerability, while girls are encouraged to share their feelings</span> — according to Paul van Lange's research. This socialization doesn't just shape how you express emotion. It shapes how you survive heartbreak. You learned early that feelings are a liability. So you build walls. And those walls get so thick that by the time someone tries to get close enough to see inside, you've forgotten how to let them.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's the deeper truth that nobody tells you: <span class="text-primary font-bold">boys are socialized from a young age to suppress vulnerability, while girls are encouraged to share their feelings</span> — according to Paul van Lange's research. This socialization doesn't just shape how you express emotion. It shapes how you survive heartbreak. You learned early that feelings are a liability. So you build walls. And those walls get so thick that by the time someone tries to get close enough to see inside, you've forgotten how to let them.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">Here's the truth most men never hear: you are not your survival state. But until you can name which room you're locked in, you can't find the door.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">Here's the truth most men never hear: you are not your survival state. But until you can name which room you're locked in, you can't find the door.</p>
 
       <!-- Section: The Body Keeps the Receipt -->
       <h2 id="the-body-keeps-the-receipt" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Body Keeps the Receipt</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Over 25 studies on body mapping have shown that emotions create consistent physical patterns across cultures. Fear tightens the chest and gut. Anger heats the hands and jaw. Grief hollows out the torso. This isn't subjective. It's measurable, repeatable, and universal.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Over 25 studies on body mapping have shown that emotions create consistent physical patterns across cultures. Fear tightens the chest and gut. Anger heats the hands and jaw. Grief hollows out the torso. This isn't subjective. It's measurable, repeatable, and universal.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your emotions show up as body sensations <em>first</em> — chest tightness, jaw tension, that pit in your stomach — before you consciously recognize what you're feeling. Your body knows before your mind catches up. It always has.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your emotions show up as body sensations <em>first</em> — chest tightness, jaw tension, that pit in your stomach — before you consciously recognize what you're feeling. Your body knows before your mind catches up. It always has.</p>
 
-      <blockquote class="border-l-4 border-primary pl-6 italic text-stone-600 my-8">"Traumatic events become trapped within the body, resulting in both physical and emotional challenges." — Peter Levine</blockquote>
+      <blockquote class="border-l-4 border-primary pl-6 italic text-on-surface-variant my-8">"Traumatic events become trapped within the body, resulting in both physical and emotional challenges." — Peter Levine</blockquote>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Trapped. In the body. Not in your thoughts. Not in your memories. In your fascia, your muscles, your nervous system. The heartbreak you didn't grieve at twenty-three is still sitting in your shoulders at thirty-five. The abandonment you swallowed as a boy is still clenched in your jaw as a man.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Trapped. In the body. Not in your thoughts. Not in your memories. In your fascia, your muscles, your nervous system. The heartbreak you didn't grieve at twenty-three is still sitting in your shoulders at thirty-five. The abandonment you swallowed as a boy is still clenched in your jaw as a man.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is what researchers call <span class="text-primary font-bold">"invisible heartbreak"</span> — the emotional distress that's prolonged and hidden. Men experience heartbreak differently than women not because they care less, but because they've been taught to care silently. The pain doesn't disappear. It goes underground. It lodges itself in your nervous system where it festers, disrupts sleep, triggers anxiety, and destroys your capacity for connection.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is what researchers call <span class="text-primary font-bold">"invisible heartbreak"</span> — the emotional distress that's prolonged and hidden. Men experience heartbreak differently than women not because they care less, but because they've been taught to care silently. The pain doesn't disappear. It goes underground. It lodges itself in your nervous system where it festers, disrupts sleep, triggers anxiety, and destroys your capacity for connection.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Psychology Today research on avoidantly attached individuals reveals something critical: <span class="text-primary font-bold">avoidantly attached people suppress emotions during breakups, which delays healing rather than speeding it up.</span> The armor you think is protecting you is actually trapping the very pain you're trying to escape. You're not healing. You're just getting really good at pretending.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Psychology Today research on avoidantly attached individuals reveals something critical: <span class="text-primary font-bold">avoidantly attached people suppress emotions during breakups, which delays healing rather than speeding it up.</span> The armor you think is protecting you is actually trapping the very pain you're trying to escape. You're not healing. You're just getting really good at pretending.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">And the data backs this up in ways that should terrify you: <span class="text-primary font-bold">80% of patients with autoimmune disorders experienced excessive emotional stress before diagnosis</span>. Your unfelt grief doesn't just make you sad. Given enough time, it makes you sick.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">And the data backs this up in ways that should terrify you: <span class="text-primary font-bold">80% of patients with autoimmune disorders experienced excessive emotional stress before diagnosis</span>. Your unfelt grief doesn't just make you sad. Given enough time, it makes you sick.</p>
 
       <!-- Section: Why Understanding This Changes Everything -->
       <h2 id="why-understanding-this-changes-everything" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Why Understanding This Changes Everything</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Once I understood my nervous system, I stopped blaming myself for my own biology.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Once I understood my nervous system, I stopped blaming myself for my own biology.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I stopped calling numbness "being fine." I stopped calling hyperactivity "being productive." I stopped thinking there was something fundamentally defective about a man who couldn't think straight three months after losing the most important person in his life.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I stopped calling numbness "being fine." I stopped calling hyperactivity "being productive." I stopped thinking there was something fundamentally defective about a man who couldn't think straight three months after losing the most important person in his life.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">There's nothing defective about you. Your nervous system is responding to a real injury with real, measurable, biological mechanisms. The problem was never that you felt too much. The problem was that you were never given the language or the tools to work with what you were feeling.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">There's nothing defective about you. Your nervous system is responding to a real injury with real, measurable, biological mechanisms. The problem was never that you felt too much. The problem was that you were never given the language or the tools to work with what you were feeling.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I used to hate the soft talk. It sounded like something you'd read on a poster in a yoga studio. Then I realized the alternative was spending another decade armored up, emotionally flatlined, wondering why I kept choosing the same relationships and getting the same results. The "soft" path was the only one that actually led somewhere.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I used to hate the soft talk. It sounded like something you'd read on a poster in a yoga studio. Then I realized the alternative was spending another decade armored up, emotionally flatlined, wondering why I kept choosing the same relationships and getting the same results. The "soft" path was the only one that actually led somewhere.</p>
 
-      <blockquote class="border-l-4 border-primary pl-6 italic text-stone-600 my-8">"The task of a mature human being is to hold grief in one hand and gratitude in the other." — Francis Weller</blockquote>
+      <blockquote class="border-l-4 border-primary pl-6 italic text-on-surface-variant my-8">"The task of a mature human being is to hold grief in one hand and gratitude in the other." — Francis Weller</blockquote>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">Not grief <em>or</em> gratitude. Both. At the same time. That's the work.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">Not grief <em>or</em> gratitude. Both. At the same time. That's the work.</p>
 
       <!-- Section: How to Start Coming Back Online -->
       <h2 id="how-to-start-coming-back-online" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">How to Start Coming Back Online</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I'm not going to give you a ten-step plan. Your nervous system doesn't respond to plans. It responds to practice. Here's where you start.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I'm not going to give you a ten-step plan. Your nervous system doesn't respond to plans. It responds to practice. Here's where you start.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">1. Breathwork: Bypass the Mind, Access the Body</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your conscious mind is a terrible therapist. It rationalizes, minimizes, intellectualizes. Breathwork bypasses all of it and goes straight to the stored tension in your nervous system.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your conscious mind is a terrible therapist. It rationalizes, minimizes, intellectualizes. Breathwork bypasses all of it and goes straight to the stored tension in your nervous system.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Start simple. Box breathing: four seconds in, four seconds hold, four seconds out, four seconds hold. Do it for five minutes. Not because it's magic. Because it activates your vagus nerve and manually shifts your nervous system from sympathetic (threat) to parasympathetic (safety). You're not calming down. You're sending a biological signal to your own body that the danger has passed.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Start simple. Box breathing: four seconds in, four seconds hold, four seconds out, four seconds hold. Do it for five minutes. Not because it's magic. Because it activates your vagus nerve and manually shifts your nervous system from sympathetic (threat) to parasympathetic (safety). You're not calming down. You're sending a biological signal to your own body that the danger has passed.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">2. Movement: Release What's Trapped</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Bessel van der Kolk's research is unambiguous: physical movement releases trapped emotions. Not "helps with" — <em>releases</em>. Your body stores what your mind won't process. Movement is the language your nervous system actually speaks.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Bessel van der Kolk's research is unambiguous: physical movement releases trapped emotions. Not "helps with" — <em>releases</em>. Your body stores what your mind won't process. Movement is the language your nervous system actually speaks.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This doesn't mean crush yourself at the gym. It means move with intention. Shake. Stretch. Hit a heavy bag and let the sound come out. Go for a walk with no headphones and let the silence be uncomfortable. Dance alone in your kitchen at midnight if that's what your body wants to do.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This doesn't mean crush yourself at the gym. It means move with intention. Shake. Stretch. Hit a heavy bag and let the sound come out. Go for a walk with no headphones and let the silence be uncomfortable. Dance alone in your kitchen at midnight if that's what your body wants to do.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The point isn't exercise. The point is giving your body permission to discharge what it's been holding.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The point isn't exercise. The point is giving your body permission to discharge what it's been holding.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">3. Let Yourself Cry</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I resisted this one for years. It felt like surrender. It felt like proof that I wasn't handling it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I resisted this one for years. It felt like surrender. It felt like proof that I wasn't handling it.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's what it actually is: neurochemical relief. Crying releases oxytocin and endorphins — the exact chemicals your body is starving for after heartbreak. Your body is literally trying to heal itself through tears, and you're clenching your jaw and swallowing it back down because someone told you men don't cry.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's what it actually is: neurochemical relief. Crying releases oxytocin and endorphins — the exact chemicals your body is starving for after heartbreak. Your body is literally trying to heal itself through tears, and you're clenching your jaw and swallowing it back down because someone told you men don't cry.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Men cry. Men who are doing the work cry. It's not weakness. It's your nervous system completing a biological cycle that was designed to restore you.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Men cry. Men who are doing the work cry. It's not weakness. It's your nervous system completing a biological cycle that was designed to restore you.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">4. Presence: Stop Running, Start Witnessing</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Sit with it. Five minutes. No phone, no music, no distraction. Just you and whatever is living in your chest.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Sit with it. Five minutes. No phone, no music, no distraction. Just you and whatever is living in your chest.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You don't have to fix it. You don't have to understand it. You just have to stay. That's it. Presence is the opposite of every survival mode — it's not fighting, fleeing, freezing, or fawning. It's just being with what is.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You don't have to fix it. You don't have to understand it. You just have to stay. That's it. Presence is the opposite of every survival mode — it's not fighting, fleeing, freezing, or fawning. It's just being with what is.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">Somatic Experiencing, developed by Peter Levine, has been shown effective for trauma treatment precisely because it teaches this: not to override the body, but to listen to it. To let the sensation be there without running from it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">Somatic Experiencing, developed by Peter Levine, has been shown effective for trauma treatment precisely because it teaches this: not to override the body, but to listen to it. To let the sensation be there without running from it.</p>
 
       <!-- Section: The Hardest Truth -->
       <h2 id="the-hardest-truth" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Hardest Truth</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your nervous system was hijacked. That's real. That's biology. That's not your fault.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your nervous system was hijacked. That's real. That's biology. That's not your fault.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">But staying hijacked? That's a choice. Not a single dramatic choice — a thousand small ones. The choice to numb instead of feel. To perform instead of grieve. To armor up instead of open up.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">But staying hijacked? That's a choice. Not a single dramatic choice — a thousand small ones. The choice to numb instead of feel. To perform instead of grieve. To armor up instead of open up.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I know the armor feels like it's keeping you alive. I wore mine for years. But here's what I learned: the armor doesn't protect you from pain. It locks the pain inside with you.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I know the armor feels like it's keeping you alive. I wore mine for years. But here's what I learned: the armor doesn't protect you from pain. It locks the pain inside with you.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">The work isn't about being tough enough to handle heartbreak. It's about being brave enough to let your body do what it already knows how to do — feel it, process it, and come back online.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">The work isn't about being tough enough to handle heartbreak. It's about being brave enough to let your body do what it already knows how to do — feel it, process it, and come back online.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-16">Your nervous system knows the way home. You just have to stop fighting it long enough to listen.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-16">Your nervous system knows the way home. You just have to stop fighting it long enough to listen.</p>
 
       <!-- FAQ Section -->
       <div class="bg-surface-container-low rounded-lg p-8 mt-16 mb-12">
@@ -470,22 +527,22 @@
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Why does heartbreak feel like physical pain?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Your brain processes emotional rejection through the same neural pathways as physical pain. The anterior cingulate cortex — the region that fires when you break a bone — lights up identically during emotional rejection. This isn't metaphorical; brain scans show real, measurable activation patterns.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Your brain processes emotional rejection through the same neural pathways as physical pain. The anterior cingulate cortex — the region that fires when you break a bone — lights up identically during emotional rejection. This isn't metaphorical; brain scans show real, measurable activation patterns.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Which survival mode am I stuck in?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">The four modes are: Fight (anger, rage), Flight (burying yourself in work/activity), Freeze (numbness, shutdown), and Fawn (people-pleasing, over-giving). Most men default to one and build a personality around it. Identifying which one you're in is the first step to finding the door out.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">The four modes are: Fight (anger, rage), Flight (burying yourself in work/activity), Freeze (numbness, shutdown), and Fawn (people-pleasing, over-giving). Most men default to one and build a personality around it. Identifying which one you're in is the first step to finding the door out.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Can unfelt grief actually make me physically sick?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Yes. 80% of patients with autoimmune disorders experienced excessive emotional stress before diagnosis. Emotions become trapped in your fascia and nervous system. The body keeps the score — unfelt grief stored long-term can disrupt sleep, immune function, and contribute to chronic illness.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Yes. 80% of patients with autoimmune disorders experienced excessive emotional stress before diagnosis. Emotions become trapped in your fascia and nervous system. The body keeps the score — unfelt grief stored long-term can disrupt sleep, immune function, and contribute to chronic illness.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Is crying actually healing or just weakness?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Crying is neurochemical relief. It releases oxytocin and endorphins — the exact chemicals your body is starving for after heartbreak. Men are taught crying is weakness, but it's actually a biological release valve. Blocking tears is like capping a pressure cooker. The research is clear: crying facilitates healing.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Crying is neurochemical relief. It releases oxytocin and endorphins — the exact chemicals your body is starving for after heartbreak. Men are taught crying is weakness, but it's actually a biological release valve. Blocking tears is like capping a pressure cooker. The research is clear: crying facilitates healing.</p>
         </details>
       </div>
 
@@ -503,7 +560,7 @@
     <!-- Sources -->
     <div class="mt-16 pt-8 border-t border-surface-variant">
       <h3 class="font-headline text-lg font-bold mb-4 text-on-surface">Sources</h3>
-      <ul class="space-y-2 text-sm text-stone-500">
+      <ul class="space-y-2 text-sm text-on-surface-variant">
         <li>Kross, E., et al. (2011). "Social rejection shares somatosensory representations with physical pain." <em>Proceedings of the National Academy of Sciences</em>.</li>
         <li>Nummenmaa, L., et al. (2014). "Bodily maps of emotions." <em>Proceedings of the National Academy of Sciences</em>.</li>
         <li>O'Connor, M.F. (2019). "Grief: A Brief History of Research on How Body, Mind, and Brain Adapt." <em>Psychosomatic Medicine</em>.</li>

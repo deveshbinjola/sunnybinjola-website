@@ -8,34 +8,34 @@
  *   <div id="navbar"></div>
  *   <script src="navbar.js"></script>
  *
- * The script auto-detects:
- *   - Which page is active (highlights the correct link)
- *   - Whether this is the homepage (enables transparent hero navbar)
+ * Structure:
+ *   Home · About · Blog · Work With Me ▾ · [Book a Free Call]
+ *   └─ Heal Your Heartbreak
+ *   └─ Embody Live
+ *   └─ Testimonials
+ *   └─ Free Resources
+ *   └─ FAQ
  */
 
 (function () {
   // ─── AUTO-DETECT BASE PATH ───
-  // When loaded from a subfolder (e.g. blog/), script src is "../navbar.js"
-  // so we prepend "../" to all local hrefs and asset paths.
   const scriptTag = document.querySelector('script[src*="navbar.js"]');
   const basePath = scriptTag ? scriptTag.getAttribute('src').replace('navbar.js', '') : '';
 
-  // ─── MAIN NAV LINKS (shown directly in the navbar) ───
+  // ─── TOP-LEVEL NAV LINKS ───
   const NAV_LINKS = [
     { label: 'Home', href: basePath + 'index.html', matchPaths: ['/', '/index.html', ''] },
-    { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
     { label: 'About', href: basePath + 'about.html', matchPaths: ['/about.html'] },
     { label: 'Blog', href: basePath + 'blog.html', matchPaths: ['/blog.html'] },
-    { label: 'Embody Live', href: basePath + 'embody-live.html', matchPaths: ['/embody-live.html'] },
-    { label: 'Work With Me', href: basePath + 'work-with-me.html', matchPaths: ['/work-with-me.html'] },
   ];
 
-  // ─── MORE LINKS (shown in dropdown on desktop, flat in mobile menu) ───
-  const MORE_LINKS = [
-    // { label: 'Find Your Purpose', href: basePath + 'find-your-purpose.html', matchPaths: ['/find-your-purpose.html'] }, // hidden — program not live yet
-    { label: 'Testimonials', href: basePath + 'testimonials.html', matchPaths: ['/testimonials.html'] },
-    { label: 'Free Resources', href: basePath + 'resources.html', matchPaths: ['/resources.html'] },
-    { label: 'FAQ', href: basePath + 'faq.html', matchPaths: ['/faq.html'] },
+  // ─── "WORK WITH ME" DROPDOWN LINKS ───
+  const WORK_LINKS = [
+    { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'], desc: 'Recovery program for men' },
+    { label: 'Embody Live', href: basePath + 'embody-live.html', matchPaths: ['/embody-live.html'], desc: 'Group coaching cohort' },
+    { label: 'Testimonials', href: basePath + 'testimonials.html', matchPaths: ['/testimonials.html'], desc: 'Real stories from real men' },
+    { label: 'Free Resources', href: basePath + 'resources.html', matchPaths: ['/resources.html'], desc: 'Guides, tools & practices' },
+    { label: 'FAQ', href: basePath + 'faq.html', matchPaths: ['/faq.html'], desc: 'Common questions answered' },
   ];
 
   const CTA_URL = 'https://cal.com/sunny-binjola/discovery-call';
@@ -46,6 +46,7 @@
   const currentFile = path.split('/').pop() || 'index.html';
   const isHomepage = currentFile === '' || currentFile === '/' || currentFile === 'index.html';
   const isBlogPost = basePath.includes('../') || path.includes('/blog/');
+  const isRecoveryPage = path.includes('/recovery/');
 
   function isActive(link) {
     return link.matchPaths.some(p => {
@@ -54,82 +55,98 @@
     });
   }
 
-  // Check if active page is in MORE_LINKS
-  const activeInMore = MORE_LINKS.some(l => isActive(l));
+  // Check if current page is inside the Work With Me dropdown
+  const activeInWork = WORK_LINKS.some(l => isActive(l))
+    || currentFile === 'work-with-me.html'
+    || isRecoveryPage;
 
-  // ─── BUILD DESKTOP LINK ───
+  // ─── LINK STYLING ───
   function linkClass(link, scrolled) {
     const active = isActive(link);
     if (isHomepage && !scrolled) {
       return active
-        ? 'nav-link text-white/90 font-bold border-b-2 border-white/40 pb-1'
-        : 'nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300';
+        ? 'text-white font-bold border-b-2 border-white/50 pb-1'
+        : 'text-white/75 font-semibold pb-1 hover:text-white transition-all duration-300';
     } else {
       return active
-        ? 'text-emerald-900 font-bold border-b-2 border-emerald-500 pb-1'
-        : 'text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all duration-300';
+        ? 'text-primary font-bold border-b-2 border-primary pb-1'
+        : 'text-on-surface-variant font-semibold pb-1 hover:text-primary transition-all duration-300';
     }
   }
 
+  // ─── BUILD DESKTOP NAV ───
   function desktopLinks(scrolled) {
     const mainLinks = NAV_LINKS.map(link =>
       `<a class="${linkClass(link, scrolled)}" href="${link.href}">${link.label}</a>`
     ).join('\n        ');
 
-    // "More" dropdown trigger
-    const moreActive = activeInMore;
-    let moreTriggerCls, moreSvgCls, dropdownBg, dropdownLinkCls;
+    // "Work With Me" dropdown trigger
+    let triggerCls, dropdownLinkCls;
 
     if (isHomepage && !scrolled) {
-      moreTriggerCls = moreActive
-        ? 'nav-link text-white/90 font-bold border-b-2 border-white/40 pb-1'
-        : 'nav-link text-white/70 font-medium pb-1 hover:text-white transition-all duration-300';
-      moreSvgCls = 'w-3.5 h-3.5';
-      dropdownBg = 'bg-[#f7f7f2] shadow-lg border border-outline-variant/20';
-      dropdownLinkCls = 'text-stone-600 hover:text-emerald-600 hover:bg-surface-container-low';
+      triggerCls = activeInWork
+        ? 'text-white font-bold border-b-2 border-white/50 pb-1'
+        : 'text-white/75 font-semibold pb-1 hover:text-white transition-all duration-300';
+      dropdownLinkCls = 'text-on-surface-variant hover:text-primary hover:bg-surface-container-low';
     } else {
-      moreTriggerCls = moreActive
-        ? 'text-emerald-900 font-bold border-b-2 border-emerald-500 pb-1'
-        : 'text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all duration-300';
-      dropdownBg = 'bg-[#f7f7f2] shadow-lg border border-outline-variant/20';
-      dropdownLinkCls = 'text-stone-600 hover:text-emerald-600 hover:bg-surface-container-low';
+      triggerCls = activeInWork
+        ? 'text-primary font-bold border-b-2 border-primary pb-1'
+        : 'text-on-surface-variant font-semibold pb-1 hover:text-primary transition-all duration-300';
+      dropdownLinkCls = 'text-on-surface-variant hover:text-primary hover:bg-surface-container-low';
     }
 
-    const dropdownItems = MORE_LINKS.map(link => {
+    const dropdownItems = WORK_LINKS.map(link => {
       const active = isActive(link);
       const cls = active
-        ? 'block px-5 py-2.5 text-emerald-900 font-bold bg-surface-container-low rounded-lg'
-        : `block px-5 py-2.5 ${dropdownLinkCls} rounded-lg transition-colors`;
-      return `<a href="${link.href}" class="${cls}">${link.label}</a>`;
+        ? 'block px-5 py-3 text-primary font-bold bg-surface-container-low rounded-xl'
+        : `block px-5 py-3 ${dropdownLinkCls} rounded-xl transition-colors`;
+      return `<a href="${link.href}" class="${cls}">
+                <span class="block font-semibold">${link.label}</span>
+                <span class="block text-xs text-on-surface-variant/60 mt-0.5">${link.desc}</span>
+              </a>`;
     }).join('\n          ');
 
     return `${mainLinks}
-        <div class="relative" id="moreDropdown">
-          <button class="${moreTriggerCls} flex items-center gap-1 cursor-pointer" id="moreBtn" aria-expanded="false" aria-haspopup="true">
-            More
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transition-transform duration-200" id="moreChevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <div class="relative" id="workDropdown">
+          <button class="${triggerCls} flex items-center gap-1.5 cursor-pointer" id="workBtn" aria-expanded="false" aria-haspopup="true">
+            Work With Me
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform duration-200" id="workChevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
-          <div id="moreMenu" class="absolute top-full right-0 mt-3 ${dropdownBg} rounded-xl py-2 min-w-[220px] opacity-0 invisible transition-all duration-200 z-50 font-['Manrope'] text-sm font-medium">
+          <div id="workMenu" class="absolute top-full right-0 mt-4 bg-[#f7f7f2] shadow-xl border border-outline-variant/15 rounded-2xl py-3 px-2 min-w-[260px] opacity-0 invisible transition-all duration-200 z-50 font-['Manrope'] text-sm font-medium">
             ${dropdownItems}
           </div>
         </div>`;
   }
 
-  // ─── BUILD MOBILE LINKS (all links flat) ───
+  // ─── BUILD MOBILE NAV ───
   function mobileLinks() {
-    const allLinks = [...NAV_LINKS, ...MORE_LINKS];
-    return allLinks.map(link => {
+    const topLinks = NAV_LINKS.map(link => {
       const active = isActive(link);
       const cls = active
-        ? 'text-emerald-900 font-bold pb-2 border-b-2 border-emerald-500'
-        : 'text-stone-600 font-medium pb-1 hover:text-emerald-600 transition-all';
+        ? 'text-primary font-bold text-lg'
+        : 'text-on-surface-variant font-semibold text-lg hover:text-primary transition-all';
       return `<a href="${link.href}" class="${cls}">${link.label}</a>`;
     }).join('\n        ');
+
+    const workLabel = `<span class="text-xs font-bold uppercase tracking-[0.15em] text-primary mt-4 mb-1 block">Work With Me</span>`;
+
+    const workLinks = WORK_LINKS.map(link => {
+      const active = isActive(link);
+      const cls = active
+        ? 'text-primary font-bold text-base'
+        : 'text-on-surface-variant font-medium text-base hover:text-primary transition-all';
+      return `<a href="${link.href}" class="${cls} pl-3 border-l-2 border-primary/20">${link.label}</a>`;
+    }).join('\n        ');
+
+    return `${topLinks}
+        <div class="border-t border-outline-variant/20 pt-2 mt-2"></div>
+        ${workLabel}
+        ${workLinks}`;
   }
 
-  // ─── RENDER NAVBAR HTML ───
+  // ─── RENDER NAVBAR ───
   const container = document.getElementById('navbar');
   if (!container) return;
 
@@ -143,25 +160,22 @@
     ? 'h-20 nav-logo transition-all duration-500'
     : 'h-16 transition-all duration-500';
 
-  // No CSS filters — logo has transparent background, displays naturally everywhere
-  const logoStyle = '';
-
   const hambColor = isHomepage ? 'text-white' : 'text-primary';
 
   container.innerHTML = `
 <nav id="mainNav" class="${navInitialClass}">
-  <div class="flex justify-between items-center px-10 py-6 max-w-[1440px] mx-auto">
+  <div class="flex justify-between items-center px-10 py-5 max-w-[1440px] mx-auto">
     <a href="${basePath}index.html" class="hover:opacity-80 transition-opacity nav-brand">
-      <img src="${basePath}logo.png" alt="Sunny Binjola" class="${logoClass}"${logoStyle}>
+      <img src="${basePath}logo.png" alt="Sunny Binjola" class="${logoClass}">
     </a>
-    <div class="hidden md:flex gap-8 items-center font-['Noto_Serif'] font-medium tracking-tight" id="desktopLinks">
+    <div class="hidden lg:flex gap-9 items-center font-['Manrope'] text-[15px] tracking-tight" id="desktopLinks">
       ${desktopLinks(false)}
     </div>
     <a href="${CTA_URL}" target="_blank" rel="noopener"
-       class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all hidden md:block text-center">
+       class="vibrant-gradient text-white px-8 py-3.5 rounded-full font-bold text-[15px] tracking-wide hover:opacity-90 active:scale-95 transition-all hidden lg:block text-center shadow-lg shadow-primary/20">
       ${CTA_TEXT}
     </a>
-    <button id="hamburger" class="md:hidden ${hambColor} text-2xl" aria-label="Open menu">
+    <button id="hamburger" class="lg:hidden ${hambColor} text-2xl" aria-label="Open menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
@@ -169,11 +183,11 @@
   </div>
 
   <!-- Mobile Nav -->
-  <div id="navLinks" class="hidden md:hidden bg-[#f7f7f2] border-t border-outline-variant/20 px-10 py-6 font-['Noto_Serif']">
-    <div class="flex flex-col gap-4">
+  <div id="navLinks" class="hidden lg:hidden bg-[#f7f7f2] border-t border-outline-variant/20 px-10 py-6 font-['Manrope']">
+    <div class="flex flex-col gap-3">
       ${mobileLinks()}
       <a href="${CTA_URL}" target="_blank" rel="noopener"
-         class="vibrant-gradient text-white px-8 py-3 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all w-full mt-4 text-center">
+         class="vibrant-gradient text-white px-8 py-3.5 rounded-full font-bold tracking-wide hover:opacity-90 active:scale-95 transition-all w-full mt-5 text-center shadow-lg shadow-primary/20">
         ${CTA_TEXT}
       </a>
     </div>
@@ -189,47 +203,49 @@
     });
   }
 
-  // ─── "MORE" DROPDOWN LOGIC ───
-  const moreBtn = document.getElementById('moreBtn');
-  const moreMenu = document.getElementById('moreMenu');
-  const moreChevron = document.getElementById('moreChevron');
+  // ─── DROPDOWN LOGIC ───
+  function bindDropdown() {
+    const workBtn = document.getElementById('workBtn');
+    const workMenu = document.getElementById('workMenu');
+    const workChevron = document.getElementById('workChevron');
 
-  if (moreBtn && moreMenu) {
+    if (!workBtn || !workMenu) return;
+
     let dropdownOpen = false;
 
     function openDropdown() {
       dropdownOpen = true;
-      moreMenu.classList.remove('opacity-0', 'invisible');
-      moreMenu.classList.add('opacity-100', 'visible');
-      if (moreChevron) moreChevron.style.transform = 'rotate(180deg)';
-      moreBtn.setAttribute('aria-expanded', 'true');
+      workMenu.classList.remove('opacity-0', 'invisible');
+      workMenu.classList.add('opacity-100', 'visible');
+      if (workChevron) workChevron.style.transform = 'rotate(180deg)';
+      workBtn.setAttribute('aria-expanded', 'true');
     }
 
     function closeDropdown() {
       dropdownOpen = false;
-      moreMenu.classList.add('opacity-0', 'invisible');
-      moreMenu.classList.remove('opacity-100', 'visible');
-      if (moreChevron) moreChevron.style.transform = 'rotate(0deg)';
-      moreBtn.setAttribute('aria-expanded', 'false');
+      workMenu.classList.add('opacity-0', 'invisible');
+      workMenu.classList.remove('opacity-100', 'visible');
+      if (workChevron) workChevron.style.transform = 'rotate(0deg)';
+      workBtn.setAttribute('aria-expanded', 'false');
     }
 
-    moreBtn.addEventListener('click', (e) => {
+    workBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdownOpen ? closeDropdown() : openDropdown();
     });
 
-    // Close on click outside
     document.addEventListener('click', (e) => {
-      if (dropdownOpen && !moreMenu.contains(e.target) && !moreBtn.contains(e.target)) {
+      if (dropdownOpen && !workMenu.contains(e.target) && !workBtn.contains(e.target)) {
         closeDropdown();
       }
     });
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && dropdownOpen) closeDropdown();
     });
   }
+
+  bindDropdown();
 
   // ─── HOMEPAGE: TRANSPARENT → SOLID SCROLL EFFECT ───
   if (isHomepage) {
@@ -265,33 +281,7 @@
       // Re-render desktop links with correct color scheme
       if (desktopLinksContainer) {
         desktopLinksContainer.innerHTML = desktopLinks(scrolled);
-
-        // Re-bind dropdown after re-render
-        const newMoreBtn = document.getElementById('moreBtn');
-        const newMoreMenu = document.getElementById('moreMenu');
-        const newMoreChevron = document.getElementById('moreChevron');
-        if (newMoreBtn && newMoreMenu) {
-          let open = false;
-          function openDd() {
-            open = true;
-            newMoreMenu.classList.remove('opacity-0', 'invisible');
-            newMoreMenu.classList.add('opacity-100', 'visible');
-            if (newMoreChevron) newMoreChevron.style.transform = 'rotate(180deg)';
-          }
-          function closeDd() {
-            open = false;
-            newMoreMenu.classList.add('opacity-0', 'invisible');
-            newMoreMenu.classList.remove('opacity-100', 'visible');
-            if (newMoreChevron) newMoreChevron.style.transform = 'rotate(0deg)';
-          }
-          newMoreBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            open ? closeDd() : openDd();
-          });
-          document.addEventListener('click', (e) => {
-            if (open && !newMoreMenu.contains(e.target) && !newMoreBtn.contains(e.target)) closeDd();
-          });
-        }
+        bindDropdown();
       }
     }
 

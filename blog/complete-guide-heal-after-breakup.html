@@ -250,7 +250,7 @@
     /* ═══ VISUAL UPGRADES ═══ */
 
     .blog-hero {
-      background: linear-gradient(180deg, #f7f7f2 0%, #f0ebe1 50%, #e8dfd0 100%);
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
       position: relative;
       overflow: hidden;
     }
@@ -273,14 +273,14 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,114,78,0.06) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
     article hr {
       border: none !important;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #d3cfc6, transparent);
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
       margin: 3rem auto !important;
       position: relative;
       max-width: 200px;
@@ -294,16 +294,16 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #c4b59b;
+      background: #006a28;
     }
 
     article blockquote {
-      border-left: 3px solid #c4724e !important;
+      border-left: 3px solid #006a28 !important;
       padding: 1.5rem 1.5rem 1.5rem 2rem !important;
       font-style: italic;
       color: #5a5c58;
       margin: 2.5rem 0 !important;
-      background: linear-gradient(135deg, #faf6ef 0%, #f5ede0 100%);
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
       border-radius: 0 12px 12px 0;
       position: relative;
     }
@@ -313,7 +313,7 @@
       top: -8px;
       left: 12px;
       font-size: 3rem;
-      color: #c4724e;
+      color: #006a28;
       opacity: 0.25;
       font-family: Georgia, serif;
       line-height: 1;
@@ -332,7 +332,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #c4724e;
+      background: #006a28;
     }
 
     article > p:first-of-type {
@@ -343,14 +343,14 @@
     }
 
     article .bold-stat {
-      color: #c4724e;
+      color: #006a28;
       font-weight: 700;
     }
 
     .hero-pill {
       display: inline-block;
-      background: rgba(196,114,78,0.12);
-      color: #8a5e3c;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -360,6 +360,41 @@
       margin-bottom: 1.25rem;
     }
 
+  
+
+    /* Hero photo banner */
+    .blog-hero-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -40px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.85);
+    }
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 420px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -60px;
+      }
+    }
+
+    /* Reading progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
   </style>
 
   <!-- JSON-LD Schema for Article -->
@@ -391,13 +426,34 @@
 
 <body class="bg-background text-on-surface font-body overflow-x-hidden">
 
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
+<script>
+(function() {
+  const bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  function updateProgress() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) { bar.style.width = '0%'; return; }
+    const scrolled = (window.scrollY / docHeight) * 100;
+    bar.style.width = Math.min(scrolled, 100) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
+</script>
+
+
 <!-- NAVBAR -->
 <div id="navbar"></div>
 <script src="../navbar.js"></script>
 
 <main>
   <!-- Hero Section -->
-  <section class="w-full py-20 px-6 blog-hero">
+  <section class="w-full py-0 pb-20 px-6 blog-hero">
+  <img src="images/5.jpg" alt="" class="blog-hero-image" loading="eager" />
+  <div class="pt-10">
+
     <div class="max-w-3xl mx-auto">
       <span class="hero-pill">Pillar Guide &middot; 20 min read</span>
       <h1 class="font-headline text-4xl md:text-5xl font-black text-on-surface mb-6">How to Heal After a Breakup as a Man: The Complete Guide</h1>
@@ -409,7 +465,8 @@
         <span>20 min read</span>
       </div>
     </div>
-  </section>
+    </div>
+</section>
 
   <!-- Table of Contents -->
   <nav class="max-w-3xl mx-auto px-6 py-8" aria-label="Table of Contents">

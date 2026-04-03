@@ -134,7 +134,7 @@
     /* ═══ VISUAL UPGRADES ═══ */
 
     .blog-hero {
-      background: linear-gradient(180deg, #f7f7f2 0%, #f0ebe1 50%, #e8dfd0 100%);
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
       position: relative;
       overflow: hidden;
     }
@@ -157,14 +157,14 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,114,78,0.06) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
     article hr {
       border: none !important;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #d3cfc6, transparent);
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
       margin: 3rem auto !important;
       position: relative;
       max-width: 200px;
@@ -178,16 +178,16 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #c4b59b;
+      background: #006a28;
     }
 
     article blockquote {
-      border-left: 3px solid #c4724e !important;
+      border-left: 3px solid #006a28 !important;
       padding: 1.5rem 1.5rem 1.5rem 2rem !important;
       font-style: italic;
       color: #5a5c58;
       margin: 2.5rem 0 !important;
-      background: linear-gradient(135deg, #faf6ef 0%, #f5ede0 100%);
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
       border-radius: 0 12px 12px 0;
       position: relative;
     }
@@ -197,7 +197,7 @@
       top: -8px;
       left: 12px;
       font-size: 3rem;
-      color: #c4724e;
+      color: #006a28;
       opacity: 0.25;
       font-family: Georgia, serif;
       line-height: 1;
@@ -216,7 +216,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #c4724e;
+      background: #006a28;
     }
 
     article > p:first-of-type {
@@ -227,14 +227,14 @@
     }
 
     article .bold-stat {
-      color: #c4724e;
+      color: #006a28;
       font-weight: 700;
     }
 
     .hero-pill {
       display: inline-block;
-      background: rgba(196,114,78,0.12);
-      color: #8a5e3c;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -244,9 +244,62 @@
       margin-bottom: 1.25rem;
     }
 
+  
+
+    /* Hero photo banner */
+    .blog-hero-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -40px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.85);
+    }
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 420px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -60px;
+      }
+    }
+
+    /* Reading progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
   </style>
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden">
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
+<script>
+(function() {
+  const bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  function updateProgress() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) { bar.style.width = '0%'; return; }
+    const scrolled = (window.scrollY / docHeight) * 100;
+    bar.style.width = Math.min(scrolled, 100) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
+</script>
+
 
 <!-- NAVBAR -->
 <div id="navbar"></div>
@@ -254,18 +307,22 @@
 
 <main>
 <!-- Hero Section -->
-<section class="blog-hero pt-32 pb-16 px-6 sm:px-8">
+<section class="blog-hero pt-0 pb-16 px-6 sm:px-8">
+  <img src="images/5.jpg" alt="" class="blog-hero-image" loading="eager" />
+  <div class="pt-10">
+
   <div class="max-w-3xl mx-auto">
     <span class="hero-pill">Embodiment &middot; 4 min read</span>
       <h1 class="font-headline text-3xl sm:text-4xl font-black mb-6 text-on-surface">Intelligence Is Cheap Now. That's Why You're Stuck.</h1>
 
-    <div class="flex flex-wrap gap-4 text-stone-600 text-sm mb-8">
+    <div class="flex flex-wrap gap-4 text-on-surface-variant text-sm mb-8">
       <span>By <span class="font-semibold text-primary">Sunny Binjola</span></span>
       <span>•</span>
       <span>April 2, 2026</span>
       <span>•</span>
       <span>7 min read</span>
     </div>
+  </div>
   </div>
 </section>
 
@@ -292,44 +349,44 @@
   <div class="max-w-3xl mx-auto px-6 sm:px-8">
     <div class="prose prose-lg max-w-none">
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">AI made intelligence available for $20 a month.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">AI made intelligence available for $20 a month.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Strategy. Ideas. Business plans. Life advice. All in your pocket at 3am.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Strategy. Ideas. Business plans. Life advice. All in your pocket at 3am.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">So let's ask the real question:</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">So let's ask the real question:</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">Why are you still not moving?</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I know this man. Because I've been this man.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I know this man. Because I've been this man.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I spent seven years thinking about quitting my job to start a business. Always in "planning mode." Always almost ready.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I spent seven years thinking about quitting my job to start a business. Always in "planning mode." Always almost ready.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">In the last few years, it got worse. I had all the tools. AI. Strategy. Endless ideas. I'd open ChatGPT, map everything out, refine the plan, optimise the direction… Talk about it. Think about it. Improve it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">In the last few years, it got worse. I had all the tools. AI. Strategy. Endless ideas. I'd open ChatGPT, map everything out, refine the plan, optimise the direction… Talk about it. Think about it. Improve it.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And avoid the one thing that would've actually changed my life:</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And avoid the one thing that would've actually changed my life:</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Sending one message.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Sending one message.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">One message that could've started it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">One message that could've started it.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I wasn't stuck because I didn't know what to do. I was stuck because doing it meant something real could happen. Failure. Rejection. Exposure.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I wasn't stuck because I didn't know what to do. I was stuck because doing it meant something real could happen. Failure. Rejection. Exposure.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">So I stayed where it was safe: <em>thinking.</em></p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">So I stayed where it was safe: <em>thinking.</em></p>
 
       <hr class="my-12 border-surface-variant">
 
       <!-- Section: The New Addiction -->
       <h2 id="the-new-addiction-nobody-talks-about" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The New Addiction Nobody Talks About</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You don't have a discipline problem.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You don't have a discipline problem.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You have a consumption addiction.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You have a consumption addiction.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And it's more dangerous than distraction — because it feels like progress.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And it's more dangerous than distraction — because it feels like progress.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You listen to a podcast — you feel smarter. You read a thread — you feel clearer. You ask AI — you feel like you're moving.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You listen to a podcast — you feel smarter. You read a thread — you feel clearer. You ask AI — you feel like you're moving.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You're not.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You're not.</p>
 
       <p class="text-xl leading-relaxed text-primary font-bold mb-12">You're sedating yourself with insight.</p>
 
@@ -338,143 +395,143 @@
       <!-- Section: Intelligence Paralysis -->
       <h2 id="what-is-intelligence-paralysis" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">What Is Intelligence Paralysis?</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">We've created a new kind of man.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">We've created a new kind of man.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">He knows everything: attachment styles, business models, nervous system regulation, purpose, masculinity, mindset. He can explain it all.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">He knows everything: attachment styles, business models, nervous system regulation, purpose, masculinity, mindset. He can explain it all.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And he can't act.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And he can't act.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Not because he's lazy. Because he's trained his system to replace action with analysis.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Not because he's lazy. Because he's trained his system to replace action with analysis.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your brain gives you dopamine for <em>understanding</em>, not just doing. So you sit there — researching, refining, preparing — and your body learns: thinking = progress.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your brain gives you dopamine for <em>understanding</em>, not just doing. So you sit there — researching, refining, preparing — and your body learns: thinking = progress.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Over time, something dangerous happens:</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Over time, something dangerous happens:</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">The more you know without moving, the heavier the knowing becomes.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">It starts to feel like pressure. Then overwhelm. Then paralysis.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">It starts to feel like pressure. Then overwhelm. Then paralysis.</p>
 
       <hr class="my-12 border-surface-variant">
 
       <!-- Section: You Already Know -->
       <h2 id="you-already-know-what-to-do" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">You Already Know What to Do</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">There's something in your life right now: a message you're not sending, a decision you're avoiding, a risk you're delaying, a truth you're not saying.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">There's something in your life right now: a message you're not sending, a decision you're avoiding, a risk you're delaying, a truth you're not saying.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And you keep telling yourself: "I just need more clarity."</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And you keep telling yourself: "I just need more clarity."</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You don't.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You don't.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You're avoiding the moment where you might fail.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You're avoiding the moment where you might fail.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">So you stay in the one place failure can't reach you: your head.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">So you stay in the one place failure can't reach you: your head.</p>
 
       <hr class="my-12 border-surface-variant">
 
       <!-- Section: Drive -->
       <h2 id="drive-isnt-found-its-created" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Drive Isn't Found. It's Created.</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Nobody finds drive sitting still.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Nobody finds drive sitting still.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Drive comes from a loop:</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Drive comes from a loop:</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">Idea → Action → Feedback → Energy</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">That's it.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">That's it.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Not: Idea → Perfect plan → Certainty → Then action. That loop doesn't exist.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Not: Idea → Perfect plan → Certainty → Then action. That loop doesn't exist.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The man who moves isn't more motivated. He's just willing to be wrong, look stupid, feel uncertain — and move anyway.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The man who moves isn't more motivated. He's just willing to be wrong, look stupid, feel uncertain — and move anyway.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Purpose is a direction — and it changes. The purpose that set you on fire at 30 might bore you at 35. That's not failure. That's growth.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Purpose is a direction — and it changes. The purpose that set you on fire at 30 might bore you at 35. That's not failure. That's growth.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">Drive is the engine underneath purpose. And the engine doesn't live in your head. <span class="text-primary font-bold">It lives in your body.</span></p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">Drive is the engine underneath purpose. And the engine doesn't live in your head. <span class="text-primary font-bold">It lives in your body.</span></p>
 
       <hr class="my-12 border-surface-variant">
 
       <!-- Section: Two Men -->
       <h2 id="two-men-same-intelligence" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Two Men. Same Intelligence.</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Same tools. Same strategy. Same AI.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Same tools. Same strategy. Same AI.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">One launches, fails, adjusts, grows. The other is still "refining the plan" six months later.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">One launches, fails, adjusts, grows. The other is still "refining the plan" six months later.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The difference? Not intelligence. Not discipline.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The difference? Not intelligence. Not discipline.</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">Capacity.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">One man's body can hold uncertainty. The other's can't.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">One man's body can hold uncertainty. The other's can't.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">So his mind steps in to protect him: "Wait a little longer." "Let's think this through." "You're not ready yet."</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">So his mind steps in to protect him: "Wait a little longer." "Let's think this through." "You're not ready yet."</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">It feels like wisdom.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">It feels like wisdom.</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">It's fear.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your problem isn't that you don't know enough. It's that you don't trust yourself enough to act without guarantees.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your problem isn't that you don't know enough. It's that you don't trust yourself enough to act without guarantees.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">And no amount of intelligence will fix that. Because intelligence is the thing you're hiding behind.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">And no amount of intelligence will fix that. Because intelligence is the thing you're hiding behind.</p>
 
       <hr class="my-12 border-surface-variant">
 
       <!-- Section: The Body -->
       <h2 id="the-body-youve-been-ignoring" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Body You've Been Ignoring</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your life is not stuck because of your strategy. It's stuck because your nervous system is overloaded.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your life is not stuck because of your strategy. It's stuck because your nervous system is overloaded.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You're slightly anxious. Slightly overwhelmed. Slightly frozen. All the time.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You're slightly anxious. Slightly overwhelmed. Slightly frozen. All the time.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">So instead of moving, you think, plan, consume. Because it's safer.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">So instead of moving, you think, plan, consume. Because it's safer.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">But here's the reality:</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">But here's the reality:</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">Your mind can simulate action. Your body cannot.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Your body knows when you're avoiding. That tightness in your chest? That low-level anxiety? That constant "I should be doing more"?</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Your body knows when you're avoiding. That tightness in your chest? That low-level anxiety? That constant "I should be doing more"?</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">That's not confusion.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">That's not confusion.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12"><span class="text-primary font-bold">That's misalignment between what you know and what you're doing.</span></p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12"><span class="text-primary font-bold">That's misalignment between what you know and what you're doing.</span></p>
 
       <hr class="my-12 border-surface-variant">
 
       <!-- Section: 2026 -->
       <h2 id="why-embodiment-is-the-edge-in-2026" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Why Embodiment Is the Edge in 2026</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Intelligence is being commoditised. Everyone has access to strategy, insight, information. So that's no longer the edge.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Intelligence is being commoditised. Everyone has access to strategy, insight, information. So that's no longer the edge.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">What becomes rare? Presence. Decisiveness. Emotional capacity. The ability to act without certainty.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">What becomes rare? Presence. Decisiveness. Emotional capacity. The ability to act without certainty.</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">Embodiment is the competitive advantage that no technology can replicate.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Not as a concept. As a lived, trainable capacity to feel pressure, stay grounded, and move anyway.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Not as a concept. As a lived, trainable capacity to feel pressure, stay grounded, and move anyway.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">This isn't anti-AI. I use AI every day. I'm building it into my own coaching programmes. But a tool is only as useful as the person holding it. If the person holding it is frozen — the tool changes nothing.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">This isn't anti-AI. I use AI every day. I'm building it into my own coaching programmes. But a tool is only as useful as the person holding it. If the person holding it is frozen — the tool changes nothing.</p>
 
       <hr class="my-12 border-surface-variant">
 
       <!-- Section: Challenge -->
       <h2 id="the-24-hour-challenge" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The 24-Hour Challenge</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Not: "What's my purpose?" That question keeps you stuck.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Not: "What's my purpose?" That question keeps you stuck.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Ask this instead:</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Ask this instead:</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">"Where am I not moving?"</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You already know the answer. Don't overthink it. It's the thing you keep circling back to — and avoiding.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You already know the answer. Don't overthink it. It's the thing you keep circling back to — and avoiding.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">For the next 24 hours: don't consume anything. No podcasts. No scrolling. No "one more insight."</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">For the next 24 hours: don't consume anything. No podcasts. No scrolling. No "one more insight."</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Just pick one thing you've been avoiding — and do it. Messily. Imperfectly. Without clarity.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Just pick one thing you've been avoiding — and do it. Messily. Imperfectly. Without clarity.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And if you don't: be honest.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And if you don't: be honest.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">It's not confusion. It's fear.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">It's not confusion. It's fear.</p>
 
       <hr class="my-12 border-surface-variant">
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Intelligence is cheap now. Your mind can be replaced. Your body cannot.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Intelligence is cheap now. Your mind can be replaced. Your body cannot.</p>
 
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-12">Feel it. Trust it. Move.</p>
 
@@ -485,27 +542,27 @@
 
       <details class="mb-6 bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
         <summary class="font-bold text-on-surface cursor-pointer hover:text-primary transition-colors">What is intelligence paralysis?</summary>
-        <p class="mt-3 text-stone-700 leading-relaxed">Intelligence paralysis is when a man has access to more knowledge, strategy, and information than he could ever use — but instead of moving faster, he moves slower. He replaces action with analysis, and his brain rewards understanding with dopamine, creating a cycle where thinking feels like progress but no real action is taken. The term was coined by Sunny Binjola to describe the growing gap between knowing and doing in the age of AI.</p>
+        <p class="mt-3 text-on-surface leading-relaxed">Intelligence paralysis is when a man has access to more knowledge, strategy, and information than he could ever use — but instead of moving faster, he moves slower. He replaces action with analysis, and his brain rewards understanding with dopamine, creating a cycle where thinking feels like progress but no real action is taken. The term was coined by Sunny Binjola to describe the growing gap between knowing and doing in the age of AI.</p>
       </details>
 
       <details class="mb-6 bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
         <summary class="font-bold text-on-surface cursor-pointer hover:text-primary transition-colors">What is embodiment for men?</summary>
-        <p class="mt-3 text-stone-700 leading-relaxed">Embodiment is the trainable capacity to live in your body — to feel what's happening, hold pressure, move when it matters, and stay grounded when things don't go your way. For men, embodiment is the difference between knowing what to do and actually doing it. It's rooted in nervous system regulation and somatic awareness, and it's the competitive edge that AI cannot replicate.</p>
+        <p class="mt-3 text-on-surface leading-relaxed">Embodiment is the trainable capacity to live in your body — to feel what's happening, hold pressure, move when it matters, and stay grounded when things don't go your way. For men, embodiment is the difference between knowing what to do and actually doing it. It's rooted in nervous system regulation and somatic awareness, and it's the competitive edge that AI cannot replicate.</p>
       </details>
 
       <details class="mb-6 bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
         <summary class="font-bold text-on-surface cursor-pointer hover:text-primary transition-colors">Why do I feel stuck even though I know what to do?</summary>
-        <p class="mt-3 text-stone-700 leading-relaxed">You're likely experiencing intelligence paralysis — your nervous system has learned that thinking equals progress, so it rewards planning and research with dopamine instead of requiring action. The gap between knowing and doing is a body problem, not a knowledge problem. Your nervous system may be in a chronic low-level state of fight-or-flight, making uncertainty feel dangerous and keeping you stuck in analysis mode.</p>
+        <p class="mt-3 text-on-surface leading-relaxed">You're likely experiencing intelligence paralysis — your nervous system has learned that thinking equals progress, so it rewards planning and research with dopamine instead of requiring action. The gap between knowing and doing is a body problem, not a knowledge problem. Your nervous system may be in a chronic low-level state of fight-or-flight, making uncertainty feel dangerous and keeping you stuck in analysis mode.</p>
       </details>
 
       <details class="mb-6 bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
         <summary class="font-bold text-on-surface cursor-pointer hover:text-primary transition-colors">What's the difference between drive and purpose?</summary>
-        <p class="mt-3 text-stone-700 leading-relaxed">Purpose is a direction — it can change as you grow. Drive is the engine underneath purpose. It's the capacity to move toward something even before you can name what it is. Drive is generated through a loop of idea, action, feedback, and energy — not found through introspection. Unlike purpose, drive doesn't collapse when your direction shifts.</p>
+        <p class="mt-3 text-on-surface leading-relaxed">Purpose is a direction — it can change as you grow. Drive is the engine underneath purpose. It's the capacity to move toward something even before you can name what it is. Drive is generated through a loop of idea, action, feedback, and energy — not found through introspection. Unlike purpose, drive doesn't collapse when your direction shifts.</p>
       </details>
 
       <details class="mb-6 bg-surface-container-low rounded-xl p-5 border border-outline-variant/30">
         <summary class="font-bold text-on-surface cursor-pointer hover:text-primary transition-colors">How does embodiment help with taking action?</summary>
-        <p class="mt-3 text-stone-700 leading-relaxed">Embodiment regulates your nervous system so you can tolerate discomfort and uncertainty without shutting down. When you're embodied, you hesitate less, spiral less, recover faster from failure, and trust your decisions — because you can feel when something is right, not just think it. This breaks the cycle of intelligence paralysis and allows you to take action even without certainty.</p>
+        <p class="mt-3 text-on-surface leading-relaxed">Embodiment regulates your nervous system so you can tolerate discomfort and uncertainty without shutting down. When you're embodied, you hesitate less, spiral less, recover faster from failure, and trust your decisions — because you can feel when something is right, not just think it. This breaks the cycle of intelligence paralysis and allows you to take action even without certainty.</p>
       </details>
 
       <!-- Related Articles -->

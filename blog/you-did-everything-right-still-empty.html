@@ -142,7 +142,7 @@
     /* ═══ VISUAL UPGRADES ═══ */
 
     .blog-hero {
-      background: linear-gradient(180deg, #f7f7f2 0%, #f0ebe1 50%, #e8dfd0 100%);
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
       position: relative;
       overflow: hidden;
     }
@@ -165,14 +165,14 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,114,78,0.06) 0%, transparent 60%);
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
       pointer-events: none;
     }
 
     article hr {
       border: none !important;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #d3cfc6, transparent);
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
       margin: 3rem auto !important;
       position: relative;
       max-width: 200px;
@@ -186,16 +186,16 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #c4b59b;
+      background: #006a28;
     }
 
     article blockquote {
-      border-left: 3px solid #c4724e !important;
+      border-left: 3px solid #006a28 !important;
       padding: 1.5rem 1.5rem 1.5rem 2rem !important;
       font-style: italic;
       color: #5a5c58;
       margin: 2.5rem 0 !important;
-      background: linear-gradient(135deg, #faf6ef 0%, #f5ede0 100%);
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
       border-radius: 0 12px 12px 0;
       position: relative;
     }
@@ -205,7 +205,7 @@
       top: -8px;
       left: 12px;
       font-size: 3rem;
-      color: #c4724e;
+      color: #006a28;
       opacity: 0.25;
       font-family: Georgia, serif;
       line-height: 1;
@@ -224,7 +224,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #c4724e;
+      background: #006a28;
     }
 
     article > p:first-of-type {
@@ -235,14 +235,14 @@
     }
 
     article .bold-stat {
-      color: #c4724e;
+      color: #006a28;
       font-weight: 700;
     }
 
     .hero-pill {
       display: inline-block;
-      background: rgba(196,114,78,0.12);
-      color: #8a5e3c;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -252,9 +252,62 @@
       margin-bottom: 1.25rem;
     }
 
+  
+
+    /* Hero photo banner */
+    .blog-hero-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -40px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.85);
+    }
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 420px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -60px;
+      }
+    }
+
+    /* Reading progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
   </style>
 </head>
 <body class="bg-background text-on-surface font-body overflow-x-hidden">
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
+<script>
+(function() {
+  const bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  function updateProgress() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) { bar.style.width = '0%'; return; }
+    const scrolled = (window.scrollY / docHeight) * 100;
+    bar.style.width = Math.min(scrolled, 100) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
+</script>
+
 
 <!-- NAVBAR -->
 <div id="navbar"></div>
@@ -262,7 +315,10 @@
 
 <main>
 <!-- Hero Section -->
-<section class="blog-hero pt-32 pb-16 px-6 sm:px-8">
+<section class="blog-hero pt-0 pb-16 px-6 sm:px-8">
+  <img src="images/9.jpg" alt="" class="blog-hero-image" loading="eager" />
+  <div class="pt-10">
+
   <div class="max-w-3xl mx-auto">
     <div class="mb-4">
       <span class="inline-block bg-primary/10 text-primary font-semibold text-sm px-4 py-2 rounded-full">Find Your Purpose</span>
@@ -270,13 +326,14 @@
     <span class="hero-pill">Purpose &middot; 9 min read</span>
       <h1 class="font-headline text-3xl sm:text-4xl font-black mb-6 text-on-surface">You Did Everything Right and Still Feel Empty</h1>
 
-    <div class="flex flex-wrap gap-4 text-stone-600 text-sm mb-8">
+    <div class="flex flex-wrap gap-4 text-on-surface-variant text-sm mb-8">
       <span>By <span class="font-semibold text-primary">Sunny Binjola</span></span>
       <span>•</span>
       <span>March 28, 2026</span>
       <span>•</span>
       <span>9 min read</span>
     </div>
+  </div>
   </div>
 </section>
 
@@ -302,122 +359,122 @@
   <div class="max-w-3xl mx-auto px-6 sm:px-8">
 
     <div class="prose prose-lg max-w-none">
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">You got the degree. The job. Maybe the apartment, the relationship, the promotion.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">You got the degree. The job. Maybe the apartment, the relationship, the promotion.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">And somewhere between "making it" and waking up at 3am wondering what the point is, the script started dissolving.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">And somewhere between "making it" and waking up at 3am wondering what the point is, the script started dissolving.</p>
 
       <!-- Section: The Script Is Dissolving -->
       <h2 id="script-dissolving" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Script Is Dissolving</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I was talking to a man last week who had everything the script promised. Good salary. Respectable career. The girlfriend who looked good next to him. He said something that won't leave my head:</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I was talking to a man last week who had everything the script promised. Good salary. Respectable career. The girlfriend who looked good next to him. He said something that won't leave my head:</p>
 
-      <blockquote class="border-l-4 border-primary pl-6 italic text-stone-600 my-8">"I have everything, and instead of being happy, I feel like a glutton. Like I'm climbing a mountain that never ends. And the worst part? I can't even tell anyone because my life looks good."</blockquote>
+      <blockquote class="border-l-4 border-primary pl-6 italic text-on-surface-variant my-8">"I have everything, and instead of being happy, I feel like a glutton. Like I'm climbing a mountain that never ends. And the worst part? I can't even tell anyone because my life looks good."</blockquote>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is not unusual. This is the water you're swimming in.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is not unusual. This is the water you're swimming in.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">A 2025 Equimundo survey found that <span class="text-primary font-bold">85% of men feel disconnected from purpose</span>. Not temporarily. Not situationally. Fundamentally. And it gets worse: <span class="text-primary font-bold">43% of young men don't even know what it means to be a man in today's society</span>. You weren't just taught to follow a path. You were taught to follow a path that stopped making sense somewhere between your twentieth and thirtieth birthday.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">A 2025 Equimundo survey found that <span class="text-primary font-bold">85% of men feel disconnected from purpose</span>. Not temporarily. Not situationally. Fundamentally. And it gets worse: <span class="text-primary font-bold">43% of young men don't even know what it means to be a man in today's society</span>. You weren't just taught to follow a path. You were taught to follow a path that stopped making sense somewhere between your twentieth and thirtieth birthday.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The script promised: if you did X, then Y would happen, and then you would feel Z.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The script promised: if you did X, then Y would happen, and then you would feel Z.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Except Z never came. And now you're standing at the top of the mountain wondering why you don't feel anything.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Except Z never came. And now you're standing at the top of the mountain wondering why you don't feel anything.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">This isn't a quarter-life crisis. It's an initiation you weren't prepared for. And the emptiness you're feeling? It's not a bug. It's evidence that something in you is still alive — still asking for more than the script was ever designed to give.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">This isn't a quarter-life crisis. It's an initiation you weren't prepared for. And the emptiness you're feeling? It's not a bug. It's evidence that something in you is still alive — still asking for more than the script was ever designed to give.</p>
 
       <!-- Section: Trained to Perform -->
       <h2 id="trained-to-perform" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Trained to Perform, Not to Belong</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's what nobody tells you: you weren't trained to live. You were trained to perform.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's what nobody tells you: you weren't trained to live. You were trained to perform.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">From the moment you could stand, it was about achievement. Grades. Scholarships. Internships. Career trajectory. Your identity became a resume. Success wasn't a goal — it was a baseline. A floor that kept raising itself. And you kept climbing because stopping meant failing, and failing meant you were nothing.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">From the moment you could stand, it was about achievement. Grades. Scholarships. Internships. Career trajectory. Your identity became a resume. Success wasn't a goal — it was a baseline. A floor that kept raising itself. And you kept climbing because stopping meant failing, and failing meant you were nothing.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">So now you're in this place where your entire sense of self is built on output. On performance. On metrics. And the terror underneath is: <span class="text-primary font-bold">"If I lose my job, everything crumbles. If I stop producing, I stop existing."</span></p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">So now you're in this place where your entire sense of self is built on output. On performance. On metrics. And the terror underneath is: <span class="text-primary font-bold">"If I lose my job, everything crumbles. If I stop producing, I stop existing."</span></p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You can't even enjoy things anymore without turning them into optimization opportunities. You sit down to play video games and immediately think, "I should be learning a new skill." You take a weekend and instead of resting, you plan the next project. Relaxation feels like failure. Stillness feels like death.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You can't even enjoy things anymore without turning them into optimization opportunities. You sit down to play video games and immediately think, "I should be learning a new skill." You take a weekend and instead of resting, you plan the next project. Relaxation feels like failure. Stillness feels like death.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The emptiness you're feeling isn't a personal failing. It's the system working exactly as designed. You were optimized for productivity, not meaning. Built for climbing, not belonging. Your entire nervous system learned early: there is no safety in just being. There is only safety in becoming more.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The emptiness you're feeling isn't a personal failing. It's the system working exactly as designed. You were optimized for productivity, not meaning. Built for climbing, not belonging. Your entire nervous system learned early: there is no safety in just being. There is only safety in becoming more.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">I was that guy. I was the engineer. Good salary, clear path, respectable career. I optimized everything. Sleep, exercise, nutrition, productivity systems. And I felt absolutely nothing. I remember sitting in my apartment thinking: "I did everything right. So why do I feel so wrong?"</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">I was that guy. I was the engineer. Good salary, clear path, respectable career. I optimized everything. Sleep, exercise, nutrition, productivity systems. And I felt absolutely nothing. I remember sitting in my apartment thinking: "I did everything right. So why do I feel so wrong?"</p>
 
       <!-- Section: Information-to-Integration Gap -->
       <h2 id="information-gap" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The Information-to-Integration Gap</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">You've done the reading. You've listened to the podcasts. You've consumed endless content about purpose, meaning, identity, masculinity. You have frameworks, lists, models. You can articulate the problem better than anyone in your life.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">You've done the reading. You've listened to the podcasts. You've consumed endless content about purpose, meaning, identity, masculinity. You have frameworks, lists, models. You can articulate the problem better than anyone in your life.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And it changed nothing.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And it changed nothing.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">There's a gap between information and integration — between understanding something intellectually and feeling it in your body. Most men in your situation are drowning in the former and starving for the latter. You've theorized endlessly. You've analyzed. You've rationalized. But you haven't <em>felt</em>.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">There's a gap between information and integration — between understanding something intellectually and feeling it in your body. Most men in your situation are drowning in the former and starving for the latter. You've theorized endlessly. You've analyzed. You've rationalized. But you haven't <em>felt</em>.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Information consumption becomes a form of worrying. It feels like you're doing something, but all you're really doing is playing with ideas. Reading another book about purpose doesn't uncover your purpose. It's another chapter in a story where the protagonist never actually moves.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Information consumption becomes a form of worrying. It feels like you're doing something, but all you're really doing is playing with ideas. Reading another book about purpose doesn't uncover your purpose. It's another chapter in a story where the protagonist never actually moves.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">And here's the brutal part: the entire men's self-improvement space is neck-up. It's all frameworks and thinking and more information. Nobody is asking you to get into your body. To feel what's underneath. To let your nervous system tell you what your mind has been drowning out.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">And here's the brutal part: the entire men's self-improvement space is neck-up. It's all frameworks and thinking and more information. Nobody is asking you to get into your body. To feel what's underneath. To let your nervous system tell you what your mind has been drowning out.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">You don't need more answers. You need a different kind of experience. You need to feel your way to purpose instead of thinking your way to it. And that requires getting out of your head and into the only part of you that actually knows the way: your body.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">You don't need more answers. You need a different kind of experience. You need to feel your way to purpose instead of thinking your way to it. And that requires getting out of your head and into the only part of you that actually knows the way: your body.</p>
 
       <!-- Section: Purpose Uncovered -->
       <h2 id="purpose-uncovered" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Purpose Isn't Found. It's Uncovered.</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Most purpose frameworks ask the wrong question. They ask: "What's your passion? What lights you up? What do you want to be known for?"</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Most purpose frameworks ask the wrong question. They ask: "What's your passion? What lights you up? What do you want to be known for?"</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">These are all variations of the same trap. They're still asking you to perform. Still asking you to choose something that looks good, that makes sense, that fits the narrative.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">These are all variations of the same trap. They're still asking you to perform. Still asking you to choose something that looks good, that makes sense, that fits the narrative.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Purpose doesn't work that way. Purpose is what emerges when you strip away all the inherited expectations. When you stop listening to the script and start listening to something deeper.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Purpose doesn't work that way. Purpose is what emerges when you strip away all the inherited expectations. When you stop listening to the script and start listening to something deeper.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The body knows before the mind does. Your gut feelings, your energy shifts, what makes you lose track of time — that's not noise. That's signal. That's your deeper self trying to tell you something about what's actually yours, as opposed to what looks good on the outside.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The body knows before the mind does. Your gut feelings, your energy shifts, what makes you lose track of time — that's not noise. That's signal. That's your deeper self trying to tell you something about what's actually yours, as opposed to what looks good on the outside.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is why somatic work — working through your body — is so different from cognitive work. <span class="text-primary font-bold">Instead of thinking your way to purpose, you feel your way there.</span> You ask: Where do I actually feel alive? Where does my nervous system light up? What activities make me lose the need to perform?</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is why somatic work — working through your body — is so different from cognitive work. <span class="text-primary font-bold">Instead of thinking your way to purpose, you feel your way there.</span> You ask: Where do I actually feel alive? Where does my nervous system light up? What activities make me lose the need to perform?</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">Neuro-somatic testing shows something fascinating: what actually lights up your nervous system and what you think <em>should</em> light it up are often completely different. Your mind is trained to want the respectable answer. Your body knows the real one.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">Neuro-somatic testing shows something fascinating: what actually lights up your nervous system and what you think <em>should</em> light it up are often completely different. Your mind is trained to want the respectable answer. Your body knows the real one.</p>
 
       <!-- Section: First Heartbreak -->
       <h2 id="first-heartbreak" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">The First Heartbreak Was the Life You Built</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I want to bridge something that feels disconnected but is actually the same journey.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I want to bridge something that feels disconnected but is actually the same journey.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">For many men, the first real heartbreak isn't losing a person. It's realizing the life they built around the script isn't theirs. The hollow feeling? That's grief. That's mourning. Grief for the version of you that was performing someone else's story.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">For many men, the first real heartbreak isn't losing a person. It's realizing the life they built around the script isn't theirs. The hollow feeling? That's grief. That's mourning. Grief for the version of you that was performing someone else's story.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">This is why my work with heartbreak recovery and my work with purpose are the same journey. Both require letting the old identity die. Both require feeling your way through the void instead of trying to fix it. Both ask you to ask the question: <span class="text-primary font-bold">"Success by whose definition?"</span></p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">This is why my work with heartbreak recovery and my work with purpose are the same journey. Both require letting the old identity die. Both require feeling your way through the void instead of trying to fix it. Both ask you to ask the question: <span class="text-primary font-bold">"Success by whose definition?"</span></p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">If you've experienced real heartbreak — losing someone important — the work is directly applicable to this. You know how to grieve. You know how to let something die. The only difference now is that what's dying is a life. A self. A script that never actually fit.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">If you've experienced real heartbreak — losing someone important — the work is directly applicable to this. You know how to grieve. You know how to let something die. The only difference now is that what's dying is a life. A self. A script that never actually fit.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">The hollow feeling isn't failure. It's your soul refusing to stay dead. And that's actually good news. It means you're not broken. You're just waking up.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">The hollow feeling isn't failure. It's your soul refusing to stay dead. And that's actually good news. It means you're not broken. You're just waking up.</p>
 
       <!-- Section: What Works -->
       <h2 id="what-works" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">What Actually Works</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Stop optimizing. Start excavating.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Stop optimizing. Start excavating.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I'm not going to give you another framework. I'm going to give you tools for uncovering what's actually yours.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I'm not going to give you another framework. I'm going to give you tools for uncovering what's actually yours.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">The Subtraction Exercise</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">List everything you "should" do. Career path, how you should look, how you should spend your time, what you should want. Everything. Then — and this is the hard part — cross out everything that isn't YOUR voice. Not your parents' voice. Not society's voice. Not the script's voice. Yours.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">List everything you "should" do. Career path, how you should look, how you should spend your time, what you should want. Everything. Then — and this is the hard part — cross out everything that isn't YOUR voice. Not your parents' voice. Not society's voice. Not the script's voice. Yours.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">What's left? That's the place to start.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">What's left? That's the place to start.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">The Body Compass</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">For one week, check in with your body three times a day. Morning, midday, evening. Ask: "Where do I feel alive right now? Where do I feel dead?" Log it. Notice patterns. You'll start to see which activities, conversations, environments, and people activate your aliveness. That's your nervous system pointing.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">For one week, check in with your body three times a day. Morning, midday, evening. Ask: "Where do I feel alive right now? Where do I feel dead?" Log it. Notice patterns. You'll start to see which activities, conversations, environments, and people activate your aliveness. That's your nervous system pointing.</p>
 
       <h3 class="font-headline text-2xl font-black mt-12 mb-4 text-on-surface">The Conversation Test</h3>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Who do you talk to where you feel MORE like yourself after? Not less. Not performed. More. Those are your people. That's your compass.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Who do you talk to where you feel MORE like yourself after? Not less. Not performed. More. Those are your people. That's your compass.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-12">These aren't productivity hacks. They're excavation tools. And the most powerful tool you have is also the simplest: a room where you don't have to perform. Where "I don't know" is a valid answer. Where other men are doing the same excavation work. This is why the men's circle is so essential. It's the first time many men experience belonging without achievement attached.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-12">These aren't productivity hacks. They're excavation tools. And the most powerful tool you have is also the simplest: a room where you don't have to perform. Where "I don't know" is a valid answer. Where other men are doing the same excavation work. This is why the men's circle is so essential. It's the first time many men experience belonging without achievement attached.</p>
 
       <!-- Section: Initiation -->
       <h2 id="initiation" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">This Is an Initiation, Not a Failure</h2>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Here's the reframe you need.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Here's the reframe you need.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The emptiness you're feeling isn't evidence you failed. It's evidence you're ready for something real. <span class="text-primary font-bold">Young men aren't broken — they're underdeveloped by a culture that no longer teaches development.</span> You were never given an initiation that actually meant something. You were never guided through the transition from the script to yourself.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The emptiness you're feeling isn't evidence you failed. It's evidence you're ready for something real. <span class="text-primary font-bold">Young men aren't broken — they're underdeveloped by a culture that no longer teaches development.</span> You were never given an initiation that actually meant something. You were never guided through the transition from the script to yourself.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">Traditional cultures understood this. There was a ritual, a guide, a community that helped you cross from boyhood into manhood. You were supposed to let one version of yourself die and be reborn into another. But we don't do that anymore. So millions of men are stuck in limbo, performing a life that never fit, waiting for someone to tell them they're allowed to stop.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">Traditional cultures understood this. There was a ritual, a guide, a community that helped you cross from boyhood into manhood. You were supposed to let one version of yourself die and be reborn into another. But we don't do that anymore. So millions of men are stuck in limbo, performing a life that never fit, waiting for someone to tell them they're allowed to stop.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">I'm telling you now: you're allowed to stop. You're allowed to let the old life die. You're allowed to ask "what's next?" without having the answer ready. That's not weakness. That's initiation.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">I'm telling you now: you're allowed to stop. You're allowed to let the old life die. You're allowed to ask "what's next?" without having the answer ready. That's not weakness. That's initiation.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-8">The off-ramp from the performance trap isn't another plan. It's learning to feel what's underneath. It's surrounding yourself with other men who are doing the same excavation. It's giving your nervous system permission to want something real instead of something respectable.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-8">The off-ramp from the performance trap isn't another plan. It's learning to feel what's underneath. It's surrounding yourself with other men who are doing the same excavation. It's giving your nervous system permission to want something real instead of something respectable.</p>
 
-      <p class="text-lg leading-relaxed text-stone-700 mb-16">Your body is still alive. Your soul is still asking. The fact that you're hollow means you haven't actually died. You've just been holding your breath for a very long time. And now it's time to breathe.</p>
+      <p class="text-lg leading-relaxed text-on-surface mb-16">Your body is still alive. Your soul is still asking. The fact that you're hollow means you haven't actually died. You've just been holding your breath for a very long time. And now it's time to breathe.</p>
 
       <!-- FAQ Section -->
       <div class="bg-surface-container-low rounded-lg p-8 mt-16 mb-12">
@@ -425,22 +482,22 @@
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Why do I feel empty even though my life looks good?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Because you built a life based on external validation instead of internal alignment. 85% of men report feeling disconnected from purpose. The emptiness isn't a personal flaw — it's your body telling you the script isn't yours. Your nervous system is awake enough to notice the difference between a life you performed and a life you actually own.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Because you built a life based on external validation instead of internal alignment. 85% of men report feeling disconnected from purpose. The emptiness isn't a personal flaw — it's your body telling you the script isn't yours. Your nervous system is awake enough to notice the difference between a life you performed and a life you actually own.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Is this a quarter-life crisis?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Yes, but the language matters. A quarter-life crisis implies something is wrong with you. It's actually evidence of something right with you — your capacity to question the script. Research shows men 18-30 are experiencing unprecedented rates of purposelessness, loneliness, and identity confusion. It's not weakness. It's a cultural failure to provide initiation and meaning. You're not having a crisis. You're beginning an initiation.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Yes, but the language matters. A quarter-life crisis implies something is wrong with you. It's actually evidence of something right with you — your capacity to question the script. Research shows men 18-30 are experiencing unprecedented rates of purposelessness, loneliness, and identity confusion. It's not weakness. It's a cultural failure to provide initiation and meaning. You're not having a crisis. You're beginning an initiation.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">How do I find my purpose?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">You don't find it. You uncover it by stripping away what isn't yours. Purpose emerges when you stop performing and start feeling. Somatic practices (body-based work), honest community (spaces where you don't have to perform), and subtracting expectations (removing what isn't yours) are more effective than any career framework. The body knows before the mind does.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">You don't find it. You uncover it by stripping away what isn't yours. Purpose emerges when you stop performing and start feeling. Somatic practices (body-based work), honest community (spaces where you don't have to perform), and subtracting expectations (removing what isn't yours) are more effective than any career framework. The body knows before the mind does.</p>
         </details>
 
         <details class="mb-6 cursor-pointer">
           <summary class="font-semibold text-lg text-on-surface mb-3">Can heartbreak lead to finding purpose?</summary>
-          <p class="text-lg leading-relaxed text-stone-700 mt-4">Absolutely. Heartbreak — whether losing a person or losing your grip on the life you built — often forces the first real crack in the script. It demands you ask: who am I without the relationship? Without the plan? Without the identity? Many men discover their deepest purpose through the process of rebuilding after loss. The grief is the gateway.</p>
+          <p class="text-lg leading-relaxed text-on-surface mt-4">Absolutely. Heartbreak — whether losing a person or losing your grip on the life you built — often forces the first real crack in the script. It demands you ask: who am I without the relationship? Without the plan? Without the identity? Many men discover their deepest purpose through the process of rebuilding after loss. The grief is the gateway.</p>
         </details>
       </div>
 
@@ -459,7 +516,7 @@
     <!-- Sources -->
     <div class="mt-16 pt-8 border-t border-surface-variant">
       <h3 class="font-headline text-lg font-bold mb-4 text-on-surface">Sources</h3>
-      <ul class="space-y-2 text-sm text-stone-500">
+      <ul class="space-y-2 text-sm text-on-surface-variant">
         <li>Equimundo (2025). "Global Survey on Men's Purpose and Connection." Men's wellbeing and purpose disconnection research.</li>
         <li>Nummenmaa, L., et al. (2014). "Bodily maps of emotions." <em>Proceedings of the National Academy of Sciences</em>.</li>
         <li>Levine, P. (1997). <em>Waking the Tiger: Healing Trauma</em>. North Atlantic Books.</li>
