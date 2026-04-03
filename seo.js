@@ -70,7 +70,7 @@
         "@type": "Offer",
         "name": "1:1 Private Coaching",
         "description": "Fully personalized, ongoing coaching for men ready for the deepest level of transformation.",
-        "url": baseUrl + "/work-with-me.html"
+        "url": baseUrl + "/one-on-one.html"
       }
     ]
   };
@@ -212,7 +212,9 @@
     'about.html': 'About',
     'blog.html': 'Blog',
     'work-with-me.html': 'Work With Me',
+    'one-on-one.html': '1:1 Coaching',
     'find-your-purpose.html': 'Find Your Purpose',
+    'embody-live.html': 'Embody Live',
     'testimonials.html': 'Testimonials',
     'resources.html': 'Free Resources',
     'faq.html': 'FAQ'
