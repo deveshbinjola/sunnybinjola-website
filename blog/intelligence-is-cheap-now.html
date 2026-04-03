@@ -303,7 +303,7 @@
 
 <!-- NAVBAR -->
 <div id="navbar"></div>
-<script src="../navbar.js"></script>
+<script src="../navbar.js?v=3"></script>
 
 <main>
 <!-- Hero Section -->
@@ -388,7 +388,9 @@
 
       <p class="text-lg leading-relaxed text-on-surface mb-8">You're not.</p>
 
-      <p class="text-xl leading-relaxed text-primary font-bold mb-12">You're sedating yourself with insight.</p>
+      <div class="my-10 bg-primary/5 border-l-4 border-primary rounded-r-2xl p-6 sm:p-8">
+        <p class="text-2xl sm:text-3xl leading-snug text-primary font-headline font-black">You're sedating yourself with insight.</p>
+      </div>
 
       <hr class="my-12 border-surface-variant">
 
@@ -410,6 +412,36 @@
       <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">The more you know without moving, the heavier the knowing becomes.</p>
 
       <p class="text-lg leading-relaxed text-on-surface mb-12">It starts to feel like pressure. Then overwhelm. Then paralysis.</p>
+
+      <!-- The Paralysis Loop — Visual comparison -->
+      <div class="my-12 grid sm:grid-cols-2 gap-6">
+        <div class="bg-red-50 rounded-2xl p-6 border border-red-200/40">
+          <p class="text-xs font-bold uppercase tracking-[0.15em] text-red-600 mb-3">❌ The Paralysis Loop</p>
+          <div class="space-y-2 text-sm text-red-800/70">
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-xs font-bold text-red-600">1</span> Learn something new</div>
+            <div class="flex items-center gap-2 pl-4 text-red-400">↓</div>
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-xs font-bold text-red-600">2</span> Feel smarter</div>
+            <div class="flex items-center gap-2 pl-4 text-red-400">↓</div>
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-xs font-bold text-red-600">3</span> Plan more</div>
+            <div class="flex items-center gap-2 pl-4 text-red-400">↓</div>
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-xs font-bold text-red-600">4</span> Still don't move</div>
+            <div class="flex items-center gap-2 pl-4 text-red-400">↻ repeat</div>
+          </div>
+        </div>
+        <div class="bg-surface-container-low rounded-2xl p-6 border border-primary/20">
+          <p class="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-3">✓ The Drive Loop</p>
+          <div class="space-y-2 text-sm text-on-surface-variant">
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">1</span> Have an idea</div>
+            <div class="flex items-center gap-2 pl-4 text-primary/40">↓</div>
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">2</span> Act on it (messy)</div>
+            <div class="flex items-center gap-2 pl-4 text-primary/40">↓</div>
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">3</span> Get real feedback</div>
+            <div class="flex items-center gap-2 pl-4 text-primary/40">↓</div>
+            <div class="flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">4</span> Energy builds</div>
+            <div class="flex items-center gap-2 pl-4 text-primary/40">↻ momentum</div>
+          </div>
+        </div>
+      </div>
 
       <hr class="my-12 border-surface-variant">
 
@@ -435,7 +467,53 @@
 
       <p class="text-lg leading-relaxed text-on-surface mb-8">Drive comes from a loop:</p>
 
-      <p class="text-xl leading-relaxed text-on-surface font-bold mb-8">Idea → Action → Feedback → Energy</p>
+      <!-- The Drive Loop — Visual -->
+      <div class="my-12 flex justify-center">
+        <div class="bg-surface-container-low rounded-3xl p-8 sm:p-12 border border-outline-variant/20 w-full max-w-lg">
+          <p class="text-center text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6 font-label">The Drive Loop</p>
+          <svg viewBox="0 0 400 400" class="w-full max-w-sm mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Circular arrow path -->
+            <circle cx="200" cy="200" r="140" stroke="#006a28" stroke-width="2" stroke-dasharray="8 6" opacity="0.2"/>
+
+            <!-- Arrow path (clockwise) -->
+            <path d="M200 60 A140 140 0 0 1 340 200" stroke="#006a28" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+            <path d="M340 200 A140 140 0 0 1 200 340" stroke="#006a28" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+            <path d="M200 340 A140 140 0 0 1 60 200" stroke="#006a28" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+            <path d="M60 200 A140 140 0 0 1 200 60" stroke="#006a28" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#006a28"/>
+              </marker>
+            </defs>
+
+            <!-- IDEA node (top) -->
+            <circle cx="200" cy="56" r="44" fill="#006a28"/>
+            <text x="200" y="50" text-anchor="middle" fill="white" font-family="Outfit" font-weight="800" font-size="15">IDEA</text>
+            <text x="200" y="68" text-anchor="middle" fill="white" font-family="Manrope" font-size="10" opacity="0.7">Spark it</text>
+
+            <!-- ACTION node (right) -->
+            <circle cx="344" cy="200" r="44" fill="#005d22"/>
+            <text x="344" y="194" text-anchor="middle" fill="white" font-family="Outfit" font-weight="800" font-size="15">ACTION</text>
+            <text x="344" y="212" text-anchor="middle" fill="white" font-family="Manrope" font-size="10" opacity="0.7">Move now</text>
+
+            <!-- FEEDBACK node (bottom) -->
+            <circle cx="200" cy="344" r="44" fill="#2d5a3a"/>
+            <text x="200" y="338" text-anchor="middle" fill="white" font-family="Outfit" font-weight="800" font-size="13">FEEDBACK</text>
+            <text x="200" y="356" text-anchor="middle" fill="white" font-family="Manrope" font-size="10" opacity="0.7">Feel the result</text>
+
+            <!-- ENERGY node (left) -->
+            <circle cx="56" cy="200" r="44" fill="#4a8c5c"/>
+            <text x="56" y="194" text-anchor="middle" fill="white" font-family="Outfit" font-weight="800" font-size="14">ENERGY</text>
+            <text x="56" y="212" text-anchor="middle" fill="white" font-family="Manrope" font-size="10" opacity="0.7">Fuel builds</text>
+
+            <!-- Center label -->
+            <text x="200" y="196" text-anchor="middle" fill="#006a28" font-family="Outfit" font-weight="800" font-size="16" opacity="0.3">DRIVE</text>
+            <text x="200" y="212" text-anchor="middle" fill="#006a28" font-family="Manrope" font-size="10" opacity="0.2">lives in the body</text>
+          </svg>
+          <p class="text-center text-on-surface-variant text-sm mt-6 italic">Not: Idea → Perfect plan → Certainty → Action.<br>That loop doesn't exist.</p>
+        </div>
+      </div>
 
       <p class="text-lg leading-relaxed text-on-surface mb-8">That's it.</p>
 
@@ -451,6 +529,24 @@
 
       <!-- Section: Two Men -->
       <h2 id="two-men-same-intelligence" class="font-headline text-3xl font-black mt-16 mb-6 text-on-surface">Two Men. Same Intelligence.</h2>
+
+      <!-- Two Men Visual -->
+      <div class="my-10 grid sm:grid-cols-2 gap-6">
+        <div class="bg-surface-container-low rounded-2xl p-6 border-l-4 border-primary text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 7l5 5-5 5M6 12h12"/></svg>
+          </div>
+          <p class="font-headline font-bold text-on-surface mb-2">Man A</p>
+          <p class="text-sm text-on-surface-variant">Launches, fails, adjusts, grows.<br><span class="text-primary font-semibold">His body can hold uncertainty.</span></p>
+        </div>
+        <div class="bg-surface-container-low rounded-2xl p-6 border-l-4 border-outline-variant text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-outline-variant/20 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-8 h-8 text-outline" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 5v2m0 10v2m-7-7h2m10 0h2"/></svg>
+          </div>
+          <p class="font-headline font-bold text-on-surface mb-2">Man B</p>
+          <p class="text-sm text-on-surface-variant">Still "refining the plan" six months later.<br><span class="text-outline font-semibold">His mind runs protection.</span></p>
+        </div>
+      </div>
 
       <p class="text-lg leading-relaxed text-on-surface mb-8">Same tools. Same strategy. Same AI.</p>
 
@@ -521,13 +617,15 @@
 
       <p class="text-lg leading-relaxed text-on-surface mb-8">You already know the answer. Don't overthink it. It's the thing you keep circling back to — and avoiding.</p>
 
-      <p class="text-lg leading-relaxed text-on-surface mb-8">For the next 24 hours: don't consume anything. No podcasts. No scrolling. No "one more insight."</p>
-
-      <p class="text-lg leading-relaxed text-on-surface mb-8">Just pick one thing you've been avoiding — and do it. Messily. Imperfectly. Without clarity.</p>
-
-      <p class="text-lg leading-relaxed text-on-surface mb-8">And if you don't: be honest.</p>
-
-      <p class="text-lg leading-relaxed text-on-surface mb-12">It's not confusion. It's fear.</p>
+      <!-- Challenge Card -->
+      <div class="my-10 bg-gradient-to-br from-primary-dim to-primary rounded-3xl p-8 sm:p-10 text-white">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-4">Your 24-Hour Challenge</p>
+        <div class="space-y-4 text-lg leading-relaxed">
+          <p class="flex gap-3"><span class="text-white/40 font-bold">01</span> Don't consume anything. No podcasts. No scrolling. No "one more insight."</p>
+          <p class="flex gap-3"><span class="text-white/40 font-bold">02</span> Pick one thing you've been avoiding — and do it. Messily. Imperfectly. Without clarity.</p>
+          <p class="flex gap-3"><span class="text-white/40 font-bold">03</span> If you don't: be honest. It's not confusion. <span class="font-bold">It's fear.</span></p>
+        </div>
+      </div>
 
       <hr class="my-12 border-surface-variant">
 

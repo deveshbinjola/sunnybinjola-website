@@ -20,18 +20,18 @@
 (function () {
   // ─── AUTO-DETECT BASE PATH ───
   const scriptTag = document.querySelector('script[src*="navbar.js"]');
-  const basePath = scriptTag ? scriptTag.getAttribute('src').replace('navbar.js', '') : '';
+  const basePath = scriptTag ? scriptTag.getAttribute('src').replace(/navbar\.js.*$/, '') : '';
 
   // ─── TOP-LEVEL NAV LINKS ───
   const NAV_LINKS = [
-    { label: 'Home', href: basePath + 'index.html', matchPaths: ['/', '/index.html', ''] },
     { label: 'About', href: basePath + 'about.html', matchPaths: ['/about.html'] },
     { label: 'Blog', href: basePath + 'blog.html', matchPaths: ['/blog.html'] },
+    { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
   ];
 
   // ─── "WORK WITH ME" DROPDOWN LINKS ───
   const WORK_LINKS = [
-    { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'], desc: 'Recovery program for men' },
+    { label: '1:1 Coaching', href: basePath + 'one-on-one.html', matchPaths: ['/one-on-one.html'], desc: 'Bespoke transformation work' },
     { label: 'Embody Live', href: basePath + 'embody-live.html', matchPaths: ['/embody-live.html'], desc: 'Group coaching cohort' },
     { label: 'Testimonials', href: basePath + 'testimonials.html', matchPaths: ['/testimonials.html'], desc: 'Real stories from real men' },
     { label: 'Free Resources', href: basePath + 'resources.html', matchPaths: ['/resources.html'], desc: 'Guides, tools & practices' },
@@ -168,11 +168,11 @@
     <a href="${basePath}index.html" class="hover:opacity-80 transition-opacity nav-brand">
       <img src="${basePath}logo.png" alt="Sunny Binjola" class="${logoClass}">
     </a>
-    <div class="hidden lg:flex gap-9 items-center font-['Manrope'] text-[15px] tracking-tight" id="desktopLinks">
+    <div class="hidden lg:flex gap-9 items-center font-['Manrope'] text-base tracking-tight" id="desktopLinks">
       ${desktopLinks(false)}
     </div>
     <a href="${CTA_URL}" target="_blank" rel="noopener"
-       class="vibrant-gradient text-white px-8 py-3.5 rounded-full font-bold text-[15px] tracking-wide hover:opacity-90 active:scale-95 transition-all hidden lg:block text-center shadow-lg shadow-primary/20">
+       class="vibrant-gradient text-white px-8 py-3.5 rounded-full font-bold text-base tracking-wide hover:opacity-90 active:scale-95 transition-all hidden lg:block text-center shadow-lg shadow-primary/20">
       ${CTA_TEXT}
     </a>
     <button id="hamburger" class="lg:hidden ${hambColor} text-2xl" aria-label="Open menu">
