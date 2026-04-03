@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Strategy — "Heal Your Heartbreak" Search Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-headline: 'Instrument Serif', 'Georgia', serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+    --bg: #f7f7f2;
+    --surface: #ffffff;
+    --surface2: #f0f0ea;
+    --surface-elevated: #ffffff;
+    --border: rgba(0, 0, 0, 0.07);
+    --border-bright: rgba(0, 0, 0, 0.14);
+    --text: #1a1f16;
+    --text-dim: #5a5c58;
+    --primary: #006a28;
+    --primary-dim: rgba(0, 106, 40, 0.08);
+    --primary-soft: rgba(0, 106, 40, 0.15);
+    --accent-gold: #b8860b;
+    --accent-gold-dim: rgba(184, 134, 11, 0.08);
+    --red: #b92902;
+    --red-dim: rgba(185, 41, 2, 0.08);
+    --blue: #0369a1;
+    --blue-dim: rgba(3, 105, 161, 0.08);
+    --teal: #0891b2;
+    --teal-dim: rgba(8, 145, 178, 0.08);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0f0c;
+      --surface: #1a1f16;
+      --surface2: #232820;
+      --surface-elevated: #2a302a;
+      --border: rgba(255, 255, 255, 0.06);
+      --border-bright: rgba(255, 255, 255, 0.12);
+      --text: #e8e9e3;
+      --text-dim: #9c9d99;
+      --primary: #5cfd80;
+      --primary-dim: rgba(92, 253, 128, 0.1);
+      --primary-soft: rgba(92, 253, 128, 0.18);
+      --accent-gold: #fbbf24;
+      --accent-gold-dim: rgba(251, 191, 36, 0.1);
+      --red: #f87171;
+      --red-dim: rgba(248, 113, 113, 0.1);
+      --blue: #38bdf8;
+      --blue-dim: rgba(56, 189, 248, 0.1);
+      --teal: #22d3ee;
+      --teal-dim: rgba(34, 211, 238, 0.1);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, var(--primary-dim) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, var(--accent-gold-dim) 0%, transparent 40%);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 40px 24px;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate { animation: fadeUp 0.45s ease-out both; animation-delay: calc(var(--i, 0) * 0.06s); }
+  .animate-scale { animation: fadeScale 0.4s ease-out both; animation-delay: calc(var(--i, 0) * 0.06s); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    text-align: center;
+    padding: 60px 0 48px;
+  }
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: var(--font-headline);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--primary);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 24px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ============ KPI ROW ============ */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .kpi {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .kpi-number {
+    font-family: var(--font-headline);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .kpi-label {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  /* ============ SECTION HEADERS ============ */
+  .section-header {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .section-header h2 {
+    font-family: var(--font-headline);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .section-header p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* ============ SIGNAL CARD (big opportunity) ============ */
+  .signal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .signal-card--gold { border-left-color: var(--accent-gold); }
+  .signal-card--blue { border-left-color: var(--blue); }
+  .signal-card--teal { border-left-color: var(--teal); }
+  .signal-card--red { border-left-color: var(--red); }
+
+  .signal-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .signal-badge--hot { background: var(--red-dim); color: var(--red); }
+  .signal-badge--new { background: var(--primary-dim); color: var(--primary); }
+  .signal-badge--update { background: var(--blue-dim); color: var(--blue); }
+  .signal-badge--quick { background: var(--accent-gold-dim); color: var(--accent-gold); }
+
+  .signal-card h3 {
+    font-family: var(--font-headline);
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .signal-card p {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .signal-card p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .signal-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .kw-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 10px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .signal-action {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .action-type {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+  .action-text {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  /* ============ CHANNEL GRID ============ */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .channel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .channel-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+  .channel-card--search::before { background: var(--primary); }
+  .channel-card--ai::before { background: var(--blue); }
+  .channel-card--social::before { background: var(--teal); }
+  .channel-card--shopping::before { background: var(--accent-gold); }
+
+  .channel-icon {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+  .channel-card h3 {
+    font-family: var(--font-headline);
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+  .channel-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .channel-card li {
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.45;
+  }
+  .channel-card li:last-child { border-bottom: none; }
+
+  /* ============ OPPORTUNITY TABLE ============ */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+    background: var(--surface);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  th {
+    background: var(--surface2);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-bright);
+    white-space: nowrap;
+  }
+  td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:nth-child(even) td { background: color-mix(in srgb, var(--surface2) 30%, var(--surface) 70%); }
+  tr:hover td { background: var(--primary-dim); }
+
+  td:first-child { font-weight: 600; color: var(--text); min-width: 180px; }
+  td:nth-child(2) { color: var(--text-dim); min-width: 140px; }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .status--exists { background: var(--primary-dim); color: var(--primary); }
+  .status--partial { background: var(--accent-gold-dim); color: var(--accent-gold); }
+  .status--gap { background: var(--red-dim); color: var(--red); }
+
+  .status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .status--exists::before { background: var(--primary); }
+  .status--partial::before { background: var(--accent-gold); }
+  .status--gap::before { background: var(--red); }
+
+  /* ============ COMPETITOR CALLOUT ============ */
+  .competitor-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 640px) { .competitor-box { grid-template-columns: 1fr; } }
+  .competitor-box h3 {
+    font-family: var(--font-headline);
+    font-size: 1.3rem;
+    grid-column: 1 / -1;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .comp-col h4 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+  .comp-col p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .comp-col p strong { color: var(--text); }
+
+  /* ============ PRIORITY ROADMAP ============ */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 720px) { .roadmap { grid-template-columns: 1fr; } }
+
+  .roadmap-col h3 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid;
+  }
+  .roadmap-col:nth-child(1) h3 { color: var(--red); border-color: var(--red); }
+  .roadmap-col:nth-child(2) h3 { color: var(--accent-gold); border-color: var(--accent-gold); }
+  .roadmap-col:nth-child(3) h3 { color: var(--blue); border-color: var(--blue); }
+
+  .roadmap-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .roadmap-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .roadmap-item span {
+    color: var(--text-dim);
+    font-size: 0.84rem;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    text-align: center;
+    padding: 32px 0 16px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-dim);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero animate" style="--i:0">
+    <div class="hero-label">Content Strategy &middot; sunnybinjola.com</div>
+    <h1>"Heal Your Heartbreak" <em>Search Intelligence</em></h1>
+    <p class="hero-sub">What people are actually searching for — and where your site can capture that demand. Data from AnswerThePublic, mapped to actionable content moves.</p>
+    <div class="hero-meta">Source: AnswerThePublic &middot; April 2, 2026 &middot; US / English</div>
+  </div>
+
+  <!-- KPI ROW -->
+  <div class="kpi-row">
+    <div class="kpi animate-scale" style="--i:1">
+      <div class="kpi-number">4</div>
+      <div class="kpi-label">Search Channels Analyzed</div>
+    </div>
+    <div class="kpi animate-scale" style="--i:2">
+      <div class="kpi-number">30+</div>
+      <div class="kpi-label">Unique Search Queries</div>
+    </div>
+    <div class="kpi animate-scale" style="--i:3">
+      <div class="kpi-number">6</div>
+      <div class="kpi-label">Content Gaps Found</div>
+    </div>
+    <div class="kpi animate-scale" style="--i:4">
+      <div class="kpi-number">4</div>
+      <div class="kpi-label">Quick Wins to Update</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: CHANNEL BREAKDOWN -->
+  <div class="section-header animate" style="--i:5">
+    <div class="section-num">01 — Channel Breakdown</div>
+    <h2>Where People Are Searching</h2>
+    <p>The same phrase shows up across four distinct channels, each with different intent.</p>
+  </div>
+
+  <div class="channel-grid">
+    <div class="channel-card channel-card--search animate" style="--i:6">
+      <div class="channel-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <h3>Search Engines</h3>
+      <ul>
+        <li>heal your heartbreak podcast</li>
+        <li>home poems to heal your heartbreak (×4)</li>
+        <li>how to heal your heart from heartbreak</li>
+        <li>heal your heartbreak podcast reddit</li>
+        <li>heal your heartbreak podcast review</li>
+        <li>heal your heartbreak host</li>
+        <li>Heal Your Heartbreak Matthew Hussey</li>
+      </ul>
+    </div>
+
+    <div class="channel-card channel-card--ai animate" style="--i:7">
+      <div class="channel-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/></svg>
+      </div>
+      <h3>AI Models</h3>
+      <ul>
+        <li>support groups for divorce in my area</li>
+        <li>how to find a local support group for heart...</li>
+        <li>top healing books for heartbreak</li>
+        <li>mindfulness exercises for emotional...</li>
+        <li>online therapy platforms for relationship...</li>
+        <li>best apps to help heal your heartbreak</li>
+        <li>best apps for overcoming a breakup</li>
+      </ul>
+    </div>
+
+    <div class="channel-card channel-card--social animate" style="--i:8">
+      <div class="channel-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--teal)"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </div>
+      <h3>Social Media</h3>
+      <ul>
+        <li>#healyourheartbreak</li>
+        <li>heal your heartbreak podcast (×4)</li>
+        <li>heal your heartbreak break up bestie</li>
+        <li>heal your heartbreak kendra</li>
+      </ul>
+    </div>
+
+    <div class="channel-card channel-card--shopping animate" style="--i:9">
+      <div class="channel-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-gold)"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <h3>Shopping</h3>
+      <ul>
+        <li>heal your heartbreak (book)</li>
+        <li>home poems to heal your heartbreak</li>
+        <li>heal your heartbreak podcast</li>
+        <li>how to heal your heartbreak (product)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 2: TOP OPPORTUNITIES -->
+  <div class="section-header animate" style="--i:10">
+    <div class="section-num">02 — Top Opportunities</div>
+    <h2>The Biggest Moves You Can Make</h2>
+    <p>Ranked by search volume signal and strategic fit with your brand.</p>
+  </div>
+
+  <!-- Opportunity 1: Podcast -->
+  <div class="signal-card signal-card--red animate" style="--i:11">
+    <span class="signal-badge signal-badge--hot">Highest Signal</span>
+    <h3>"Heal Your Heartbreak" Podcast Content</h3>
+    <p><strong>"Podcast" appears across every single channel</strong> — search engines, social media, shopping, and AI models. It's the #1 associated word. People searching your exact brand phrase expect audio content. Even "heal your heartbreak host" and "podcast reddit" and "podcast review" show up — meaning listeners are actively looking for reviews and discussion.</p>
+    <div class="signal-keywords">
+      <span class="kw-tag">heal your heartbreak podcast</span>
+      <span class="kw-tag">heal your heartbreak podcast reddit</span>
+      <span class="kw-tag">heal your heartbreak podcast review</span>
+      <span class="kw-tag">heal your heartbreak host</span>
+    </div>
+    <div class="signal-action">
+      <span class="action-type">Action →</span>
+      <span class="action-text"><strong>Option A:</strong> Launch a podcast (even short-form — 10-15 min episodes work). <strong>Option B:</strong> If not ready for a podcast, create a blog post targeting "best heartbreak recovery podcasts for men" + a resource roundup page. Either way, you're capturing this traffic.</span>
+    </div>
+  </div>
+
+  <!-- Opportunity 2: Poetry -->
+  <div class="signal-card signal-card--gold animate" style="--i:12">
+    <span class="signal-badge signal-badge--new">New Content</span>
+    <h3>Healing Poetry & Prose</h3>
+    <p><strong>"Home poems to heal your heartbreak" appears 4 times</strong> across search and shopping — that's massive repetition for a long-tail phrase. Men are searching for words that make them feel understood. This is perfectly on-brand for your poetic, embodied voice.</p>
+    <div class="signal-keywords">
+      <span class="kw-tag">home poems to heal your heartbreak</span>
+      <span class="kw-tag">poems to heal heartbreak</span>
+    </div>
+    <div class="signal-action">
+      <span class="action-type">Action →</span>
+      <span class="action-text">Write a blog post: <strong>"Poems That Heal Heartbreak — Words for Men Who Are Feeling Everything."</strong> Curate 8-10 poems (Rumi, Hafiz, Mary Oliver, David Whyte — your Vedic roots) with your own reflections tying each poem to a stage of grief or somatic awareness. Highly shareable, deeply on-brand.</span>
+    </div>
+  </div>
+
+  <!-- Opportunity 3: Mindfulness/Somatic -->
+  <div class="signal-card animate" style="--i:13">
+    <span class="signal-badge signal-badge--new">New Content</span>
+    <h3>Mindfulness & Somatic Exercises</h3>
+    <p><strong>AI models are surfacing "mindfulness exercises for emotional..."</strong> — this is your exact expertise being asked for by AI chatbots. The content that AI models reference will increasingly drive traffic. A comprehensive post on somatic exercises positions you as the source AI cites.</p>
+    <div class="signal-keywords">
+      <span class="kw-tag">mindfulness exercises for emotional...</span>
+      <span class="kw-tag">best apps for overcoming a breakup</span>
+      <span class="kw-tag">online therapy services for overcoming...</span>
+    </div>
+    <div class="signal-action">
+      <span class="action-type">Action →</span>
+      <span class="action-text">Write: <strong>"7 Somatic Exercises to Heal Heartbreak — What to Do When Your Body Won't Let Go."</strong> Breathwork, cold exposure, mirror work, body scanning, shaking — practical, step-by-step, with your coaching framing. Funnels to Heal Your Heartbreak program.</span>
+    </div>
+  </div>
+
+  <!-- Opportunity 4: Books & Resources -->
+  <div class="signal-card signal-card--blue animate" style="--i:14">
+    <span class="signal-badge signal-badge--new">New Content</span>
+    <h3>Books, Apps & Resource Roundup</h3>
+    <p><strong>"Top healing books for heartbreak" and "best apps for overcoming a breakup"</strong> both surface in AI model queries. A resource page where you recommend tools — including your own programs as the next level — captures both search terms and establishes you as a trusted guide, not just a seller.</p>
+    <div class="signal-keywords">
+      <span class="kw-tag">top healing books for heartbreak</span>
+      <span class="kw-tag">best apps for overcoming a breakup</span>
+      <span class="kw-tag">best apps to help heal your heartbreak</span>
+    </div>
+    <div class="signal-action">
+      <span class="action-type">Action →</span>
+      <span class="action-text">Write: <strong>"The Best Heartbreak Recovery Resources for Men — Books, Apps, and Programs That Actually Work."</strong> Include 5-6 books, 3-4 apps, and position Heal Your Heartbreak + 7-Day Reset as the men-specific alternative nothing else offers.</span>
+    </div>
+  </div>
+
+  <!-- Opportunity 5: Support Groups / Brotherhood -->
+  <div class="signal-card signal-card--teal animate" style="--i:15">
+    <span class="signal-badge signal-badge--update">Update Existing</span>
+    <h3>Support Groups → Brotherhood</h3>
+    <p><strong>"Support groups for divorce" and "how to find a local support group"</strong> signal that men are looking for community, not just content. Your Brotherhood offering and the divorced-men recovery page already exist — they just need SEO language that matches how people actually search.</p>
+    <div class="signal-keywords">
+      <span class="kw-tag">support groups for divorce in my area</span>
+      <span class="kw-tag">how to find a local support group for heart...</span>
+    </div>
+    <div class="signal-action">
+      <span class="action-type">Action →</span>
+      <span class="action-text">Update <strong>recovery/divorced-men.html</strong> to include "support group" language. Add a section to the Brotherhood page targeting "men's heartbreak support group online." Update meta descriptions to match these search phrases.</span>
+    </div>
+  </div>
+
+  <!-- SECTION 3: EXISTING PAGE UPDATES -->
+  <div class="section-header animate" style="--i:16">
+    <div class="section-num">03 — Quick Wins on Existing Pages</div>
+    <h2>What to Update Right Now</h2>
+  </div>
+
+  <div class="table-wrap animate" style="--i:17">
+    <table>
+      <thead>
+        <tr>
+          <th>Search Query</th>
+          <th>Your Existing Page</th>
+          <th>Status</th>
+          <th>Recommended Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>how to heal your heart from heartbreak</td>
+          <td>complete-guide-heal-after-breakup.html</td>
+          <td><span class="status status--partial">Partial Match</span></td>
+          <td>Update H1 and meta description to include "how to heal your heart from heartbreak" phrasing</td>
+        </tr>
+        <tr>
+          <td>support groups for divorce</td>
+          <td>recovery/divorced-men.html</td>
+          <td><span class="status status--partial">Partial Match</span></td>
+          <td>Add "support group" language, link to Brotherhood, update meta with "divorce support for men"</td>
+        </tr>
+        <tr>
+          <td>online therapy for relationships</td>
+          <td>heal-your-heartbreak.html</td>
+          <td><span class="status status--partial">Partial Match</span></td>
+          <td>Add FAQ: "Is this like therapy?" — explain coaching vs therapy, position as complement</td>
+        </tr>
+        <tr>
+          <td>#healyourheartbreak</td>
+          <td>Social / blog.html</td>
+          <td><span class="status status--exists">Exists</span></td>
+          <td>Use this hashtag consistently on social posts; add to blog sharing buttons</td>
+        </tr>
+        <tr>
+          <td>how long to get over breakup</td>
+          <td>how-long-to-get-over-breakup.html</td>
+          <td><span class="status status--exists">Direct Match</span></td>
+          <td>Already ranking — ensure internal links from new content point here</td>
+        </tr>
+        <tr>
+          <td>heal your heartbreak Matthew Hussey</td>
+          <td>—</td>
+          <td><span class="status status--gap">Gap</span></td>
+          <td>Don't target his name directly, but differentiate: "heartbreak recovery for men" vs his female audience</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 4: COMPETITOR -->
+  <div class="section-header animate" style="--i:18">
+    <div class="section-num">04 — Competitive Positioning</div>
+    <h2>Matthew Hussey Shows Up — That's Good News</h2>
+  </div>
+
+  <div class="competitor-box animate" style="--i:19">
+    <h3>Why His Presence Validates Your Niche</h3>
+    <div class="comp-col">
+      <h4>Matthew Hussey</h4>
+      <p><strong>Audience:</strong> Primarily women seeking dating/relationship advice. <strong>Approach:</strong> Behavioral psychology, communication tactics, confidence building. <strong>Format:</strong> YouTube-first, podcast, large team production. <strong>Gap:</strong> Does not serve men going through heartbreak. Does not address somatic healing, nervous system regulation, or masculine identity reconstruction.</p>
+    </div>
+    <div class="comp-col">
+      <h4>Sunny Binjola</h4>
+      <p><strong>Audience:</strong> Men healing from romantic loss, seeking authentic leadership. <strong>Approach:</strong> Somatic healing, Vedic wisdom, embodiment practices, nervous system rewiring. <strong>Format:</strong> 1:1 coaching, cohorts (EMBODY), written content, recovery programs. <strong>Edge:</strong> The only heartbreak recovery brand built specifically for men with a somatic/embodiment foundation. No one else occupies this space.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PRIORITY ROADMAP -->
+  <div class="section-header animate" style="--i:20">
+    <div class="section-num">05 — Priority Roadmap</div>
+    <h2>Sequencing the Work</h2>
+  </div>
+
+  <div class="roadmap animate" style="--i:21">
+    <div class="roadmap-col">
+      <h3>This Week — Quick Wins</h3>
+      <div class="roadmap-item">
+        <strong>Update complete-guide H1 + meta</strong>
+        <span>Add "how to heal your heart from heartbreak" to title and description. 15 min.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>Update divorced-men.html</strong>
+        <span>Add "support group" language, link to Brotherhood offering. 20 min.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>Add FAQ to Heal Your Heartbreak page</strong>
+        <span>Questions from AI model data: "Is this like therapy?", "How long does healing take?" 30 min.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>Use #healyourheartbreak on socials</strong>
+        <span>Start using consistently. Add to blog share prompts. 5 min.</span>
+      </div>
+    </div>
+
+    <div class="roadmap-col">
+      <h3>Next 2 Weeks — New Content</h3>
+      <div class="roadmap-item">
+        <strong>Poems That Heal Heartbreak</strong>
+        <span>Blog post with curated poetry + personal reflections. High shareability.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>7 Somatic Exercises for Heartbreak</strong>
+        <span>Practical guide. Funnels to Heal Your Heartbreak. AI-citation magnet.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>Best Resources Roundup</strong>
+        <span>Books, apps, programs. Positions you as trusted guide, not just coach.</span>
+      </div>
+    </div>
+
+    <div class="roadmap-col">
+      <h3>This Month — Big Bet</h3>
+      <div class="roadmap-item">
+        <strong>Podcast (or Podcast-Adjacent Content)</strong>
+        <span>"Podcast" is the #1 search signal. Even a short-form audio series (10 min episodes) on Spotify + Apple captures this. Alternatively: a "Listen" page with embedded audio reflections from existing content.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>Video/Audio Somatic Guides</strong>
+        <span>The mindfulness + exercise queries suggest people want guided experiences, not just articles.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer animate" style="--i:22">
+    Content Strategy Guide for sunnybinjola.com &middot; Generated April 2, 2026 &middot; Data source: AnswerThePublic
+  </div>
+
+</div>
+</body>
+</html>
