@@ -45,7 +45,7 @@
   const path = window.location.pathname;
   const currentFile = path.split('/').pop() || 'index.html';
   const isHomepage = (currentFile === '' || currentFile === '/' || currentFile === 'index.html') && basePath === '';
-  const isBlogPost = basePath.includes('../') || path.includes('/blog/');
+  const isBlogPost = (basePath.includes('../') || path.includes('/blog/')) && !path.includes('/7-day-reset/');
   const isRecoveryPage = path.includes('/recovery/');
 
   function isActive(link) {
