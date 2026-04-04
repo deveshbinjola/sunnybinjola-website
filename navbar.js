@@ -44,7 +44,7 @@
   // ─── DETECT CURRENT PAGE ───
   const path = window.location.pathname;
   const currentFile = path.split('/').pop() || 'index.html';
-  const isHomepage = currentFile === '' || currentFile === '/' || currentFile === 'index.html';
+  const isHomepage = (currentFile === '' || currentFile === '/' || currentFile === 'index.html') && basePath === '';
   const isBlogPost = basePath.includes('../') || path.includes('/blog/');
   const isRecoveryPage = path.includes('/recovery/');
 
