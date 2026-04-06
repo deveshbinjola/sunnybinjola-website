@@ -861,7 +861,8 @@
       </div>
     </div>
     <div class="max-w-[1440px] mx-auto mt-12 pt-8 border-t border-surface-container text-center text-on-surface-variant text-sm">
-      <p>&copy; 2025 Sunny Binjola. All rights reserved.</p>
+      <p>&copy; <span id="copyright-year"></span> Sunny Binjola. All rights reserved.</p>
+      <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
     </div>
   </footer>
 
