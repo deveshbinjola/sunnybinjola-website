@@ -21,9 +21,9 @@
 
   // ─── FOOTER LINKS (edit here to add/remove) ───
   const LINKS = [
-    { label: 'Privacy', href: '#' },
-    { label: 'Terms', href: '#' },
-    { label: 'Contact', href: 'https://cal.com/sunny-binjola/discovery-call', external: true },
+    { label: 'Privacy', href: basePath + 'privacy.html' },
+    { label: 'Terms', href: basePath + 'privacy.html' },
+    { label: 'Contact', href: basePath + 'contact.html' },
   ];
 
   const SOCIAL = [
@@ -48,6 +48,7 @@
       </div>
       <div class="font-['Manrope'] text-xs tracking-wide text-stone-500 italic mb-3">Live from your depth.</div>
       <div class="font-['Manrope'] text-sm tracking-wide uppercase text-stone-500">&copy; ${year} Sunny Binjola. All rights reserved.</div>
+      <div class="font-['Manrope'] text-xs tracking-wide text-stone-400 mt-2">Built by <a href="https://elevateaisystem.com" target="_blank" rel="noopener" class="text-stone-400 hover:text-emerald-400 transition-colors underline underline-offset-4">Elevate AI</a></div>
     </div>
     <div class="flex flex-wrap gap-10 font-['Manrope'] text-sm tracking-wide uppercase">
       ${footerLinks}

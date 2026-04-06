@@ -5,10 +5,11 @@ User-agent: *
 Allow: /
 Allow: /blog/
 
-# Block internal component scripts (not content)
-Disallow: /navbar.js
-Disallow: /footer.js
-Disallow: /seo.js
+# Allow all scripts so crawlers can render the full page
+Allow: /navbar.js
+Allow: /footer.js
+Allow: /seo.js
+Allow: /share.js
 
 # ─── AI CRAWLERS: Explicitly allow ───
 # Google AI (Gemini, AI Overviews, SGE)
