@@ -9,8 +9,9 @@
  *   <script src="navbar.js"></script>
  *
  * Structure:
- *   Home · About · Blog · Work With Me ▾ · [Book a Free Call]
+ *   Home · About · Blog · Get Your Ex Back · Work With Me ▾ · [Book a Free Call]
  *   └─ Heal Your Heartbreak
+ *   └─ 1:1 Coaching
  *   └─ Embody Live
  *   └─ Testimonials
  *   └─ Free Resources
@@ -26,11 +27,12 @@
   const NAV_LINKS = [
     { label: 'About', href: basePath + 'about.html', matchPaths: ['/about.html'] },
     { label: 'Blog', href: basePath + 'blog.html', matchPaths: ['/blog.html'] },
-    { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'] },
+    { label: 'Get Your Ex Back', href: basePath + 'get-your-ex-back.html', matchPaths: ['/get-your-ex-back.html'] },
   ];
 
   // ─── "WORK WITH ME" DROPDOWN LINKS ───
   const WORK_LINKS = [
+    { label: 'Heal Your Heartbreak', href: basePath + 'heal-your-heartbreak.html', matchPaths: ['/heal-your-heartbreak.html'], desc: '60-day somatic recovery program' },
     { label: '1:1 Coaching', href: basePath + 'one-on-one.html', matchPaths: ['/one-on-one.html'], desc: 'Bespoke transformation work' },
     { label: 'Embody Live', href: basePath + 'embody-live.html', matchPaths: ['/embody-live.html'], desc: 'Group coaching cohort' },
     { label: 'Testimonials', href: basePath + 'testimonials.html', matchPaths: ['/testimonials.html'], desc: 'Real stories from real men' },
