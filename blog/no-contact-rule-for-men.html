@@ -29,6 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Outfit:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script id="tailwind-config">
     tailwind.config = {
@@ -45,28 +46,327 @@
     }
   </script>
   <style>
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    article h2 { font-family: Outfit; font-weight: 800; font-size: 1.875rem; margin-top: 2.5rem; margin-bottom: 1.25rem; color: #2d2f2c; }
-    article h3 { font-family: Outfit; font-weight: 700; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; color: #2d2f2c; }
-    article p { font-family: Manrope; font-size: 1.125rem; line-height: 1.8; color: #5a5c58; margin-bottom: 1.5rem; }
-    article a { color: #006a28; text-decoration: underline; }
-    article a:hover { color: #004d1f; }
-    article blockquote { border-left: 3px solid #006a28 !important; padding: 1.5rem 1.5rem 1.5rem 2rem !important; font-style: italic; color: #5a5c58; margin: 2.5rem 0 !important; background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%); border-radius: 0 12px 12px 0; position: relative; }
-    article blockquote::before { content: "\201C"; position: absolute; top: -8px; left: 12px; font-size: 3rem; color: #006a28; opacity: 0.25; font-family: Georgia, serif; line-height: 1; }
-    article ul, article ol { margin: 1.5rem 0 1.5rem 2rem; font-family: Manrope; font-size: 1.125rem; line-height: 1.8; color: #5a5c58; }
-    article li { margin-bottom: 0.75rem; }
-    article > p:first-of-type { font-size: 1.25rem !important; line-height: 1.7 !important; color: #2d2f2c !important; font-weight: 500; }
-    article hr { border: none !important; height: 1px; background: linear-gradient(90deg, transparent, #b8d4c0, transparent); margin: 3rem auto !important; max-width: 200px; }
-    .hero-pill { display: inline-block; background: rgba(0,106,40,0.10); color: #005d22; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 0.35rem 0.85rem; border-radius: 9999px; margin-bottom: 1.25rem; }
-    .callout-box { background: #f0f7f2; border: 1px solid #c8e6d0; border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2rem 0; }
-    .callout-box strong { color: #005d22; font-family: Outfit; font-size: 1.05rem; display: block; margin-bottom: 0.5rem; }
-    .callout-box p { margin: 0 !important; font-size: 1rem !important; }
-    .stage-card { border: 1px solid #dcddd7; border-radius: 10px; padding: 1.5rem; margin: 1.25rem 0; background: #fff; }
-    .stage-card .stage-num { font-family: Manrope; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #767773; margin-bottom: 0.5rem; }
-    .stage-card h3 { margin-top: 0 !important; }
-    .stage-card p { margin-bottom: 0 !important; font-size: 1rem !important; }
-    #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #006a28, #5cfd80); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .leaf-indicator {
+      clip-path: ellipse(50% 100% at 50% 100%);
+    }
+
+    .editorial-shadow {
+      box-shadow: 0 12px 40px rgba(13, 15, 12, 0.06);
+    }
+
+    .vibrant-gradient {
+      background: linear-gradient(135deg, #006a28 0%, #5cfd80 100%);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    article h2 {
+      font-family: Outfit;
+      font-weight: 800;
+      font-size: 1.875rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+      color: #2d2f2c;
+    }
+
+    article h3 {
+      font-family: Outfit;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2d2f2c;
+    }
+
+    article p {
+      font-family: Manrope;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #5a5c58;
+      margin-bottom: 1.5rem;
+    }
+
+    article a {
+      color: #006a28;
+      text-decoration: underline;
+    }
+
+    article a:hover {
+      color: #004d1f;
+    }
+
+    article blockquote {
+      border-left: 4px solid #006a28;
+      padding-left: 1.5rem;
+      font-style: italic;
+      color: #5a5c58;
+      margin: 2rem 0;
+    }
+
+    article ul, article ol {
+      margin: 1.5rem 0 1.5rem 2rem;
+      font-family: Manrope;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #5a5c58;
+    }
+
+    article li {
+      margin-bottom: 0.75rem;
+    }
+
+    article .bold-stat {
+      color: #006a28;
+      font-weight: 700;
+    }
+
+    details {
+      margin: 1.5rem 0;
+      padding: 1.25rem;
+      background: #f1f1ec;
+      border-radius: 0.5rem;
+      border: 1px solid #dcddd7;
+    }
+
+    summary {
+      cursor: pointer;
+      font-family: Outfit;
+      font-weight: 600;
+      color: #006a28;
+      font-size: 1.125rem;
+      user-select: none;
+    }
+
+    summary:hover {
+      color: #004d1f;
+    }
+
+    details[open] summary {
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer {
+      font-family: Manrope;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #5a5c58;
+    }
+
+    .sources-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #dcddd7;
+      font-size: 0.875rem;
+      color: #5a5c58;
+    }
+
+    .sources-section ol {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    .sources-section li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* ═══ VISUAL UPGRADES ═══ */
+
+    .blog-hero {
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -120px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,140,110,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .blog-hero::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    article hr {
+      border: none !important;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
+      margin: 3rem auto !important;
+      position: relative;
+      max-width: 200px;
+    }
+
+    article hr::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #006a28;
+    }
+
+    article blockquote {
+      border-left: 3px solid #006a28 !important;
+      padding: 1.5rem 1.5rem 1.5rem 2rem !important;
+      font-style: italic;
+      color: #5a5c58;
+      margin: 2.5rem 0 !important;
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
+      border-radius: 0 12px 12px 0;
+      position: relative;
+    }
+
+    article blockquote::before {
+      content: "\201C";
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      font-size: 3rem;
+      color: #006a28;
+      opacity: 0.25;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    article > p:first-of-type {
+      font-size: 1.25rem !important;
+      line-height: 1.7 !important;
+      color: #2d2f2c !important;
+      font-weight: 500;
+    }
+
+    article .bold-stat {
+      color: #006a28;
+      font-weight: 700;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Hero photo banner */
+    .blog-hero-image {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -24px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.9);
+      transform: scale(1.15);
+    }
+
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 480px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -36px;
+      }
+    }
+
+    /* Custom cards */
+    .callout-box {
+      background: #f0f7f2;
+      border: 1px solid #c8e6d0;
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .callout-box strong {
+      color: #005d22;
+      font-family: Outfit;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-box p {
+      margin: 0 !important;
+      font-size: 1rem !important;
+    }
+
+    .stage-card {
+      border: 1px solid #dcddd7;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1.25rem 0;
+      background: #fff;
+    }
+
+    .stage-card .stage-num {
+      font-family: Manrope;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #767773;
+      margin-bottom: 0.5rem;
+    }
+
+    .stage-card h3 {
+      margin-top: 0 !important;
+    }
+
+    .stage-card p {
+      margin-bottom: 0 !important;
+      font-size: 1rem !important;
+    }
+
+    /* Reading progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -103,40 +403,56 @@
 <script src="../navbar.js?v=4"></script>
 
 <main>
-  <!-- Hero -->
-  <section class="blog-hero pt-28 pb-16 px-6" style="background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);">
-    <div class="max-w-3xl mx-auto fade-up">
-      <span class="hero-pill">Heartbreak Recovery · Men's Work</span>
-      <h1 class="font-headline text-4xl md:text-5xl font-bold text-on-surface leading-tight mb-4">The No-Contact Rule for Men: Does It Work, and How to Do It Right</h1>
-      <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-6">Most men use no contact to get her back. That's the wrong reason. Here's what it's really for.</p>
-      <div class="flex items-center gap-3 text-sm text-on-surface-variant">
-        <span class="font-semibold text-primary">Sunny Binjola</span>
-        <span>·</span>
-        <time datetime="2026-04-07">April 2026 · 7 min read</time>
+  <!-- Hero Section -->
+  <section class="w-full py-0 pb-20 px-6 blog-hero">
+    <img src="images/8.jpg" alt="" class="blog-hero-image" loading="eager" />
+    <div class="pt-10">
+      <div class="max-w-3xl mx-auto">
+        <span class="hero-pill">Heartbreak Recovery · 5 min read</span>
+        <h1 class="font-headline text-4xl md:text-5xl font-black text-on-surface mb-6">The No-Contact Rule for Men: Does It Work, and How to Do It Right</h1>
+        <div class="flex flex-wrap gap-4 text-sm text-on-surface-variant">
+          <span>By <strong>Sunny Binjola</strong></span>
+          <span>•</span>
+          <span>April 7, 2026</span>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Article -->
-  <section class="py-12 px-6">
-    <div class="max-w-3xl mx-auto">
-      <article class="fade-up">
+  <!-- Table of Contents -->
+  <nav class="max-w-3xl mx-auto px-6 py-8" aria-label="Table of Contents">
+    <details open class="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30">
+      <summary class="font-headline font-bold text-lg cursor-pointer text-on-surface hover:text-primary transition-colors">In This Article</summary>
+      <ol class="mt-4 space-y-2 list-decimal list-inside text-on-surface-variant">
+        <li><a href="#what-the-no-contact-rule-actually-is" class="hover:text-primary transition-colors">What the No-Contact Rule Actually Is</a></li>
+        <li><a href="#why-it-works" class="hover:text-primary transition-colors">Why It Works</a></li>
+        <li><a href="#the-most-common-reasons-men-break-it" class="hover:text-primary transition-colors">The Most Common Reasons Men Break It</a></li>
+        <li><a href="#how-to-actually-do-it" class="hover:text-primary transition-colors">How to Actually Do It</a></li>
+        <li><a href="#what-to-do-during-no-contact" class="hover:text-primary transition-colors">What to Do During No Contact</a></li>
+      </ol>
+    </details>
+  </nav>
+
+  <!-- Article Content -->
+  <article class="max-w-3xl mx-auto px-6 py-12">
         
 <p>If you've been through a breakup in the last decade, someone has probably told you about the no-contact rule. It's one of the most commonly recommended post-breakup strategies — and one of the most frequently misunderstood. Some men use it as a manipulation tactic to get her back. Others torture themselves with it, treating it like a prison sentence. Here's what it actually is, why it works, and how to do it in a way that genuinely helps you heal.</p>
 
-<h2>What the No-Contact Rule Actually Is</h2>
+<h2 id="what-the-no-contact-rule-actually-is">What the No-Contact Rule Actually Is</h2>
 
 <p>At its simplest, no contact means exactly what it sounds like: no communication with your ex after the breakup. No texts, no calls, no DMs, no "just checking in," no replying to her stories, no showing up at places she might be.</p>
 
 <p>But here's what many men miss: the no-contact rule isn't primarily about her. It's about you. It's not a strategy to make her miss you (though that may be a side effect). It's a structure that protects you from your own worst impulses in the most vulnerable period after a breakup, and that creates the psychological space you need to actually start healing.</p>
 
-<h2>Why It Works</h2>
+<h2 id="why-it-works">Why It Works</h2>
 
 <p>Your brain after a breakup is not operating rationally. The loss of a significant attachment triggers neurological responses similar to addiction withdrawal — including strong, compulsive urges to reestablish contact with the person you've lost. These urges are not based on clear thinking. They're driven by the attachment system doing what it was designed to do: restore the connection.</p>
 
 <p>No contact works because it interrupts the chemical loop your brain is running. Every time you get a response from her — even a negative one — your brain gets a small hit of dopamine. The neurological craving is satisfied momentarily, which is why you reach out again even when it makes things worse. Cutting contact cuts the loop.</p>
 
-<h2>The Most Common Reasons Men Break It</h2>
+<h2 id="the-most-common-reasons-men-break-it">The Most Common Reasons Men Break It</h2>
 
 <p><strong>The "closure" excuse.</strong> Here's the uncomfortable truth: you already know why it ended, at some level. The closure conversation you're imagining — where she tearfully explains everything and you both feel peaceful — almost never happens. Closure is something you give yourself, not something someone else delivers to you.</p>
 
@@ -144,7 +460,7 @@
 
 <p><strong>Panic about her moving on.</strong> If she's going to move on, she will regardless of whether you text her at 2am. All that texting accomplishes is making her more certain she made the right call.</p>
 
-<h2>How to Actually Do It</h2>
+<h2 id="how-to-actually-do-it">How to Actually Do It</h2>
 
 <div class="stage-card">
   <div class="stage-num">Rule 1</div>
@@ -175,22 +491,19 @@
   <p>The men who do no contact as a strategy to get her back are suffering through it, counting days, monitoring for signs of her reaction. The men who do it as genuine self-protection are using it to actually move their lives forward. Focus on yourself, not on her. That's the shift that makes this work.</p>
 </div>
 
-<h2>What to Do During No Contact</h2>
+<h2 id="what-to-do-during-no-contact">What to Do During No Contact</h2>
 
 <p>No contact is not passive. It should be filled with active work on your own recovery. Grieve actively — feel the loss, write about it, talk to someone. Invest in yourself genuinely, not as a performance. Rebuild your social life. Build things that actually matter to you.</p>
 
 <p>Eventually, no contact stops being something you practice and becomes something you don't need to think about. You simply stop wanting to contact her — not because you've suppressed the want, but because you've genuinely moved on. That's the destination. No contact is one of the roads that gets you there.</p>
+  </article>
 
-      </article>
-
-      <!-- CTA -->
-      <div class="mt-16 rounded-2xl p-8 text-center fade-up" style="background: linear-gradient(135deg, #006a28, #004d1f);">
-        <h3 class="font-headline text-2xl font-bold text-white mb-3">Ready to Move Through This?</h3>
-        <p class="text-white/80 mb-6">One-on-one coaching for men navigating heartbreak and finding their way back to themselves.</p>
-        <a href="https://sunnybinjola.com/work-with-me.html" class="inline-block bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-primary-container transition-colors">Book a Free Consultation →</a>
-      </div>
-    </div>
-  </section>
+  <!-- CTA -->
+  <div class="max-w-3xl mx-auto px-6 mt-16 rounded-2xl p-8 text-center fade-up" style="background: linear-gradient(135deg, #006a28, #004d1f);">
+    <h3 class="font-headline text-2xl font-bold text-white mb-3">Ready to Move Through This?</h3>
+    <p class="text-white/80 mb-6">One-on-one coaching for men navigating heartbreak and finding their way back to themselves.</p>
+    <a href="https://sunnybinjola.com/work-with-me.html" class="inline-block bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-primary-container transition-colors">Book a Free Consultation →</a>
+  </div>
 
   <!-- Share Bar -->
   <div id="share-bar" class="max-w-3xl mx-auto px-6"></div>

@@ -29,6 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Outfit:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script id="tailwind-config">
     tailwind.config = {
@@ -45,28 +46,249 @@
     }
   </script>
   <style>
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    article h2 { font-family: Outfit; font-weight: 800; font-size: 1.875rem; margin-top: 2.5rem; margin-bottom: 1.25rem; color: #2d2f2c; }
-    article h3 { font-family: Outfit; font-weight: 700; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; color: #2d2f2c; }
-    article p { font-family: Manrope; font-size: 1.125rem; line-height: 1.8; color: #5a5c58; margin-bottom: 1.5rem; }
-    article a { color: #006a28; text-decoration: underline; }
-    article a:hover { color: #004d1f; }
-    article blockquote { border-left: 3px solid #006a28 !important; padding: 1.5rem 1.5rem 1.5rem 2rem !important; font-style: italic; color: #5a5c58; margin: 2.5rem 0 !important; background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%); border-radius: 0 12px 12px 0; position: relative; }
-    article blockquote::before { content: "\201C"; position: absolute; top: -8px; left: 12px; font-size: 3rem; color: #006a28; opacity: 0.25; font-family: Georgia, serif; line-height: 1; }
-    article ul, article ol { margin: 1.5rem 0 1.5rem 2rem; font-family: Manrope; font-size: 1.125rem; line-height: 1.8; color: #5a5c58; }
-    article li { margin-bottom: 0.75rem; }
-    article > p:first-of-type { font-size: 1.25rem !important; line-height: 1.7 !important; color: #2d2f2c !important; font-weight: 500; }
-    article hr { border: none !important; height: 1px; background: linear-gradient(90deg, transparent, #b8d4c0, transparent); margin: 3rem auto !important; max-width: 200px; }
-    .hero-pill { display: inline-block; background: rgba(0,106,40,0.10); color: #005d22; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 0.35rem 0.85rem; border-radius: 9999px; margin-bottom: 1.25rem; }
-    .callout-box { background: #f0f7f2; border: 1px solid #c8e6d0; border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2rem 0; }
-    .callout-box strong { color: #005d22; font-family: Outfit; font-size: 1.05rem; display: block; margin-bottom: 0.5rem; }
-    .callout-box p { margin: 0 !important; font-size: 1rem !important; }
-    .stage-card { border: 1px solid #dcddd7; border-radius: 10px; padding: 1.5rem; margin: 1.25rem 0; background: #fff; }
-    .stage-card .stage-num { font-family: Manrope; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #767773; margin-bottom: 0.5rem; }
-    .stage-card h3 { margin-top: 0 !important; }
-    .stage-card p { margin-bottom: 0 !important; font-size: 1rem !important; }
-    #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #006a28, #5cfd80); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .editorial-shadow {
+      box-shadow: 0 12px 40px rgba(13, 15, 12, 0.06);
+    }
+
+    .vibrant-gradient {
+      background: linear-gradient(135deg, #006a28 0%, #5cfd80 100%);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    article h2 {
+      font-family: Outfit;
+      font-weight: 800;
+      font-size: 1.875rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+      color: #2d2f2c;
+    }
+
+    article h3 {
+      font-family: Outfit;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2d2f2c;
+    }
+
+    article p {
+      font-family: Manrope;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #5a5c58;
+      margin-bottom: 1.5rem;
+    }
+
+    article a {
+      color: #006a28;
+      text-decoration: underline;
+    }
+
+    article a:hover {
+      color: #004d1f;
+    }
+
+    article blockquote {
+      border-left: 3px solid #006a28 !important;
+      padding: 1.5rem 1.5rem 1.5rem 2rem !important;
+      font-style: italic;
+      color: #5a5c58;
+      margin: 2.5rem 0 !important;
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
+      border-radius: 0 12px 12px 0;
+      position: relative;
+    }
+
+    article blockquote::before {
+      content: "\201C";
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      font-size: 3rem;
+      color: #006a28;
+      opacity: 0.25;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    article ul, article ol {
+      margin: 1.5rem 0 1.5rem 2rem;
+      font-family: Manrope;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #5a5c58;
+    }
+
+    article li {
+      margin-bottom: 0.75rem;
+    }
+
+    article > p:first-of-type {
+      font-size: 1.25rem !important;
+      line-height: 1.7 !important;
+      color: #2d2f2c !important;
+      font-weight: 500;
+    }
+
+    article hr {
+      border: none !important;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
+      margin: 3rem auto !important;
+      max-width: 200px;
+      position: relative;
+    }
+
+    article hr::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #006a28;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .blog-hero {
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -120px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,140,110,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .blog-hero::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .blog-hero-image {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -24px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.9);
+      transform: scale(1.15);
+    }
+
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 480px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -36px;
+      }
+    }
+
+    details {
+      margin: 1.5rem 0;
+      padding: 1.25rem;
+      background: #f1f1ec;
+      border-radius: 0.5rem;
+      border: 1px solid #dcddd7;
+    }
+
+    summary {
+      cursor: pointer;
+      font-family: Outfit;
+      font-weight: 600;
+      color: #006a28;
+      font-size: 1.125rem;
+      user-select: none;
+    }
+
+    summary:hover {
+      color: #004d1f;
+    }
+
+    details[open] summary {
+      margin-bottom: 1rem;
+    }
+
+    .callout-box {
+      background: #f0f7f2;
+      border: 1px solid #c8e6d0;
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .callout-box strong {
+      color: #005d22;
+      font-family: Outfit;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .callout-box p {
+      margin: 0 !important;
+      font-size: 1rem !important;
+    }
+
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -104,27 +326,38 @@
 
 <main>
   <!-- Hero -->
-  <section class="blog-hero pt-28 pb-16 px-6" style="background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);">
-    <div class="max-w-3xl mx-auto fade-up">
-      <span class="hero-pill">Heartbreak Recovery · Men's Work</span>
-      <h1 class="font-headline text-4xl md:text-5xl font-bold text-on-surface leading-tight mb-4">Rebuilding Confidence After a Breakup: The Man's Playbook</h1>
-      <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-6">A breakup doesn't just hurt your heart. It attacks the foundation of how you see yourself. Here's how to rebuild.</p>
-      <div class="flex items-center gap-3 text-sm text-on-surface-variant">
-        <span class="font-semibold text-primary">Sunny Binjola</span>
-        <span>·</span>
-        <time datetime="2026-04-07">April 2026 · 8 min read</time>
+  <section class="w-full py-0 pb-20 px-6 blog-hero">
+    <img src="images/7.jpg" alt="" class="blog-hero-image" loading="eager" />
+    <div class="pt-10">
+      <div class="max-w-3xl mx-auto">
+        <span class="hero-pill">Heartbreak Recovery · Men's Work</span>
+        <h1 class="font-headline text-4xl md:text-5xl font-black text-on-surface mb-6">Rebuilding Confidence After a Breakup: The Man's Playbook</h1>
+        <div class="flex flex-wrap gap-4 text-sm text-on-surface-variant">
+          <span>By <strong>Sunny Binjola</strong></span><span>•</span><span>April 7, 2026</span><span>•</span><span>8 min read</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Table of Contents -->
+  <nav class="max-w-3xl mx-auto px-6 py-8" aria-label="Table of Contents">
+    <details open class="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30">
+      <summary class="font-headline font-bold text-lg cursor-pointer text-on-surface hover:text-primary transition-colors">In This Article</summary>
+      <ol class="mt-4 space-y-2 list-decimal list-inside text-on-surface-variant">
+        <li><a href="#why-breakups-hit-male-confidence-so-hard" class="hover:text-primary transition-colors">Why Breakups Hit Male Confidence So Hard</a></li>
+        <li><a href="#the-myths-about-confidence-recovery" class="hover:text-primary transition-colors">The Myths About Confidence Recovery</a></li>
+        <li><a href="#what-real-confidence-rebuilding-looks-like" class="hover:text-primary transition-colors">What Real Confidence Rebuilding Looks Like</a></li>
+        <li><a href="#the-long-view" class="hover:text-primary transition-colors">The Long View</a></li>
+      </ol>
+    </details>
+  </nav>
+
   <!-- Article -->
-  <section class="py-12 px-6">
-    <div class="max-w-3xl mx-auto">
-      <article class="fade-up">
+  <article class="max-w-3xl mx-auto px-6 py-12">
         
 <p>Let me be clear about something upfront: confidence isn't something you perform. You can't fake your way to it. Real confidence — the kind that doesn't crumble the next time something goes wrong — is built. It's constructed, piece by piece, through a specific kind of work. Here's what that work looks like.</p>
 
-<h2>Why Breakups Hit Male Confidence So Hard</h2>
+<h2 id="why-breakups-hit-male-confidence-so-hard">Why Breakups Hit Male Confidence So Hard</h2>
 
 <p>Romantic rejection lands differently than any other kind of failure. Part of it is the intimacy — she knew you more completely than almost anyone. If she chose to leave, it can feel like a verdict on who you actually are, delivered by the person who had the most information.</p>
 
@@ -132,7 +365,7 @@
 
 <p>And part of it is the stories we tell ourselves in the aftermath: "I wasn't good enough." "I'm unlovable." "I'll always be alone." These stories feel like facts when you're deep in heartbreak. They are not facts. They are interpretations — and interpretations can be examined and changed.</p>
 
-<h2>The Myths About Confidence Recovery</h2>
+<h2 id="the-myths-about-confidence-recovery">The Myths About Confidence Recovery</h2>
 
 <p><strong>"Just get back out there — dating again will rebuild your confidence."</strong> New attention from other women can feel good, but if your confidence is built on external validation, it remains fragile. The next rejection will knock it down again.</p>
 
@@ -140,7 +373,7 @@
 
 <p><strong>"Confidence just comes back with time."</strong> Men who wait it out often find they're more guarded, more defensive, more fearful of rejection in the next relationship — which isn't recovered confidence. It's armored avoidance.</p>
 
-<h2>What Real Confidence Rebuilding Looks Like</h2>
+<h2 id="what-real-confidence-rebuilding-looks-like">What Real Confidence Rebuilding Looks Like</h2>
 
 <h3>Step 1: Audit the story you're telling yourself</h3>
 <p>Surface the narrative. Most men carry beliefs about themselves after a breakup that they've never examined out loud. "She left because I wasn't good enough" is a story. Write down the specific beliefs the breakup seems to confirm. Then interrogate each one: Is this actually true? What evidence contradicts it? Would I believe this about a close friend in the same situation?</p>
@@ -164,22 +397,22 @@
   <p>Most men think: "When I feel confident, I'll do the hard things." The actual direction is reversed: "When I do the hard things, I feel confident." Confidence is an output of courageous action, not a prerequisite for it.</p>
 </div>
 
-<h2>The Long View</h2>
+<h2 id="the-long-view">The Long View</h2>
 
 <p>Real confidence — the deep, grounded kind — doesn't come from never being hurt. It comes from being hurt and coming back. From losing something and finding out you can survive it. From having the ground fall out and discovering that you can rebuild.</p>
 
 <p>The men who come out of heartbreak genuinely stronger aren't the ones who shut down and went numb. They're the ones who did the uncomfortable work of looking honestly at themselves, rebuilding their sense of identity from the inside out, and choosing — every day, imperfectly — to move toward life rather than away from pain.</p>
 
-      </article>
+  </article>
 
-      <!-- CTA -->
-      <div class="mt-16 rounded-2xl p-8 text-center fade-up" style="background: linear-gradient(135deg, #006a28, #004d1f);">
-        <h3 class="font-headline text-2xl font-bold text-white mb-3">Ready to Move Through This?</h3>
-        <p class="text-white/80 mb-6">One-on-one coaching for men navigating heartbreak and finding their way back to themselves.</p>
-        <a href="https://sunnybinjola.com/work-with-me.html" class="inline-block bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-primary-container transition-colors">Book a Free Consultation →</a>
-      </div>
+  <!-- CTA -->
+  <div class="max-w-3xl mx-auto px-6 mt-16">
+    <div class="rounded-2xl p-8 text-center fade-up" style="background: linear-gradient(135deg, #006a28, #004d1f);">
+      <h3 class="font-headline text-2xl font-bold text-white mb-3">Ready to Move Through This?</h3>
+      <p class="text-white/80 mb-6">One-on-one coaching for men navigating heartbreak and finding their way back to themselves.</p>
+      <a href="https://sunnybinjola.com/work-with-me.html" class="inline-block bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-primary-container transition-colors">Book a Free Consultation →</a>
     </div>
-  </section>
+  </div>
 
   <!-- Share Bar -->
   <div id="share-bar" class="max-w-3xl mx-auto px-6"></div>
@@ -189,19 +422,18 @@
   <div class="max-w-3xl mx-auto px-6 mb-16">
     <h3 class="font-headline text-2xl font-bold text-on-surface mb-6">Keep Reading</h3>
     <div class="space-y-3">
-      
-    <a href="how-men-grieve-breakup.html" class="block bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors group border border-outline-variant/20">
-      <span class="text-on-surface font-semibold group-hover:text-primary transition-colors">How Men Actually Grieve a Breakup</span>
-      <p class="text-on-surface-variant text-sm mt-1">The real stages of male grief and why it takes longer than anyone admits.</p>
-    </a>
-    <a href="how-to-stop-thinking-about-your-ex.html" class="block bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors group border border-outline-variant/20">
-      <span class="text-on-surface font-semibold group-hover:text-primary transition-colors">How to Stop Thinking About Your Ex</span>
-      <p class="text-on-surface-variant text-sm mt-1">The neuroscience of obsessive thoughts — and strategies that work.</p>
-    </a>
-    <a href="no-contact-rule-for-men.html" class="block bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors group border border-outline-variant/20">
-      <span class="text-on-surface font-semibold group-hover:text-primary transition-colors">The No-Contact Rule for Men</span>
-      <p class="text-on-surface-variant text-sm mt-1">Why it works, how to actually stick to it, and the right reason to do it.</p>
-    </a>
+      <a href="how-men-grieve-breakup.html" class="block bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors group border border-outline-variant/20">
+        <span class="text-on-surface font-semibold group-hover:text-primary transition-colors">How Men Actually Grieve a Breakup</span>
+        <p class="text-on-surface-variant text-sm mt-1">The real stages of male grief and why it takes longer than anyone admits.</p>
+      </a>
+      <a href="how-to-stop-thinking-about-your-ex.html" class="block bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors group border border-outline-variant/20">
+        <span class="text-on-surface font-semibold group-hover:text-primary transition-colors">How to Stop Thinking About Your Ex</span>
+        <p class="text-on-surface-variant text-sm mt-1">The neuroscience of obsessive thoughts — and strategies that work.</p>
+      </a>
+      <a href="no-contact-rule-for-men.html" class="block bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors group border border-outline-variant/20">
+        <span class="text-on-surface font-semibold group-hover:text-primary transition-colors">The No-Contact Rule for Men</span>
+        <p class="text-on-surface-variant text-sm mt-1">Why it works, how to actually stick to it, and the right reason to do it.</p>
+      </a>
     </div>
   </div>
 </main>

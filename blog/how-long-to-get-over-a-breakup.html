@@ -29,6 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Outfit:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script id="tailwind-config">
     tailwind.config = {
@@ -45,20 +46,274 @@
     }
   </script>
   <style>
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    article h2 { font-family: Outfit; font-weight: 800; font-size: 1.875rem; margin-top: 2.5rem; margin-bottom: 1.25rem; color: #2d2f2c; }
-    article h3 { font-family: Outfit; font-weight: 700; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; color: #2d2f2c; }
-    article p { font-family: Manrope; font-size: 1.125rem; line-height: 1.8; color: #5a5c58; margin-bottom: 1.5rem; }
-    article a { color: #006a28; text-decoration: underline; }
-    article a:hover { color: #004d1f; }
-    article blockquote { border-left: 3px solid #006a28 !important; padding: 1.5rem 1.5rem 1.5rem 2rem !important; font-style: italic; color: #5a5c58; margin: 2.5rem 0 !important; background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%); border-radius: 0 12px 12px 0; position: relative; }
-    article blockquote::before { content: "\201C"; position: absolute; top: -8px; left: 12px; font-size: 3rem; color: #006a28; opacity: 0.25; font-family: Georgia, serif; line-height: 1; }
-    article ul, article ol { margin: 1.5rem 0 1.5rem 2rem; font-family: Manrope; font-size: 1.125rem; line-height: 1.8; color: #5a5c58; }
-    article li { margin-bottom: 0.75rem; }
-    article > p:first-of-type { font-size: 1.25rem !important; line-height: 1.7 !important; color: #2d2f2c !important; font-weight: 500; }
-    article hr { border: none !important; height: 1px; background: linear-gradient(90deg, transparent, #b8d4c0, transparent); margin: 3rem auto !important; max-width: 200px; }
-    .hero-pill { display: inline-block; background: rgba(0,106,40,0.10); color: #005d22; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 0.35rem 0.85rem; border-radius: 9999px; margin-bottom: 1.25rem; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .leaf-indicator {
+      clip-path: ellipse(50% 100% at 50% 100%);
+    }
+
+    .editorial-shadow {
+      box-shadow: 0 12px 40px rgba(13, 15, 12, 0.06);
+    }
+
+    .vibrant-gradient {
+      background: linear-gradient(135deg, #006a28 0%, #5cfd80 100%);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    article h2 {
+      font-family: Outfit;
+      font-weight: 800;
+      font-size: 1.875rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+      color: #2d2f2c;
+    }
+
+    article h3 {
+      font-family: Outfit;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #2d2f2c;
+    }
+
+    article p {
+      font-family: Manrope;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #5a5c58;
+      margin-bottom: 1.5rem;
+    }
+
+    article a {
+      color: #006a28;
+      text-decoration: underline;
+    }
+
+    article a:hover {
+      color: #004d1f;
+    }
+
+    article blockquote {
+      border-left: 4px solid #006a28;
+      padding-left: 1.5rem;
+      font-style: italic;
+      color: #5a5c58;
+      margin: 2rem 0;
+    }
+
+    article ul, article ol {
+      margin: 1.5rem 0 1.5rem 2rem;
+      font-family: Manrope;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #5a5c58;
+    }
+
+    article li {
+      margin-bottom: 0.75rem;
+    }
+
+    article .bold-stat {
+      color: #006a28;
+      font-weight: 700;
+    }
+
+    details {
+      margin: 1.5rem 0;
+      padding: 1.25rem;
+      background: #f1f1ec;
+      border-radius: 0.5rem;
+      border: 1px solid #dcddd7;
+    }
+
+    summary {
+      cursor: pointer;
+      font-family: Outfit;
+      font-weight: 600;
+      color: #006a28;
+      font-size: 1.125rem;
+      user-select: none;
+    }
+
+    summary:hover {
+      color: #004d1f;
+    }
+
+    details[open] summary {
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer {
+      font-family: Manrope;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #5a5c58;
+    }
+
+    .sources-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #dcddd7;
+      font-size: 0.875rem;
+      color: #5a5c58;
+    }
+
+    .sources-section ol {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    .sources-section li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* ═══ VISUAL UPGRADES ═══ */
+
+    .blog-hero {
+      background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -120px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,140,110,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .blog-hero::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,106,40,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    article hr {
+      border: none !important;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #b8d4c0, transparent);
+      margin: 3rem auto !important;
+      position: relative;
+      max-width: 200px;
+    }
+    article hr::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #006a28;
+    }
+
+    article blockquote {
+      border-left: 3px solid #006a28 !important;
+      padding: 1.5rem 1.5rem 1.5rem 2rem !important;
+      font-style: italic;
+      color: #5a5c58;
+      margin: 2.5rem 0 !important;
+      background: linear-gradient(135deg, #f2f7f3 0%, #e8f0eb 100%);
+      border-radius: 0 12px 12px 0;
+      position: relative;
+    }
+    article blockquote::before {
+      content: "\201C";
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      font-size: 3rem;
+      color: #006a28;
+      opacity: 0.25;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    article > p:first-of-type {
+      font-size: 1.25rem !important;
+      line-height: 1.7 !important;
+      color: #2d2f2c !important;
+      font-weight: 500;
+    }
+
+    article .bold-stat {
+      color: #006a28;
+      font-weight: 700;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      background: rgba(0,106,40,0.10);
+      color: #005d22;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Hero photo banner */
+    .blog-hero-image {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      border-radius: 0 0 24px 24px;
+      margin-bottom: -24px;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0.9);
+      transform: scale(1.15);
+    }
+    @media (min-width: 768px) {
+      .blog-hero-image {
+        height: 480px;
+        border-radius: 0 0 32px 32px;
+        margin-bottom: -36px;
+      }
+    }
+
+    /* Reading progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #006a28, #5cfd80);
+      z-index: 9999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
     .callout-box { background: #f0f7f2; border: 1px solid #c8e6d0; border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2rem 0; }
     .callout-box strong { color: #005d22; font-family: Outfit; font-size: 1.05rem; display: block; margin-bottom: 0.5rem; }
     .callout-box p { margin: 0 !important; font-size: 1rem !important; }
@@ -66,7 +321,6 @@
     .stage-card .stage-num { font-family: Manrope; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #767773; margin-bottom: 0.5rem; }
     .stage-card h3 { margin-top: 0 !important; }
     .stage-card p { margin-bottom: 0 !important; font-size: 1rem !important; }
-    #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #006a28, #5cfd80); z-index: 9999; transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
   </style>
   <script type="application/ld+json">
   {
@@ -104,27 +358,39 @@
 
 <main>
   <!-- Hero -->
-  <section class="blog-hero pt-28 pb-16 px-6" style="background: linear-gradient(180deg, #f7f7f2 0%, #eaf3ed 50%, #e0ece4 100%);">
-    <div class="max-w-3xl mx-auto fade-up">
-      <span class="hero-pill">Heartbreak Recovery · Men's Work</span>
-      <h1 class="font-headline text-4xl md:text-5xl font-bold text-on-surface leading-tight mb-4">How Long Does It Take to Get Over a Breakup? The Real Answer for Men</h1>
-      <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-6">The timeline isn't fixed. To a meaningful degree, it's in your hands.</p>
-      <div class="flex items-center gap-3 text-sm text-on-surface-variant">
-        <span class="font-semibold text-primary">Sunny Binjola</span>
-        <span>·</span>
-        <time datetime="2026-04-07">April 2026 · 8 min read</time>
+  <section class="w-full py-0 pb-20 px-6 blog-hero">
+    <img src="images/9.jpg" alt="" class="blog-hero-image" loading="eager" />
+    <div class="pt-10">
+      <div class="max-w-3xl mx-auto">
+        <span class="hero-pill">Heartbreak Recovery · Men's Work</span>
+        <h1 class="font-headline text-4xl md:text-5xl font-black text-on-surface mb-6">How Long Does It Take to Get Over a Breakup? The Real Answer for Men</h1>
+        <div class="flex flex-wrap gap-4 text-sm text-on-surface-variant">
+          <span>By <strong>Sunny Binjola</strong></span><span>•</span><span>April 7, 2026</span><span>•</span><span>7 min read</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Table of Contents -->
+  <nav class="max-w-3xl mx-auto px-6 py-8" aria-label="Table of Contents">
+    <details open class="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30">
+      <summary class="font-headline font-bold text-lg cursor-pointer text-on-surface hover:text-primary transition-colors">In This Article</summary>
+      <ol class="mt-4 space-y-2 list-decimal list-inside text-on-surface-variant">
+        <li><a href="#the-honest-answer" class="hover:text-primary transition-colors">The Honest Answer</a></li>
+        <li><a href="#what-actually-determines-your-timeline" class="hover:text-primary transition-colors">What Actually Determines Your Timeline</a></li>
+        <li><a href="#what-progress-actually-looks-like" class="hover:text-primary transition-colors">What Progress Actually Looks Like</a></li>
+        <li><a href="#what-to-do-starting-today" class="hover:text-primary transition-colors">What to Do Starting Today</a></li>
+        <li><a href="#the-question-underneath-the-question" class="hover:text-primary transition-colors">The Question Underneath the Question</a></li>
+      </ol>
+    </details>
+  </nav>
+
   <!-- Article -->
-  <section class="py-12 px-6">
-    <div class="max-w-3xl mx-auto">
-      <article class="fade-up">
+  <article class="max-w-3xl mx-auto px-6 py-12">
         
 <p>It's one of the first things men want to know after a breakup: how long is this going to last? When you're in the middle of heartbreak, what you want most is to know there's an end point. The honest answer isn't the one most people want to hear. But the full answer is actually more hopeful than you might expect.</p>
 
-<h2>The Honest Answer</h2>
+<h2 id="the-honest-answer">The Honest Answer</h2>
 
 <p>There's no universal timeline. Research shows ranges so wide they're almost useless as guidance — months to years, depending on a huge range of factors. Studies that try to pin down an "average" tend to find that most people feel substantially better within 11 weeks after a breakup — but that same research shows enormous variance.</p>
 
@@ -132,7 +398,7 @@
 
 <p>Which means the timeline isn't fixed. It's, to a meaningful degree, in your hands.</p>
 
-<h2>What Actually Determines Your Timeline</h2>
+<h2 id="what-actually-determines-your-timeline">What Actually Determines Your Timeline</h2>
 
 <div class="stage-card">
   <div class="stage-num">Factor 1</div>
@@ -164,7 +430,7 @@
   <p>Men who have a genuine, engaging vision of their own future recover faster than men who are just waiting for the pain to end. Building that orientation is part of the recovery work.</p>
 </div>
 
-<h2>What Progress Actually Looks Like</h2>
+<h2 id="what-progress-actually-looks-like">What Progress Actually Looks Like</h2>
 
 <p>Most men have a binary picture of recovery: either you're in pain or you're over it. Real recovery is more gradual.</p>
 
@@ -181,7 +447,7 @@
   <p>Longer stretches where she's not your first thought. Lower emotional charge when she does come to mind. Making decisions based on what you want rather than what might bring her back. Genuine interest in other people and things. Feeling like a version of yourself, not just a person who was left.</p>
 </div>
 
-<h2>What to Do Starting Today</h2>
+<h2 id="what-to-do-starting-today">What to Do Starting Today</h2>
 
 <p><strong>Start processing instead of suppressing.</strong> Find a trusted person you can actually be honest with about what you're going through. Put the grief into externalized form, where it can be worked with.</p>
 
@@ -191,20 +457,20 @@
 
 <p><strong>Be patient — and be active.</strong> Both are required. You cannot rush grief past its natural timeline. But you can slow it dramatically by avoiding it. You actively create the conditions for healing. Then you let healing happen.</p>
 
-<h2>The Question Underneath the Question</h2>
+<h2 id="the-question-underneath-the-question">The Question Underneath the Question</h2>
 
 <p>When men ask "how long will this take?" what they're often really asking is: "Am I going to be okay?" And to that question, I can give you a more direct answer: yes. Humans are built to attach and to recover from loss. You have recovered from hard things before. You will recover from this. The question isn't whether — it's how actively and intelligently you engage with the process.</p>
 
-      </article>
+  </article>
 
-      <!-- CTA -->
-      <div class="mt-16 rounded-2xl p-8 text-center fade-up" style="background: linear-gradient(135deg, #006a28, #004d1f);">
-        <h3 class="font-headline text-2xl font-bold text-white mb-3">Ready to Move Through This?</h3>
-        <p class="text-white/80 mb-6">One-on-one coaching for men navigating heartbreak and finding their way back to themselves.</p>
-        <a href="https://sunnybinjola.com/work-with-me.html" class="inline-block bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-primary-container transition-colors">Book a Free Consultation →</a>
-      </div>
+  <!-- CTA -->
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="mt-16 rounded-2xl p-8 text-center fade-up" style="background: linear-gradient(135deg, #006a28, #004d1f);">
+      <h3 class="font-headline text-2xl font-bold text-white mb-3">Ready to Move Through This?</h3>
+      <p class="text-white/80 mb-6">One-on-one coaching for men navigating heartbreak and finding their way back to themselves.</p>
+      <a href="https://sunnybinjola.com/work-with-me.html" class="inline-block bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-primary-container transition-colors">Book a Free Consultation →</a>
     </div>
-  </section>
+  </div>
 
   <!-- Share Bar -->
   <div id="share-bar" class="max-w-3xl mx-auto px-6"></div>

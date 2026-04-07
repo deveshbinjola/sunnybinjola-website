@@ -825,46 +825,9 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-surface-container-low border-t border-surface-container py-16 px-10">
-    <div class="max-w-[1440px] mx-auto grid md:grid-cols-4 gap-12">
-      <div>
-        <img src="logo.png" alt="Sunny Binjola" class="h-16 mb-4">
-        <p class="text-on-surface-variant text-sm">I lead men to live their deepest life in love and leadership.</p>
-      </div>
-      <div>
-        <h4 class="font-headline font-bold mb-4">Programs</h4>
-        <ul class="space-y-2 text-on-surface-variant text-sm">
-          <li><a href="heal-your-heartbreak.html" class="hover:text-primary transition-colors">Heal Your Heartbreak</a></li>
-          <li><a href="get-your-ex-back.html" class="hover:text-primary transition-colors">Get Your Ex Back</a></li>
-          <li><a href="embody-live.html" class="hover:text-primary transition-colors">Embody Live</a></li>
-          <li><a href="find-your-purpose.html" class="hover:text-primary transition-colors">Find Your Dharma</a></li>
-          <li><a href="one-on-one.html" class="hover:text-primary transition-colors">1:1 Coaching</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-headline font-bold mb-4">Resources</h4>
-        <ul class="space-y-2 text-on-surface-variant text-sm">
-          <li><a href="blog.html" class="hover:text-primary transition-colors">Blog</a></li>
-          <li><a href="resources.html" class="hover:text-primary transition-colors">Free Resources</a></li>
-          <li><a href="faq.html" class="hover:text-primary transition-colors">FAQ</a></li>
-          <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-headline font-bold mb-4">Connect</h4>
-        <ul class="space-y-2 text-on-surface-variant text-sm">
-          <li><a href="https://www.instagram.com/sunnybinjola/" target="_blank" class="hover:text-primary transition-colors">Instagram</a></li>
-          <li><a href="https://www.youtube.com/@sunnybinjola" target="_blank" class="hover:text-primary transition-colors">YouTube</a></li>
-          <li><a href="https://cal.com/sunny-binjola/discovery-call" target="_blank" class="hover:text-primary transition-colors">Book a Call</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="max-w-[1440px] mx-auto mt-12 pt-8 border-t border-surface-container text-center text-on-surface-variant text-sm">
-      <p>&copy; <span id="copyright-year"></span> Sunny Binjola. All rights reserved.</p>
-      <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
-    </div>
-  </footer>
+  <!-- FOOTER (shared component) -->
+  <div id="footer"></div>
+  <script src="footer.js"></script>
 
   <!-- Supabase Setup & Signup Handler -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
