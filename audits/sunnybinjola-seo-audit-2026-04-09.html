@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit — sunnybinjola.com — 2026-04-09</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'IBM Plex Sans',sans-serif;background:#0a0f1c;color:#e0e0e0;line-height:1.6;padding:0}
+.container{max-width:1100px;margin:0 auto;padding:40px 32px}
+h1,h2,h3{color:#fff}
+h2{font-size:1.5rem;margin:48px 0 20px;border-bottom:2px solid #1a2340;padding-bottom:10px}
+h3{font-size:1.15rem;margin:24px 0 12px}
+.header{background:linear-gradient(135deg,#0d1529 0%,#142040 100%);padding:48px 32px;border-bottom:3px solid #6C63FF}
+.header-row{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;flex-wrap:wrap;gap:20px}
+.header-left h1{font-size:2rem;font-weight:700}
+.header-left .site-url{color:#6C63FF;font-size:1.1rem;font-weight:500;margin-top:4px}
+.header-left .audit-date{color:#8899bb;font-size:0.9rem;margin-top:4px}
+.score-badge{display:flex;flex-direction:column;align-items:center;background:#111827;border:3px solid #6C63FF;border-radius:16px;padding:20px 32px;min-width:140px}
+.score-badge .score-num{font-size:3rem;font-weight:700;color:#6C63FF;line-height:1}
+.score-badge .score-label{font-size:0.85rem;color:#8899bb;margin-top:4px}
+.score-badge .grade{font-size:1.5rem;font-weight:700;color:#6C63FF;margin-top:2px}
+.delta-section{max-width:1100px;margin:24px auto 0;padding:0 32px}
+.delta-chip{display:inline-flex;align-items:center;gap:8px;background:#0d1528;border:1px solid #6C63FF;border-radius:8px;padding:8px 16px;font-size:0.95rem;color:#6C63FF;font-weight:600}
+.signal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:16px}
+.signal-card{background:#111827;border-radius:12px;padding:16px 20px;border:1px solid #1a2340}
+.signal-card .signal-name{font-size:0.9rem;color:#ccd;margin-bottom:8px;display:flex;justify-content:space-between}
+.signal-card .signal-score{font-weight:700;color:#6C63FF}
+.bar-bg{background:#1a2340;border-radius:6px;height:8px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px}
+.bar-green{background:#00FF41}
+.bar-amber{background:#ffaa00}
+.bar-red{background:#ff4444}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:0.9rem}
+th{background:#1a2340;color:#6C63FF;text-align:left;padding:10px 12px;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+td{padding:10px 12px;border-bottom:1px solid #1a2340;color:#ccd}
+tr:hover td{background:#111827}
+.vol-high{color:#00FF41;font-weight:600}.vol-med{color:#ffaa00;font-weight:600}.vol-low{color:#8899bb}
+.diff-easy{color:#00FF41}.diff-medium{color:#ffaa00}.diff-hard{color:#ff4444}
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:600}
+.badge-high{background:#0d2818;color:#00FF41;border:1px solid #00FF41}
+.badge-med{background:#2d2200;color:#ffaa00;border:1px solid #ffaa00}
+.badge-low{background:#2d0d0d;color:#ff4444;border:1px solid #ff4444}
+.badge-yes{background:#0d2818;color:#00FF41}.badge-no{background:#1a2340;color:#8899bb}
+.highlight-box{background:#111827;border-left:4px solid #6C63FF;border-radius:0 12px 12px 0;padding:20px 24px;margin:16px 0}
+.highlight-box h3{color:#6C63FF;margin-bottom:12px}
+.highlight-box.amber{border-left-color:#ffaa00}
+.highlight-box.amber h3{color:#ffaa00}
+.highlight-item{margin:8px 0;padding-left:16px;position:relative}
+.highlight-item::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:#6C63FF}
+.highlight-box.amber .highlight-item::before{background:#ffaa00}
+.issue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:16px}
+.issue-card{border-radius:12px;padding:20px;border:1px solid}
+.issue-card.critical{background:#1a0a0a;border-color:#ff4444}
+.issue-card.critical .sev{color:#ff4444;font-weight:700;text-transform:uppercase;font-size:0.8rem;letter-spacing:1px}
+.issue-card.high{background:#1a1500;border-color:#ffaa00}
+.issue-card.high .sev{color:#ffaa00;font-weight:700;text-transform:uppercase;font-size:0.8rem;letter-spacing:1px}
+.issue-card.medium{background:#1a1800;border-color:#ffd700}
+.issue-card.medium .sev{color:#ffd700;font-weight:700;text-transform:uppercase;font-size:0.8rem;letter-spacing:1px}
+.issue-card .issue-title{font-size:1rem;font-weight:600;color:#fff;margin:8px 0 6px}
+.issue-card .issue-fix{font-size:0.9rem;color:#aab}
+.win-card{background:#0d0a1a;border:1px solid #6C63FF;border-radius:12px;padding:20px}
+.win-card .win-title{font-weight:600;color:#6C63FF;margin-bottom:6px}
+.action-list{counter-reset:action;margin-top:12px}
+.action-item{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid #1a2340;align-items:flex-start}
+.action-num{background:#6C63FF;color:#fff;font-weight:700;font-size:0.85rem;min-width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.action-text{font-size:0.95rem}
+.footer{text-align:center;padding:32px;color:#556;font-size:0.8rem;border-top:1px solid #1a2340;margin-top:48px}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="header-row">
+<div class="header-left">
+<h1>SEO Audit</h1>
+<div class="site-url">sunnybinjola.com</div>
+<div class="audit-date">Audit Date: April 9, 2026</div>
+</div>
+<div class="score-badge">
+<div class="score-num">64</div>
+<div class="score-label">out of 100</div>
+<div class="grade">C</div>
+</div>
+</div>
+</div>
+
+<div class="delta-section">
+<div class="delta-chip">&#9650; +19 pts vs last week (baseline: 45)</div>
+</div>
+
+<div class="container">
+
+<h2>Signal Scorecard</h2>
+<div class="signal-grid">
+<div class="signal-card"><div class="signal-name"><span>1. Title Tags — Keyword-Optimised</span><span class="signal-score">7 / 10</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:70%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>2. Meta Descriptions — Compelling</span><span class="signal-score">6 / 8</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:75%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>3. H1 — Single & Keyword-Matched</span><span class="signal-score">3 / 8</span></div><div class="bar-bg"><div class="bar-fill bar-red" style="width:37.5%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>4. Heading Hierarchy (H2/H3)</span><span class="signal-score">4 / 5</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:80%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>5. Schema Markup</span><span class="signal-score">7 / 10</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:70%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>6. Indexed Page Count (75 URLs)</span><span class="signal-score">7 / 10</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:70%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>7. Internal Linking Structure</span><span class="signal-score">5 / 6</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:83%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>8. Page Speed / Mobile-Friendly</span><span class="signal-score">4 / 6</span></div><div class="bar-bg"><div class="bar-fill bar-amber" style="width:66.7%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>9. Blog Freshness & Cadence</span><span class="signal-score">5 / 8</span></div><div class="bar-bg"><div class="bar-fill bar-amber" style="width:62.5%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>10. Sitemap — Structured</span><span class="signal-score">5 / 5</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:100%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>11. Robots.txt — Clean</span><span class="signal-score">4 / 4</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:100%"></div></div></div>
+<div class="signal-card"><div class="signal-name"><span>12. Keyword-to-Content Relevance</span><span class="signal-score">7 / 10</span></div><div class="bar-bg"><div class="bar-fill bar-green" style="width:70%"></div></div></div>
+</div>
+
+<h2>Competitor Landscape</h2>
+<table>
+<thead><tr><th>Competitor</th><th>Top Keywords</th><th>Est. Volume</th><th>Domain Strength</th></tr></thead>
+<tbody>
+<tr><td>bettermencoaching.com</td><td>life coach for men, men's life coaching, male life coach</td><td class="vol-high">High</td><td><span class="badge badge-high">Strong</span></td></tr>
+<tr><td>manuplifecoaching.com</td><td>men's personal development, life coaching men, male confidence</td><td class="vol-med">Medium</td><td><span class="badge badge-med">Medium</span></td></tr>
+<tr><td>mantalks.com</td><td>men's coaching purpose, men's relationships, modern masculinity</td><td class="vol-med">Medium</td><td><span class="badge badge-high">Strong</span></td></tr>
+<tr><td>practicalintimacy.com</td><td>masculinity coach, men's empowerment coaching</td><td class="vol-med">Medium</td><td><span class="badge badge-med">Medium</span></td></tr>
+<tr><td>evolvingman.com</td><td>men's coaching, evolving man, men's work</td><td class="vol-low">Low</td><td><span class="badge badge-low">Weak</span></td></tr>
+</tbody>
+</table>
+
+<h2>Keyword Opportunity Map</h2>
+<table>
+<thead><tr><th>Keyword</th><th>Est. Volume</th><th>Difficulty</th><th>Current Status</th><th>Opportunity</th><th>Quick Win?</th></tr></thead>
+<tbody>
+<tr><td>heartbreak recovery for men</td><td class="vol-med">Medium</td><td class="diff-easy">Easy</td><td>Service page exists</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-yes">Yes</span></td></tr>
+<tr><td>men's heartbreak coach</td><td class="vol-low">Low</td><td class="diff-easy">Easy</td><td>Not ranking</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-yes">Yes</span></td></tr>
+<tr><td>somatic healing men</td><td class="vol-low">Low</td><td class="diff-easy">Easy</td><td>Content exists</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-yes">Yes</span></td></tr>
+<tr><td>how to get over a breakup men</td><td class="vol-high">High</td><td class="diff-medium">Medium</td><td>Not ranking</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-yes">Yes</span></td></tr>
+<tr><td>men's embodiment coach</td><td class="vol-low">Low</td><td class="diff-easy">Easy</td><td>Service exists</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-yes">Yes</span></td></tr>
+<tr><td>nervous system regulation after breakup</td><td class="vol-low">Low</td><td class="diff-easy">Easy</td><td>Blog exists</td><td><span class="badge badge-high">High</span></td><td><span class="badge badge-yes">Yes</span></td></tr>
+<tr><td>men's life coach online</td><td class="vol-med">Medium</td><td class="diff-hard">Hard</td><td>Not ranking</td><td><span class="badge badge-med">Medium</span></td><td><span class="badge badge-no">No</span></td></tr>
+<tr><td>male personal development coach</td><td class="vol-med">Medium</td><td class="diff-medium">Medium</td><td>Not ranking</td><td><span class="badge badge-med">Medium</span></td><td><span class="badge badge-no">No</span></td></tr>
+<tr><td>men's coaching programs</td><td class="vol-med">Medium</td><td class="diff-hard">Hard</td><td>Not ranking</td><td><span class="badge badge-low">Low</span></td><td><span class="badge badge-no">No</span></td></tr>
+<tr><td>breakup recovery program</td><td class="vol-med">Medium</td><td class="diff-medium">Medium</td><td>Not ranking</td><td><span class="badge badge-med">Medium</span></td><td><span class="badge badge-yes">Yes</span></td></tr>
+</tbody>
+</table>
+
+<div class="highlight-box">
+<h3>Rank These First (Quick Wins)</h3>
+<div class="highlight-item"><strong>heartbreak recovery for men</strong> — Service page exists; optimize H1/title tag with exact keyword, add testimonials, submit for indexing.</div>
+<div class="highlight-item"><strong>how to get over a breakup men</strong> — High volume, create a comprehensive 3,000+ word guide targeting this exact query with FAQ schema.</div>
+<div class="highlight-item"><strong>men's heartbreak coach</strong> — Ensure homepage title and about page explicitly use this phrase; add to Person schema jobTitle.</div>
+</div>
+
+<div class="highlight-box amber">
+<h3>Build Towards These (High Value, Longer Term)</h3>
+<div class="highlight-item"><strong>men's life coach online</strong> — BetterMen and ManTalks dominate; build authority through podcast appearances and directory listings first.</div>
+<div class="highlight-item"><strong>male personal development coach</strong> — Create a topical authority cluster with 5+ supporting blog posts around this theme.</div>
+<div class="highlight-item"><strong>breakup recovery program</strong> — Build a landing page with program details, outcomes data, and video testimonials.</div>
+</div>
+
+<h2>Top 5 Issues</h2>
+<div class="issue-grid">
+<div class="issue-card critical">
+<div class="sev">Critical</div>
+<div class="issue-title">Site not appearing in Google organic search results</div>
+<div class="issue-fix">Search for "site:sunnybinjola.com" returns zero results. The site may not be indexed. Verify in Google Search Console, check for noindex directives, and submit sitemap immediately.</div>
+</div>
+<div class="issue-card critical">
+<div class="sev">Critical</div>
+<div class="issue-title">Homepage H1 is not keyword-optimised</div>
+<div class="issue-fix">Current H1 "FEEL DEEPLY. LEAD TRUTHFULLY. LIVE FULLY AWAKE." is inspirational but contains zero searchable keywords. Add a keyword-rich H1 like "Men's Heartbreak Recovery Coach" and use the current text as a tagline.</div>
+</div>
+<div class="issue-card high">
+<div class="sev">High</div>
+<div class="issue-title">No FAQPage schema on homepage</div>
+<div class="issue-fix">FAQ page exists but FAQPage schema is only confirmed on blog posts, not the homepage. Add structured FAQ content with schema to the homepage to boost rich snippet eligibility.</div>
+</div>
+<div class="issue-card high">
+<div class="sev">High</div>
+<div class="issue-title">Blog content volume needs increase</div>
+<div class="issue-fix">Only 16 blog posts vs 75 total URLs. Competitors publish weekly. Increase to 2+ blog posts per week targeting long-tail heartbreak recovery keywords.</div>
+</div>
+<div class="issue-card medium">
+<div class="sev">Medium</div>
+<div class="issue-title">Zero external backlinks or directory listings visible</div>
+<div class="issue-fix">Submit to coaching directories (ICF, Noomii, Life Coach Hub), men's health directories, and pursue guest posts on men's wellness blogs.</div>
+</div>
+</div>
+
+<h2>Top 3 Wins</h2>
+<div class="issue-grid">
+<div class="win-card">
+<div class="win-title">Strong niche differentiation with 26 programmatic recovery pages</div>
+<div>Highly targeted pages for specific demographics (divorced men, age groups, attachment styles) create excellent long-tail SEO coverage.</div>
+</div>
+<div class="win-card">
+<div class="win-title">Person and ProfessionalService schema well-implemented</div>
+<div>Detailed schema with pricing, service types, and social profiles gives search engines strong entity signals.</div>
+</div>
+<div class="win-card">
+<div class="win-title">Clean technical foundation (robots.txt, sitemap, AI-friendly config)</div>
+<div>Permissive robots.txt with AI crawler access and well-structured 75-URL sitemap provides a solid technical base.</div>
+</div>
+</div>
+
+<h2>90-Day Priority Action Plan</h2>
+<div class="action-list">
+<div class="action-item"><div class="action-num">1</div><div class="action-text"><strong>Fix Google indexing immediately.</strong> Set up Google Search Console, verify ownership, submit sitemap. Check for noindex tags across all pages.</div></div>
+<div class="action-item"><div class="action-num">2</div><div class="action-text"><strong>Rewrite homepage H1</strong> to "Men's Heartbreak Recovery Coach" and keep the inspirational tagline as a subtitle or H2.</div></div>
+<div class="action-item"><div class="action-num">3</div><div class="action-text"><strong>Add FAQPage schema to homepage and service pages</strong> with 10+ structured Q&As about heartbreak recovery, coaching process, and pricing.</div></div>
+<div class="action-item"><div class="action-num">4</div><div class="action-text"><strong>Publish "How to Get Over a Breakup as a Man" pillar guide</strong> — 3,000+ words targeting highest-volume keyword opportunity.</div></div>
+<div class="action-item"><div class="action-num">5</div><div class="action-text"><strong>Increase blog cadence to 2+ posts/week</strong> targeting heartbreak recovery long-tail keywords from opportunity map.</div></div>
+<div class="action-item"><div class="action-num">6</div><div class="action-text"><strong>Submit to 10+ coaching and men's wellness directories</strong> — ICF, Noomii, Life Coach Hub, Psychology Today, men's health directories.</div></div>
+<div class="action-item"><div class="action-num">7</div><div class="action-text"><strong>Run Core Web Vitals audit</strong> and optimize page speed — compress images, defer JS, enable caching.</div></div>
+<div class="action-item"><div class="action-num">8</div><div class="action-text"><strong>Create YouTube content or podcast episodes</strong> to build external entity mentions and backlinks from video descriptions.</div></div>
+<div class="action-item"><div class="action-num">9</div><div class="action-text"><strong>Optimize all programmatic pages</strong> — ensure each of the 26 recovery pages has unique content (not templated), custom testimonials, and specific CTAs.</div></div>
+<div class="action-item"><div class="action-num">10</div><div class="action-text"><strong>Build "Men's Breakup Recovery" email lead magnet</strong> — drive signups from blog posts, create backlink-worthy resource.</div></div>
+</div>
+
+</div>
+<div class="footer">SEO Audit generated by ElevateAI Weekly Audit System &mdash; April 9, 2026</div>
+</body>
+</html>

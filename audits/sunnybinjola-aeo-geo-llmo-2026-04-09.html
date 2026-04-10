@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Visibility Audit — sunnybinjola.com — 2026-04-09</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Bricolage Grotesque',sans-serif;background:#0a0f1c;color:#e0e0e0;line-height:1.6;padding:0}
+.container{max-width:1100px;margin:0 auto;padding:40px 32px}
+h1,h2,h3{color:#fff}
+h2{font-size:1.5rem;margin:48px 0 20px;border-bottom:2px solid #1a2340;padding-bottom:10px}
+h3{font-size:1.15rem;margin:24px 0 12px}
+
+.header{background:linear-gradient(135deg,#0d1529 0%,#1a1040 100%);padding:48px 32px;border-bottom:3px solid #f97316}
+.header-row{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;flex-wrap:wrap;gap:20px}
+.header-left h1{font-size:2rem;font-weight:700}
+.header-left .site-url{color:#f97316;font-size:1.1rem;font-weight:500;margin-top:4px}
+.header-left .audit-date{color:#8899bb;font-size:0.9rem;margin-top:4px}
+.score-badge{display:flex;flex-direction:column;align-items:center;background:#111827;border:3px solid #f97316;border-radius:16px;padding:20px 32px;min-width:140px}
+.score-badge .score-num{font-size:3rem;font-weight:700;color:#f97316;line-height:1}
+.score-badge .score-label{font-size:0.85rem;color:#8899bb;margin-top:4px}
+.score-badge .grade{font-size:1.5rem;font-weight:700;color:#f97316;margin-top:2px}
+
+.delta-section{max-width:1100px;margin:24px auto 0;padding:0 32px}
+.delta-chip{display:inline-flex;align-items:center;gap:8px;background:#1a1008;border:1px solid #f97316;border-radius:8px;padding:8px 16px;font-size:0.95rem;color:#f97316;font-weight:600}
+
+.gauge-row{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap}
+.gauge-card{flex:1;min-width:200px;background:#111827;border-radius:12px;padding:24px;text-align:center;border:1px solid #1a2340}
+.gauge-card .gauge-title{font-size:0.85rem;color:#8899bb;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.gauge-card .gauge-score{font-size:2.5rem;font-weight:700;line-height:1}
+.gauge-card .gauge-max{font-size:0.9rem;color:#556}
+.gauge-aeo{color:#00d4ff}
+.gauge-geo{color:#00FF41}
+.gauge-llmo{color:#ff6b9d}
+
+.section-card{background:#111827;border-radius:12px;padding:24px;margin-top:16px;border:1px solid #1a2340}
+.section-card h3{margin-top:0}
+.issue-item{padding:12px 0;border-bottom:1px solid #1a2340}
+.issue-item:last-child{border-bottom:none}
+.issue-label{font-weight:600;color:#fff;margin-bottom:4px}
+.issue-fix{color:#aab;font-size:0.9rem}
+.status-found{color:#00FF41;font-weight:600}
+.status-missing{color:#ff4444;font-weight:600}
+.status-partial{color:#ffaa00;font-weight:600}
+
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:0.9rem}
+th{background:#1a2340;color:#f97316;text-align:left;padding:10px 12px;font-weight:600;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px}
+td{padding:10px 12px;border-bottom:1px solid #1a2340;color:#ccd}
+tr:hover td{background:#111827}
+.action-table td:first-child{font-weight:700;color:#f97316;text-align:center;width:40px}
+.effort{color:#ffaa00;font-size:0.85rem}
+.gain{color:#00FF41;font-size:0.85rem}
+.footer{text-align:center;padding:32px;color:#556;font-size:0.8rem;border-top:1px solid #1a2340;margin-top:48px}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="header-row">
+<div class="header-left">
+<h1>AI Visibility Audit</h1>
+<div class="site-url">sunnybinjola.com</div>
+<div class="audit-date">Audit Date: April 9, 2026</div>
+</div>
+<div class="score-badge">
+<div class="score-num">42</div>
+<div class="score-label">out of 100</div>
+<div class="grade">F</div>
+</div>
+</div>
+</div>
+
+<div class="delta-section">
+<div class="delta-chip">&#9650; +12 pts vs last week (baseline: 30)</div>
+</div>
+
+<div class="container">
+
+<h2>Sub-Scores</h2>
+<div class="gauge-row">
+<div class="gauge-card">
+<div class="gauge-title">AEO Score</div>
+<div class="gauge-score gauge-aeo">16</div>
+<div class="gauge-max">/ 25</div>
+</div>
+<div class="gauge-card">
+<div class="gauge-title">GEO Score</div>
+<div class="gauge-score gauge-geo">8</div>
+<div class="gauge-max">/ 35</div>
+</div>
+<div class="gauge-card">
+<div class="gauge-title">LLMO Score</div>
+<div class="gauge-score gauge-llmo">18</div>
+<div class="gauge-max">/ 40</div>
+</div>
+</div>
+
+<h2>AEO — Answer Engine Optimisation</h2>
+<div class="section-card">
+<div class="issue-item">
+<div class="issue-label"><span class="status-partial">PARTIAL</span> — FAQ sections with structured Q&A (10/15)</div>
+<div class="issue-fix">FAQ page referenced in navigation and FAQs present in blog posts. However, homepage lacks inline FAQ content. Need to add FAQ sections to homepage and all service pages.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label"><span class="status-partial">PARTIAL</span> — FAQPage schema markup (6/10)</div>
+<div class="issue-fix">FAQPage schema confirmed on blog posts but not on homepage or service pages. Expand schema implementation site-wide.</div>
+</div>
+<h3>AEO Fixes Needed</h3>
+<div class="issue-item">
+<div class="issue-label">Add 10+ FAQ Q&As to homepage with FAQPage schema</div>
+<div class="issue-fix">Target questions men actually search: "How long does heartbreak last?", "Can a coach help with breakup?", "What is somatic healing for heartbreak?" — these are prime AEO targets.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label">Add FAQ schema to all 26 recovery pages</div>
+<div class="issue-fix">Each programmatic page should have 3-5 unique FAQs specific to that demographic (e.g., "heartbreak recovery for divorced men" page should have divorce-specific FAQs).</div>
+</div>
+</div>
+
+<h2>GEO — Generative Engine Optimisation</h2>
+<div class="section-card">
+<div class="issue-item">
+<div class="issue-label"><span class="status-missing">FAIL</span> — Entity mentions in external sources (2/15)</div>
+<div class="issue-fix">No appearances in coaching directories, press mentions, podcast transcripts, or third-party articles. This is the critical bottleneck — AI models won't recommend what they haven't seen mentioned elsewhere.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label"><span class="status-partial">PARTIAL</span> — Consistent brand name & NAP (5/10)</div>
+<div class="issue-fix">On-site branding is consistent. Instagram and YouTube linked. But zero off-site mentions — no directory profiles, no guest posts, no press.</div>
+</div>
+<h3>GEO Fixes Needed</h3>
+<div class="issue-item">
+<div class="issue-label">Build 15+ external citations in 90 days</div>
+<div class="issue-fix">Target: Psychology Today profile, coaching directories (ICF, Noomii), men's health publications, podcast guest appearances, and YouTube channel growth.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label">Create a "Men's Heartbreak Recovery Statistics" resource</div>
+<div class="issue-fix">Original data or curated research that journalists and bloggers will cite — this creates the external entity mentions AI models need.</div>
+</div>
+</div>
+
+<h2>LLMO — LLM Optimisation</h2>
+<div class="section-card">
+<div class="issue-item">
+<div class="issue-label"><span class="status-partial">PARTIAL</span> — llms.txt file (3/5)</div>
+<div class="issue-fix">Sitemap lists llms.txt but content fetch returned homepage content instead of a dedicated llms.txt file. Verify the file serves correctly and contains structured coaching information.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label"><span class="status-found">PASS</span> — Person schema with bio & social profiles (8/10)</div>
+<div class="issue-fix">Person schema includes name, title ("Men's Coach & Heartbreak Recovery Specialist"), social profiles (Instagram, YouTube, X). Good entity signals.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label"><span class="status-partial">PARTIAL</span> — Long-form definitive content (7/10)</div>
+<div class="issue-fix">Blog post "Intelligence Is Cheap Now" is strong pillar content. Recovery guides provide good coverage. Need 2-3 more definitive long-form pieces.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label"><span class="status-missing">FAIL</span> — AI query simulation results (1/15)</div>
+<div class="issue-fix">Site did not appear in any of the 3 simulated AI queries. BetterMen, ManTalks, and ManUP dominate these results.</div>
+</div>
+<h3>LLMO Fixes Needed</h3>
+<div class="issue-item">
+<div class="issue-label">Fix llms.txt to serve correctly</div>
+<div class="issue-fix">Ensure /llms.txt returns a plain text file (not a redirect to homepage) with structured info about Sunny Binjola, his coaching methodology, and services.</div>
+</div>
+<div class="issue-item">
+<div class="issue-label">Publish on LLM training-heavy platforms</div>
+<div class="issue-fix">Write articles on Medium, Substack, and LinkedIn that explicitly mention "Sunny Binjola" and "men's heartbreak recovery coach" — these platforms are heavily represented in LLM training data.</div>
+</div>
+</div>
+
+<h2>Live AI Query Simulation Results</h2>
+<table>
+<thead><tr><th>Query</th><th>Site Found?</th><th>Top Results Instead</th></tr></thead>
+<tbody>
+<tr><td>"men's work coach who uses AI"</td><td class="status-missing">No</td><td>HBR (AI career coach), CoachHub AIMY, CareerVillage COACH, Rocky.ai, Coachvox</td></tr>
+<tr><td>"online men's life coaching programs"</td><td class="status-missing">No</td><td>BetterMen Coaching, ManUP Life Coaching, ManTalks, Josh Dolin, Life Architekture</td></tr>
+<tr><td>"men's personal development coach"</td><td class="status-missing">No</td><td>BetterMen (Dan Stanley), ManUP, ManTalks (Connor Beaton), Practical Intimacy, STRONG Men</td></tr>
+</tbody>
+</table>
+
+<h2>Priority Action Table</h2>
+<table class="action-table">
+<thead><tr><th>#</th><th>Action</th><th>Est. Effort</th><th>Expected Gain</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>Create Psychology Today therapist/coach profile</strong> — high-authority directory, heavily cited by AI for coaching recommendations</td><td class="effort">2 hrs</td><td class="gain">+5 pts (GEO)</td></tr>
+<tr><td>2</td><td><strong>List on 5+ coaching directories</strong> (ICF, Noomii, Life Coach Hub, Coach Foundation) — builds entity mentions across the web</td><td class="effort">4 hrs</td><td class="gain">+6 pts (GEO)</td></tr>
+<tr><td>3</td><td><strong>Publish 5 LinkedIn articles about men's heartbreak recovery</strong> — LinkedIn is heavily indexed by LLMs</td><td class="effort">8 hrs</td><td class="gain">+5 pts (LLMO)</td></tr>
+<tr><td>4</td><td><strong>Fix llms.txt file</strong> to serve correctly with structured coaching information</td><td class="effort">1 hr</td><td class="gain">+2 pts (LLMO)</td></tr>
+<tr><td>5</td><td><strong>Add FAQPage schema to homepage and all service pages</strong> — currently only on blog posts</td><td class="effort">3 hrs</td><td class="gain">+4 pts (AEO)</td></tr>
+<tr><td>6</td><td><strong>Guest on 3+ podcasts about men's work and heartbreak</strong> — transcripts become AI training data</td><td class="effort">6 hrs</td><td class="gain">+5 pts (GEO/LLMO)</td></tr>
+<tr><td>7</td><td><strong>Create a YouTube video series on heartbreak recovery</strong> — video descriptions and transcripts build LLM training signals</td><td class="effort">12 hrs</td><td class="gain">+4 pts (LLMO)</td></tr>
+<tr><td>8</td><td><strong>Publish "Men's Heartbreak Recovery Statistics 2026" research page</strong> — create citation-worthy content</td><td class="effort">6 hrs</td><td class="gain">+4 pts (GEO)</td></tr>
+<tr><td>9</td><td><strong>Add unique FAQs to all 26 programmatic recovery pages</strong> with FAQPage schema</td><td class="effort">8 hrs</td><td class="gain">+5 pts (AEO)</td></tr>
+<tr><td>10</td><td><strong>Write a Medium series on somatic healing for men</strong> — cross-post existing blog content to expand training footprint</td><td class="effort">4 hrs</td><td class="gain">+3 pts (LLMO)</td></tr>
+</tbody>
+</table>
+
+</div>
+<div class="footer">AI Visibility Audit generated by ElevateAI Weekly Audit System &mdash; April 9, 2026</div>
+</body>
+</html>

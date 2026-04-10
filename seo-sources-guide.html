@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <link rel="canonical" href="https://sunnybinjola.com/seo-sources-guide">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your 3 SEO Learning Sources — Sunny's Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --surface: #ffffff;
+    --surface-2: #f0ebe2;
+    --border: rgba(0,0,0,0.09);
+    --border-strong: rgba(0,0,0,0.18);
+    --text: #1a1611;
+    --text-dim: #6b6358;
+    --text-faint: #a09a8e;
+    --amber: #c27d1a;
+    --amber-bg: #fdf3dc;
+    --amber-border: #f0d087;
+    --green: #2e7d52;
+    --green-bg: #e8f5ee;
+    --green-border: #a3d4b8;
+    --navy: #1e3a5f;
+    --navy-bg: #e8eef7;
+    --navy-border: #b5c8e8;
+    --red: #b53a2a;
+    --red-bg: #fdecea;
+    --red-border: #f0b8b0;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(194,125,26,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 90%, rgba(30,58,95,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    padding: 64px 0 0;
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--amber);
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  h1 em { font-style: italic; color: var(--amber); }
+
+  .lead {
+    font-size: 17px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border-strong);
+    color: var(--text-dim);
+    background: var(--surface);
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 56px 0 32px;
+  }
+  .section-divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border-strong);
+  }
+  .section-divider-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    white-space: nowrap;
+  }
+
+  /* ─── SOURCE CARDS ─── */
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 680px) {
+    .sources-grid { grid-template-columns: 1fr; }
+  }
+
+  .source-card {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .source-card-header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .source-rank {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .source-card-1 .source-rank { color: var(--green); }
+  .source-card-2 .source-rank { color: var(--amber); }
+  .source-card-3 .source-rank { color: var(--navy); }
+
+  .source-name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .source-url {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-faint);
+  }
+
+  .source-card-body {
+    padding: 16px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .freq-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    width: fit-content;
+  }
+  .source-card-1 .freq-badge { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .source-card-2 .freq-badge { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .source-card-3 .freq-badge { background: var(--navy-bg); color: var(--navy); border: 1px solid var(--navy-border); }
+
+  .freq-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: currentColor;
+  }
+
+  .source-desc {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    background: var(--surface-2);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+  }
+
+  /* ─── TIME INVESTMENT BAR ─── */
+  .time-block {
+    background: var(--text);
+    border-radius: 12px;
+    padding: 28px 32px;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 600px) { .time-block { grid-template-columns: 1fr; } }
+  .time-block-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+  .time-block-main {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 4px;
+  }
+  .time-block-main span { color: var(--amber); font-style: italic; }
+  .time-block-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+  .time-number {
+    text-align: right;
+  }
+  .time-number-big {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    line-height: 1;
+    color: rgba(255,255,255,0.12);
+    font-style: italic;
+  }
+  .time-number-unit {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── VALUE TABLE ─── */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead {
+    background: var(--surface-2);
+  }
+  th {
+    text-align: left;
+    padding: 12px 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    border-bottom: 1px solid var(--border-strong);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(0,0,0,0.018); }
+  tr:hover td { background: var(--amber-bg); }
+
+  .td-source {
+    font-weight: 700;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .td-topic {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .td-dim { color: var(--text-dim); font-size: 13px; }
+
+  .dot-green { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--green); margin-right:6px; }
+  .dot-amber { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--amber); margin-right:6px; }
+  .dot-navy  { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--navy);  margin-right:6px; }
+
+  /* ─── 80/20 SECTION ─── */
+  .pareto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 620px) { .pareto-grid { grid-template-columns: 1fr; } }
+
+  .pareto-card {
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border-strong);
+  }
+  .pareto-card.vital { background: var(--green-bg); border-color: var(--green-border); }
+  .pareto-card.skip  { background: var(--red-bg);   border-color: var(--red-border);   }
+
+  .pareto-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .pareto-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+  .vital .pareto-icon { background: var(--green); color: white; }
+  .skip  .pareto-icon { background: var(--red);   color: white; }
+  .pareto-title {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .vital .pareto-title { color: var(--green); }
+  .skip  .pareto-title { color: var(--red); }
+
+  .pareto-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pareto-list li {
+    display: flex;
+    gap: 8px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .pareto-list li::before {
+    content: attr(data-bullet);
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .vital .pareto-list li::before { color: var(--green); }
+  .skip  .pareto-list li::before { color: var(--red); }
+
+  /* ─── LEARNING LADDER ─── */
+  .ladder {
+    position: relative;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ladder::before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    top: 16px;
+    bottom: 16px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--amber), var(--green));
+  }
+  .ladder-step {
+    display: flex;
+    gap: 20px;
+    padding: 0 0 28px;
+    position: relative;
+  }
+  .ladder-step:last-child { padding-bottom: 0; }
+  .ladder-dot {
+    position: absolute;
+    left: -32px;
+    top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 2px var(--border-strong);
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+  .ladder-step:nth-child(2) .ladder-dot { background: #c27d1a; }
+  .ladder-step:nth-child(3) .ladder-dot { background: #2e7d52; }
+  .ladder-step:nth-child(4) .ladder-dot { background: var(--green); }
+
+  .ladder-content {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+    padding: 16px 20px;
+    flex: 1;
+  }
+  .ladder-phase {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 4px;
+  }
+  .ladder-heading {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .ladder-body {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .ladder-source-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+  .tag-ahrefs  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+  .tag-sel     { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-border); }
+  .tag-kevin   { background: var(--navy-bg);   color: var(--navy);   border: 1px solid var(--navy-border);  }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    border-left: 3px solid var(--amber);
+    padding: 20px 28px;
+    margin: 40px 0;
+    background: var(--amber-bg);
+    border-radius: 0 10px 10px 0;
+  }
+  .pull-quote p {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--text);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .pull-quote cite {
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ─── WEEKLY ROUTINE ─── */
+  .routine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 600px) { .routine-grid { grid-template-columns: 1fr; } }
+  .routine-card {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+  .routine-day {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 10px;
+  }
+  .routine-source {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .routine-time {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .routine-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .r-green .routine-source { color: var(--green); }
+  .r-green .routine-time { background: var(--green-bg); color: var(--green); }
+  .r-amber .routine-source { color: var(--amber); }
+  .r-amber .routine-time { background: var(--amber-bg); color: var(--amber); }
+  .r-navy .routine-source { color: var(--navy); }
+  .r-navy .routine-time { background: var(--navy-bg); color: var(--navy); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    margin-top: 72px;
+    padding: 32px 0;
+    border-top: 1px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-note {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.06em;
+  }
+  .footer-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--amber-bg);
+    color: var(--amber);
+    border: 1px solid var(--amber-border);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate { animation: fadeUp 0.5s ease both; }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.12s; }
+  .d3 { animation-delay: 0.20s; }
+  .d4 { animation-delay: 0.28s; }
+  .d5 { animation-delay: 0.36s; }
+  @media (prefers-reduced-motion: reduce) { .animate { animation: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="animate d1">
+    <div class="eyebrow">SEO Education Guide — April 2026</div>
+    <h1>Your 3 Sources for<br><em>learning SEO</em> every week</h1>
+    <p class="lead">You don't need to read everything. You need to read the right things consistently. Here's exactly what each source gives you, how often to check it, and what to actually take away for your business.</p>
+    <div class="header-meta">
+      <span class="meta-pill">30 min/week total</span>
+      <span class="meta-pill">3 sources</span>
+      <span class="meta-pill">80/20 applied</span>
+    </div>
+  </header>
+
+  <!-- THE 3 SOURCES -->
+  <div class="section-divider animate d2">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-label">01 — The Three Sources</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="sources-grid animate d2">
+
+    <!-- Ahrefs -->
+    <div class="source-card source-card-1">
+      <div class="source-card-header">
+        <div class="source-rank">Source 01 · Deep Dives</div>
+        <div class="source-name">Ahrefs Blog</div>
+        <div class="source-url">ahrefs.com/blog</div>
+      </div>
+      <div class="source-card-body">
+        <div class="freq-badge"><span class="freq-dot"></span>Every 1–6 days</div>
+        <p class="source-desc">The gold standard for data-driven SEO writing. Every post is backed by real experiments or large-scale data analysis. No fluff. This is where you learn <em>how</em> SEO actually works under the hood.</p>
+        <p class="source-desc">Top 2025 posts: "AI Overviews Reduce Clicks by 34.5%", "Do Links Still Matter?", "What is llms.txt?". You read this to understand mechanics, not just trends.</p>
+        <div class="tag-row">
+          <span class="tag">Keyword Research</span>
+          <span class="tag">Link Building</span>
+          <span class="tag">Technical SEO</span>
+          <span class="tag">AI Search</span>
+          <span class="tag">Case Studies</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Engine Land -->
+    <div class="source-card source-card-2">
+      <div class="source-card-header">
+        <div class="source-rank">Source 02 · News Feed</div>
+        <div class="source-name">Search Engine Land</div>
+        <div class="source-url">searchengineland.com</div>
+      </div>
+      <div class="source-card-body">
+        <div class="freq-badge"><span class="freq-dot"></span>Multiple times daily</div>
+        <p class="source-desc">The Reuters of SEO — constant news, algorithm updates, and market signals. You don't read it like a book. You skim the headlines once a week to make sure nothing major happened that affects your rankings.</p>
+        <p class="source-desc">Recent stories: ChatGPT clicks going to Google, AI Overviews UX study, "The Mad Men era of SEO". Tells you what's changing now — not eventually.</p>
+        <div class="tag-row">
+          <span class="tag">Algorithm Updates</span>
+          <span class="tag">AI Search News</span>
+          <span class="tag">Google Changes</span>
+          <span class="tag">PPC</span>
+          <span class="tag">Industry News</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kevin Indig -->
+    <div class="source-card source-card-3">
+      <div class="source-card-header">
+        <div class="source-rank">Source 03 · Strategy Layer</div>
+        <div class="source-name">Growth Memo</div>
+        <div class="source-url">growth-memo.com · Kevin Indig</div>
+      </div>
+      <div class="source-card-body">
+        <div class="freq-badge"><span class="freq-dot"></span>Weekly (Sundays)</div>
+        <p class="source-desc">This is the most important one for you as a business owner. Kevin Indig writes for senior marketing strategists — not SEO technicians. He covers where SEO is going, not just what it is today. 25,000 subscribers.</p>
+        <p class="source-desc">His 2026 thesis: stop building for clicks, start building brand authority in AI-first search. Entity-driven SEO. This aligns directly with what you're building at ElevateAI System.</p>
+        <div class="tag-row">
+          <span class="tag">AI-First SEO</span>
+          <span class="tag">Brand Authority</span>
+          <span class="tag">Organic Growth</span>
+          <span class="tag">Strategy</span>
+          <span class="tag">GEO</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TIME COMMITMENT -->
+  <div class="time-block animate d3" style="margin-top: 20px;">
+    <div>
+      <div class="time-block-label">Weekly time commitment</div>
+      <div class="time-block-main">Read <span>Growth Memo</span> on Sunday (15 min).<br>Skim Ahrefs once midweek (10 min).<br>Scan SEL headlines Friday (5 min).</div>
+      <div class="time-block-sub">Total: 30 minutes per week. That's it.</div>
+    </div>
+    <div class="time-number">
+      <div class="time-number-big">30</div>
+      <div class="time-number-unit">min / week</div>
+    </div>
+  </div>
+
+  <!-- VALUE TABLE -->
+  <div class="section-divider animate d3" style="margin-top: 56px;">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-label">02 — What's Valuable for YOUR Business</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="table-wrap animate d3">
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Topic / Skill</th>
+          <th>Value for ElevateAI System</th>
+          <th>Where You Apply It</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-source"><span class="dot-green"></span>Ahrefs</td>
+          <td class="td-topic">Keyword Research Methodology</td>
+          <td class="td-dim">How to find keywords coaches actually search before they buy — intent-based targeting</td>
+          <td class="td-dim">Blog post planning, /vs/ page selection, new service page angles</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-green"></span>Ahrefs</td>
+          <td class="td-topic">AI Overviews & Zero-Click</td>
+          <td class="td-dim">Coaches search in AI tools. Learning which content gets cited in AI answers = GEO for your services</td>
+          <td class="td-dim">Blog structure, schema markup, FAQ sections on service pages</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-green"></span>Ahrefs</td>
+          <td class="td-topic">Internal Linking Best Practices</td>
+          <td class="td-dim">We've already built the compact link system — Ahrefs explains the science behind why it works</td>
+          <td class="td-dim">Validates the work we've already done. Informs future architecture</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-green"></span>Ahrefs</td>
+          <td class="td-topic">Link Building Understanding</td>
+          <td class="td-dim">Protects you from buying garbage backlinks from vendors. Know what real DR30+ links look like</td>
+          <td class="td-dim">Vendor evaluation, podcast guest spots, PR opportunities</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-amber"></span>Search Engine Land</td>
+          <td class="td-topic">Algorithm Update Alerts</td>
+          <td class="td-dim">Know within days if a Google core update is affecting your rankings — act fast, not months later</td>
+          <td class="td-dim">Monitoring elevateaisystem.com traffic, adjusting content strategy</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-amber"></span>Search Engine Land</td>
+          <td class="td-topic">AI Search Behaviour Studies</td>
+          <td class="td-dim">"1 in 5 ChatGPT clicks go to Google" — this tells you AI search is a real channel to prepare for now</td>
+          <td class="td-dim">Prioritising GEO content, structured data, llms.txt considerations</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-amber"></span>Search Engine Land</td>
+          <td class="td-topic">SEO for Lead Gen Businesses</td>
+          <td class="td-dim">Specific tactics for service businesses converting organic traffic — your exact model</td>
+          <td class="td-dim">CTA placement, conversion pages, discovery call funnels</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-navy"></span>Growth Memo</td>
+          <td class="td-topic">Brand Authority in AI Search</td>
+          <td class="td-dim">Your most strategic insight. ElevateAI System needs to become the entity Google and ChatGPT associate with "AI marketing for coaches"</td>
+          <td class="td-dim">Consistent brand signals, your name on content, author schema, LinkedIn presence</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-navy"></span>Growth Memo</td>
+          <td class="td-topic">Entity-Driven SEO</td>
+          <td class="td-dim">Moving beyond keywords to topics and intent. Your content cluster strategy is already this — Kevin gives you the mental model to scale it</td>
+          <td class="td-dim">Topical authority clusters, pillar + supporting content architecture</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-navy"></span>Growth Memo</td>
+          <td class="td-topic">Selling SEO to Clients</td>
+          <td class="td-dim">Kevin writes about how to talk to business leaders about SEO ROI — directly translatable to selling your SEO service to coaches</td>
+          <td class="td-dim">Discovery call framing, SEO audit sales language, proposal structure</td>
+        </tr>
+        <tr>
+          <td class="td-source"><span class="dot-navy"></span>Growth Memo</td>
+          <td class="td-topic">Agentic SEO &amp; 2026 Trends</td>
+          <td class="td-dim">Kevin predicted the rise of AI-driven SEO workflows in 2026. You can position ElevateAI System as the company that does this for coaches</td>
+          <td class="td-dim">Future service offerings, Content OS positioning, thought leadership posts</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote animate d4">
+    <p>"SEO is mostly pattern recognition — you learn it by seeing hundreds of examples, not by reading one textbook."</p>
+    <cite>The meta-skill that actually matters</cite>
+  </div>
+
+  <!-- 80/20 -->
+  <div class="section-divider animate d4">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-label">03 — The 80/20 Breakdown</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="pareto-grid animate d4">
+    <div class="pareto-card vital">
+      <div class="pareto-header">
+        <div class="pareto-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="pareto-title">The 20% that drives 80% of learning</div>
+      </div>
+      <ul class="pareto-list">
+        <li data-bullet="→">Growth Memo every Sunday — this is your strategy layer. One read per week, 15 minutes, keeps you ahead of where SEO is going (not just where it's been)</li>
+        <li data-bullet="→">Ahrefs keyword research posts — one deep read per month on their methodology gives you a repeatable system you can use forever</li>
+        <li data-bullet="→">Any Ahrefs data study — when they publish original research (like "AI Overviews cut clicks by 34.5%") that's must-read. It informs your business decisions, not just your content</li>
+        <li data-bullet="→">Google Search Console — not a reading source, but after month 4 it becomes your most valuable teacher. Real data from your real site beats any blog post</li>
+      </ul>
+    </div>
+    <div class="pareto-card skip">
+      <div class="pareto-header">
+        <div class="pareto-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div class="pareto-title">The 80% to consciously skip</div>
+      </div>
+      <ul class="pareto-list">
+        <li data-bullet="✕">SEL daily news — it updates constantly. Reading it daily is a trap. You don't need to know every algorithm tweak. A Friday 5-minute skim is enough</li>
+        <li data-bullet="✕">SEO Twitter/X rabbit holes — full of contradictory opinions, self-promotion, and drama. Ahrefs and Kevin filter the signal from that noise for you</li>
+        <li data-bullet="✕">Technical SEO deep dives (crawl budgets, log file analysis, etc.) — not your layer yet. This is for when you have 500+ pages and enterprise clients</li>
+        <li data-bullet="✕">Tools comparison posts — Ahrefs vs Semrush vs Moz debates. You don't need a paid SEO tool right now. GSC + free Ahrefs webmaster tools is enough to start</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LEARNING LADDER -->
+  <div class="section-divider animate d4">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-label">04 — Your Learning Ladder (Next 6 Months)</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="ladder animate d5">
+
+    <div class="ladder-step">
+      <div class="ladder-dot"></div>
+      <div class="ladder-content">
+        <div class="ladder-phase">Now → Month 2</div>
+        <div class="ladder-heading">Build the reading habit</div>
+        <div class="ladder-body">Sunday morning: open Growth Memo with coffee. Don't try to implement everything — just absorb the mental models. Wednesday: skim one Ahrefs post that looks interesting. You're building pattern recognition, not taking a course.</div>
+        <div><span class="ladder-source-tag tag-kevin">Growth Memo</span> <span class="ladder-source-tag tag-ahrefs">Ahrefs Blog</span></div>
+      </div>
+    </div>
+
+    <div class="ladder-step">
+      <div class="ladder-dot"></div>
+      <div class="ladder-content">
+        <div class="ladder-phase">Month 2 → Month 4</div>
+        <div class="ladder-heading">Learn keyword research properly</div>
+        <div class="ladder-body">Read Ahrefs' definitive keyword research guide in full. Learn the difference between informational, navigational, commercial, and transactional intent. Start applying this when planning new blog posts — pick keywords with purpose, not just because a topic sounds good.</div>
+        <div><span class="ladder-source-tag tag-ahrefs">Ahrefs Blog</span></div>
+      </div>
+    </div>
+
+    <div class="ladder-step">
+      <div class="ladder-dot"></div>
+      <div class="ladder-content">
+        <div class="ladder-phase">Month 4 → Month 5</div>
+        <div class="ladder-heading">Get into Google Search Console</div>
+        <div class="ladder-body">By month 4 you'll have real data. Go into GSC and find every query where you're ranking position 8–20. These are your quick wins — pages that are almost on page 1 but need a push. This exercise teaches you more than 3 months of reading ever could.</div>
+        <div><span class="ladder-source-tag tag-sel">Search Engine Land</span> <span class="ladder-source-tag tag-ahrefs">Ahrefs Blog</span></div>
+      </div>
+    </div>
+
+    <div class="ladder-step">
+      <div class="ladder-dot"></div>
+      <div class="ladder-content">
+        <div class="ladder-phase">Month 5 → Month 6+</div>
+        <div class="ladder-heading">Start thinking about link acquisition</div>
+        <div class="ladder-body">Read Kevin Indig's pieces on brand authority and start thinking about getting other sites to mention ElevateAI System. Podcast guest spots, collaborations with coaches you work with, getting featured in newsletters. By now you'll understand what makes a link valuable vs worthless — and you can use that to evaluate vendors who pitch you.</div>
+        <div><span class="ladder-source-tag tag-kevin">Growth Memo</span> <span class="ladder-source-tag tag-ahrefs">Ahrefs Blog</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WEEKLY ROUTINE -->
+  <div class="section-divider animate d5">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-label">05 — Your Exact Weekly Routine</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="routine-grid animate d5">
+    <div class="routine-card r-navy">
+      <div class="routine-day">Sunday</div>
+      <div class="routine-source">Growth Memo</div>
+      <div class="routine-time">15 min</div>
+      <div class="routine-desc">Read the full newsletter. Ask: what does this mean for AI marketing for coaches? Note one idea to discuss or test.</div>
+    </div>
+    <div class="routine-card r-green">
+      <div class="routine-day">Wednesday</div>
+      <div class="routine-source">Ahrefs Blog</div>
+      <div class="routine-time">10 min</div>
+      <div class="routine-desc">Open 1 article that caught your eye. Skim it. If useful, save it. If not, move on. No guilt. You're building intuition.</div>
+    </div>
+    <div class="routine-card r-amber">
+      <div class="routine-day">Friday</div>
+      <div class="routine-source">Search Engine Land</div>
+      <div class="routine-time">5 min</div>
+      <div class="routine-desc">Scan the homepage headlines. Ask: did anything change this week that affects my site? 90% of weeks the answer is no.</div>
+    </div>
+  </div>
+
+  <footer class="animate d5">
+    <div class="footer-note">Generated April 7, 2026 · ElevateAI System SEO Education</div>
+    <div class="footer-badge">30 min/week → compounding returns</div>
+  </footer>
+
+</div>
+</body>
+</html>
