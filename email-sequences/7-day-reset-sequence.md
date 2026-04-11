@@ -117,7 +117,14 @@ Because something old is dying — the part of you that made her your emotional 
 
 You're not dying. The part of you that depended on her is.
 
-That collapse is the doorway into who you become next.
+Think of it like this: you built your whole life on that ship. Your routines, your weekends, your sense of direction. When she left, the ship didn't just lose a passenger. The ship broke apart. Because you built it around her, not around you.
+
+That collapse is the doorway into who you become next. And that doorway leads to rebuilding a ship that's actually yours.
+
+> **📸 VISUAL INSERT — "The Captain's Three Challenges"**
+> Screenshot Visual #1 from `email-visuals/taraban-framework-visuals.html`
+> (3-column grid: Build the Ship / Learn to Sail / Chart a Course)
+> Place here as a 600px-wide image in Beehiiv. Alt text: "The rebuild in three moves: Build, Sail, Chart"
 
 **Practice for Today**
 
@@ -189,6 +196,13 @@ I waited too long to do this myself. Longing still showed up. It will for you to
 And yes — your mind will tell you that if you create space, she'll forget you. But the truth is simpler: the version of you she knew wasn't the one you're becoming now.
 
 Space is what allows that man to rise. Contact keeps the old pattern alive. No contact lets it fade.
+
+Here's the chain nobody explains: she can't miss you while you're still there. Not physically. Energetically. Every text you send, every story you watch, every "just checking in" keeps you present in the wrong way. And presence without mystery kills longing. Without space, there's no curiosity. Without curiosity, no interest. Without interest, no attraction. Space isn't cruelty. Space is what makes anything real possible again.
+
+> **📸 VISUAL INSERT — "The Separation → Desire Chain"**
+> Screenshot Visual #3 from `email-visuals/taraban-framework-visuals.html`
+> (5-node flow: Space → Curiosity → Interest → Attraction → Desire)
+> Place here as a 600px-wide image in Beehiiv. Alt text: "How desire rebuilds: Space leads to Curiosity leads to Desire"
 
 **Say It With Love**
 
@@ -402,6 +416,13 @@ Every time I did that, I took one more step away from myself.
 You don't lose her.
 You lose yourself trying to keep her.
 
+I became a ferry. I took her wherever she wanted to go. Her dreams. Her timeline. Her emotional needs. And I called it love. But a ferry never gets to choose the destination. And the moment a ferry tries to go somewhere for itself, the passengers leave. That's not a relationship. That's a service contract. And I signed it without reading the terms.
+
+> **📸 VISUAL INSERT — "The Ferryboat Trap"**
+> Screenshot Visual #2 from `email-visuals/taraban-framework-visuals.html`
+> (Side-by-side: Ferry ✕ list vs Captain ✓ list)
+> Place here as a 600px-wide image in Beehiiv. Alt text: "Ferry vs Captain: Which one were you?"
+
 And I wasn't leading my own life.
 I wasn't standing on my own center.
 
@@ -541,6 +562,17 @@ Writing does two things: It gets the chaos out of your head. It shows you the tr
 
 If you need prompts, I'll give you prompts. But the real practice is simple: Write what's alive in you.
 
+**The Rebuild in Three Moves**
+
+Here's the simplest way to think about what you're doing right now.
+
+Build: your lifestyle, your body, your daily structure. Not for her. For you. Sail: learn to hold yourself when the water gets rough. Every man is a good sailor in calm seas. The test is the storm. Chart: know where you're going. A man with no direction makes his woman his destination. That's how the last one ended. This time, you lead.
+
+> **📸 VISUAL INSERT — "The Captain's Three Challenges"**
+> Screenshot Visual #1 from `email-visuals/taraban-framework-visuals.html`
+> (3-column grid: Build / Sail / Chart)
+> Re-use the same visual from Email 1 here. Reinforces the framework at the midpoint.
+
 **This Is for Life**
 
 This isn't a "heartbreak routine." This is the foundation of a masculine path.
@@ -589,6 +621,13 @@ The person who gave your days structure.
 The person who made you feel like you mattered.
 
 And suddenly you're standing in your own life asking: *Who am I without her?*
+
+Here's the part that stings. What you fell in love with wasn't entirely her. Some of it was the version of you that came alive around her. The warmth. The openness. The feeling of being enough. You projected those parts onto her, and when she left, those parts went with her. But they were always yours. You just forgot how to access them alone.
+
+> **📸 VISUAL INSERT — "The Projection Mirror"**
+> Screenshot Visual #8 from `email-visuals/taraban-framework-visuals.html`
+> (Table: "You think you lost..." vs "What was actually yours" — 4 rows)
+> Place here as a 600px-wide image in Beehiiv. Alt text: "What you think you lost vs what was always yours"
 
 **Your Identity Isn't Broken**
 
@@ -739,6 +778,13 @@ A teacher named David Deida puts it simply: when a man puts his relationship abo
 The meaning is simple: if a man does not have a purpose, he makes his woman his purpose — which makes his woman trust him less.
 
 Purpose first, relationship second.
+
+A man who doesn't know where he's going can't take anyone with him. Some men stay vague on purpose. They think if they don't commit to a direction, they keep all options open. But nobody wants to follow a man who's wandering. Pick a direction. Any direction. The right woman isn't looking for a perfect plan. She's looking for a man who's moving somewhere with conviction. Even if it's just "I'm rebuilding myself and I'm not stopping." That's a destination. And it's magnetic.
+
+> **📸 VISUAL INSERT — "The Power Dynamic"**
+> Screenshot Visual #6 from `email-visuals/taraban-framework-visuals.html`
+> (What gives power ↑ vs What takes power ↓)
+> Place here as a 600px-wide image in Beehiiv. Alt text: "What gives and takes power in relationships"
 
 This doesn't mean you don't put effort into your relationship. It means you don't collapse into it.
 
